@@ -18,23 +18,23 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Amélia Saúde — Planos que cuidam de você de verdade",
+  title: "Amélia Saúde — Planos de saúde por adesão",
   description:
-    "Conectamos você aos melhores médicos, clínicas, centros médicos e laboratórios no Rio de Janeiro, sem burocracias. Planos para você, família e empresa.",
+    "Operadora de planos de saúde com contratação em coletivo por adesão no Rio de Janeiro. Acesso via sindicatos, conselhos e associações profissionais.",
   keywords: [
     "planos de saúde",
     "Rio de Janeiro",
     "telemedicina",
     "rede credenciada",
-    "plano familiar",
-    "plano empresarial",
-    "PME",
-    "coletivos por adesão",
+    "coletivo por adesão",
+    "operadora de planos",
+    "sindicato",
+    "conselho de classe",
   ],
   openGraph: {
-    title: "Amélia Saúde — Planos que cuidam de você de verdade",
+    title: "Amélia Saúde — Planos de saúde por adesão",
     description:
-      "Conectamos você aos melhores médicos, clínicas e laboratórios no Rio de Janeiro, sem burocracias.",
+      "Coletivo por adesão no Rio de Janeiro: rede credenciada e atendimento sem burocracia, com contratação via entidades de classe.",
     locale: "pt_BR",
     type: "website",
   },

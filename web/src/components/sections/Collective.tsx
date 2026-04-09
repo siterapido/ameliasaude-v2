@@ -50,17 +50,17 @@ const features = [
     ),
   },
   {
-    eyebrow: "Empresas e coletivos",
-    title: "Planos para empresas e entidades de classe",
-    desc: "PME com até 29 funcionários e coletivos por adesão via sindicatos, conselhos e associações profissionais.",
-    cta: "Fazer cotação empresarial",
+    eyebrow: "Coletivo por adesão",
+    title: "Contratação via entidades de classe",
+    desc: "A adesão é feita por sindicatos, conselhos regionais e associações profissionais — canais oficiais que reúnem a categoria e viabilizam o benefício para filiados.",
+    cta: "Quero informações sobre adesão",
     visual: (
       <div className="relative rounded-2xl overflow-hidden" style={{ background: "#f8f7ff", minHeight: 200, marginTop: 24 }}>
         <div className="p-5 flex flex-col gap-4">
           {[
-            { label: "Micro empresa", range: "1–9 func.", filled: true },
-            { label: "Pequena empresa", range: "10–29 func.", filled: false },
-            { label: "Coletivo adesão", range: "Via entidade", filled: false },
+            { label: "Sindicatos", range: "Categoria profissional", filled: true },
+            { label: "Conselhos de classe", range: "Registro profissional", filled: true },
+            { label: "Associações", range: "Representação da classe", filled: true },
           ].map((r, i) => (
             <motion.div key={r.label}
               className="flex items-center justify-between rounded-xl px-4 py-3"
@@ -94,7 +94,7 @@ const features = [
 
 export function Collective() {
   return (
-    <section id="empresas"
+    <section id="adesao"
       className="relative overflow-hidden"
       style={{ background: "#5e4985", padding: "clamp(5rem,10vh,7rem) clamp(1.5rem,5vw,5rem)" }}>
 
@@ -118,15 +118,15 @@ export function Collective() {
           className="text-center mb-12">
           <motion.p variants={fadeUp}
             className="font-sans text-[11px] font-medium tracking-[0.24em] uppercase text-white/50 mb-4">
-            Para quem cuida de muitos
+            Operadora de planos por adesão
           </motion.p>
           <motion.h2 variants={fadeUp}
             className="font-display font-semibold text-white"
             style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", lineHeight: 1.07, letterSpacing: "-0.02em" }}>
-            Assuma o controle com as
+            Acesso ao plano pela
             <br />
             <em className="italic font-light" style={{ color: "rgba(255,255,255,0.6)" }}>
-              ferramentas certas.
+              sua entidade.
             </em>
           </motion.h2>
         </motion.div>

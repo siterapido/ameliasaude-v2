@@ -20,9 +20,9 @@ const AMBIENT_DOTS = [
 ];
 
 const HEADLINE_LINES: ReactNode[] = [
-  <>O plano de saúde</>,
-  <>que <span style={{ color: "#7b6bb2" }}>cuida</span> de você</>,
-  <>de verdade.</>,
+  <>Plano de saúde</>,
+  <>por <span style={{ color: "#7b6bb2" }}>adesão</span>,</>,
+  <>que cuida de você de verdade.</>,
 ];
 
 export function Hero() {
@@ -223,7 +223,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
           >
-            Rio de Janeiro · Planos de Saúde
+            Rio de Janeiro · Operadora · Adesão
           </motion.p>
           <motion.div
             className="h-px bg-[rgba(123,107,178,0.45)]"
@@ -259,7 +259,8 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
         >
-          Conectamos você aos melhores médicos, clínicas e laboratórios no Rio de Janeiro, sem burocracias.
+          Coletivo por adesão: contratação via sindicatos, conselhos e associações profissionais, com
+          rede credenciada no Rio de Janeiro e atendimento sem burocracia.
         </motion.p>
 
         {/* CTAs */}
@@ -283,17 +284,17 @@ export function Hero() {
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
-            Fazer cotação
+            Fale conosco
           </motion.a>
 
           <motion.a
-            href="#planos"
+            href="#adesao"
             className="inline-flex items-center gap-1.5 font-sans font-medium text-[#7b6bb2]"
             style={{ fontSize: "0.9375rem" }}
             whileHover={{ x: 4 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
-            Ver planos
+            Como aderir
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

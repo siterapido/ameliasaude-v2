@@ -11,11 +11,12 @@ const bars = [
 ];
 
 const tiers = [
-  { id: "pf", title: "Individual", label: "Cotação — plano individual" },
-  { id: "familia", title: "Familiar", label: "Cotação — plano familiar" },
-  { id: "pme", title: "PME — até 29", label: "Cotação — PME" },
-  { id: "coletivo", title: "Coletivo por adesão", label: "Cotação — coletivo por adesão" },
-];
+  {
+    id: "adesao",
+    title: "Coletivo por adesão",
+    label: "Contato — coletivo por adesão",
+  },
+] as const;
 
 const stats = [
   { v: "30+", l: "Especialidades" },
@@ -48,10 +49,20 @@ export function Plans() {
                 letterSpacing: "-0.02em",
               }}
             >
-              Planos
+              Planos por adesão
             </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="mt-5 max-w-md font-sans font-light leading-relaxed text-[#6b6b6b]"
+              style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)" }}
+            >
+              Somos uma operadora de planos de saúde com contratação exclusiva em{" "}
+              <strong className="font-medium text-[var(--amelia-ink)]">coletivo por adesão</strong>
+              — ou seja, a filiação a sindicatos, conselhos de classe e associações profissionais é
+              quem viabiliza o acesso ao plano.
+            </motion.p>
 
-            <nav className="mt-10 border-t border-[var(--amelia-line)] pt-2" aria-label="Tipos de plano">
+            <nav className="mt-10 border-t border-[var(--amelia-line)] pt-2" aria-label="Contratação">
               <motion.ul variants={staggerContainer(0.07, 0)} className="flex flex-col">
                 {tiers.map((t) => (
                   <motion.li

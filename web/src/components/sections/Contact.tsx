@@ -20,9 +20,9 @@ const pillars = [
       "Hospitais, clínicas e laboratórios selecionados para combinar qualidade assistencial e praticidade.",
   },
   {
-    title: "PME e planos coletivos",
+    title: "Coletivo por adesão",
     description:
-      "Soluções sob medida para empresas e grupos, com contratação clara e suporte dedicado.",
+      "Contratação exclusiva por sindicatos, conselhos de classe e associações profissionais, com regras e canais definidos para filiados.",
   },
 ] as const;
 
@@ -160,7 +160,7 @@ export function Contact() {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              Fazer cotação
+              Fale conosco
             </motion.a>
             <motion.a
               href="tel:08000000000"

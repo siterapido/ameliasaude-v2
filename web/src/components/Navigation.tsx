@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Planos", href: "#planos" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
-  { label: "Empresas", href: "#empresas" },
+  { label: "Adesão", href: "#adesao" },
 ];
 
 export function Navigation() {
@@ -83,7 +83,7 @@ export function Navigation() {
           {/* Direita: CTA + toggle */}
           <div className="flex items-center gap-3">
             <Button variant="purple" href="#contato" onClick={closeMenu}>
-              Fazer cotação
+              Fale conosco
             </Button>
 
             {/* Hamburger toggle — pill arredondado */}
@@ -215,7 +215,7 @@ export function Navigation() {
                   href="#contato"
                   onClick={closeMenu}
                 >
-                  Fazer cotação
+                  Fale conosco
                 </Button>
               </motion.div>
             </nav>

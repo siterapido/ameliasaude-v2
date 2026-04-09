@@ -15,7 +15,7 @@ const footerLinks = [
   { label: "Rede", href: "#rede" },
   { label: "Especialistas", href: "#especialistas-grid" },
   { label: "Telemedicina", href: "#telemedicina" },
-  { label: "Empresas", href: "#empresas" },
+  { label: "Adesão", href: "#adesao" },
   { label: "Contato", href: "#contato" },
 ];
 

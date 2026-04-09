@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 export function FamilyPlan() {
   return (
     <section
-      id="plano-familiar"
+      id="beneficiarios"
       className="relative flex min-h-[60vh] md:min-h-[70vh] items-center overflow-hidden bg-[var(--amelia-deep)]"
     >
       {/* Background Image */}
@@ -37,7 +37,7 @@ export function FamilyPlan() {
             variants={fadeUp}
             className="mb-4 block font-sans text-[11px] font-semibold tracking-[0.24em] uppercase text-white/70"
           >
-            Plano Familiar
+            Na adesão, você e seus dependentes
           </motion.span>
 
           <motion.h2
@@ -49,10 +49,10 @@ export function FamilyPlan() {
               letterSpacing: "-0.02em",
             }}
           >
-            Proteja quem
+            Cuidado de verdade
             <br />
             <em className="font-light italic text-white/90">
-              você mais ama.
+              para quem você ama.
             </em>
           </motion.h2>
 
@@ -64,14 +64,14 @@ export function FamilyPlan() {
               lineHeight: 1.6,
             }}
           >
-            A tranquilidade de saber que sua família tem o melhor cuidado
-            médico ao alcance das mãos, onde e quando precisarem. Cobertura
-            completa e especialistas de excelência para todas as idades.
+            No coletivo por adesão, titulares e dependentes enxergam a mesma rede
+            credenciada e o mesmo padrão de atendimento — consultas, exames e
+            internação com a tranquilidade de um plano pensado para a vida real.
           </motion.p>
 
           <motion.div variants={fadeUp}>
             <Button variant="ghost-white" href="#contato">
-              Simule o plano familiar
+              Falar sobre a adesão
             </Button>
           </motion.div>
         </motion.div>
