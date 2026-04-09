@@ -1,4 +1,5 @@
 {
+  "name": "amelia-saude-v2",
   "framework": "nextjs",
   "rootDirectory": "web"
 }
