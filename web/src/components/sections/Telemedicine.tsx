@@ -9,8 +9,8 @@ function Phone() {
   return (
     <div
       className="relative mx-auto w-full max-w-[min(100%,88vw)] lg:max-w-none
-        [width:clamp(260px,82vw,520px)] lg:[width:clamp(300px,42vw,540px)]
-        xl:[width:clamp(320px,38vw,580px)] lg:justify-self-center xl:justify-self-end
+        [width:clamp(220px,68vw,400px)] lg:[width:clamp(240px,34vw,420px)]
+        xl:[width:clamp(260px,30vw,460px)] lg:justify-self-center xl:justify-self-end
         lg:translate-x-[clamp(0px,2.5vw,2rem)] origin-center">
       <Image
         src={telemedicinaPhone}
@@ -18,7 +18,7 @@ function Phone() {
         className="w-full h-auto
           drop-shadow-[0_32px_64px_rgba(26,26,26,0.18)]
           lg:drop-shadow-[0_48px_96px_rgba(26,26,26,0.22)]"
-        sizes="(max-width: 1024px) 82vw, (max-width: 1280px) 42vw, 580px"
+        sizes="(max-width: 1024px) 68vw, (max-width: 1280px) 34vw, 460px"
         priority
       />
 
@@ -55,7 +55,7 @@ export function Telemedicine() {
         <div
           className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.88fr)]
             gap-12 lg:gap-8 xl:gap-14 items-center lg:items-center
-            lg:min-h-[min(64vh,680px)]">
+            lg:min-h-[min(56vh,600px)]">
 
           {/* Mockup — coluna mais larga, sensação imersiva */}
           <motion.div

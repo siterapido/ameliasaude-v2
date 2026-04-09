@@ -53,6 +53,9 @@ type CityPlacement = {
   layerIndex: number;
 };
 
+/** Entre o anel médio (33%) e o externo (42%). */
+const PETROPOLIS_RADIUS_PCT = 36;
+
 function buildPlacements(): CityPlacement[] {
   const out: CityPlacement[] = [];
   let idx = 0;
@@ -64,7 +67,11 @@ function buildPlacements(): CityPlacement[] {
       idx++;
     }
   }
-  return out;
+  return out.map((p) =>
+    p.city.name === "Petrópolis"
+      ? { ...p, radiusPct: PETROPOLIS_RADIUS_PCT }
+      : p
+  );
 }
 
 function polarToPercent(angleDeg: number, radiusPct: number) {
@@ -162,16 +169,16 @@ export function CoverageOrbital() {
               }
               className="flex flex-col items-center gap-[5px]"
             >
-              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)]">
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)]">
                 <Image
                   src={city.src}
                   alt=""
                   fill
                   className="object-cover"
-                  sizes="40px"
+                  sizes="48px"
                 />
               </div>
-              <span className="whitespace-nowrap font-sans text-[9px] font-medium leading-none tracking-wide text-[#4a4560] opacity-80">
+              <span className="whitespace-nowrap font-sans text-[10px] font-medium leading-none tracking-wide text-[#4a4560] opacity-80">
                 {city.name}
               </span>
             </motion.div>

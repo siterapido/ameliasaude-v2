@@ -234,7 +234,7 @@ export function Hero() {
 
         {/* Headline — line-by-line blur reveal */}
         <h1
-          className="font-display font-semibold text-[#1a1a1a]"
+          className="font-display font-semibold italic text-[#7b6bb2]"
           style={{ fontSize: "clamp(2.8rem, 7.5vw, 6.5rem)", lineHeight: 1.02, letterSpacing: "-0.025em" }}
         >
           {HEADLINE_LINES.map((line, i) => (

@@ -61,11 +61,11 @@ export function Footer() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="w-full shrink-0 lg:w-auto lg:max-w-[min(52vw,480px)]"
+            className="w-full shrink-0 lg:w-auto lg:max-w-[min(26vw,240px)]"
           >
             <a
               href="#hero"
-              className="group ml-auto block w-[min(88vw,420px)] max-w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/45 focus-visible:ring-offset-2 focus-visible:ring-offset-[#5e4985] lg:ml-0 lg:w-full"
+              className="group ml-auto block w-[min(44vw,210px)] max-w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/45 focus-visible:ring-offset-2 focus-visible:ring-offset-[#5e4985] lg:ml-0 lg:w-full"
               aria-label="Amélia Saúde — voltar ao início"
             >
               <Image
@@ -73,7 +73,7 @@ export function Footer() {
                 alt=""
                 width={1840}
                 height={515}
-                sizes="(max-width: 1024px) 88vw, 480px"
+                sizes="(max-width: 1024px) 44vw, 240px"
                 className="h-auto w-full object-contain opacity-[0.98] transition-[opacity,transform] duration-500 ease-out group-hover:opacity-100 group-hover:scale-[1.02]"
                 priority={false}
               />
