@@ -41,11 +41,18 @@ export function Hero() {
       style={{ minHeight: "100svh", padding: "9rem 2rem 5rem" }}
     >
 
-      {/* ── Grain / noise texture ── */}
-      <svg aria-hidden className="absolute inset-0 pointer-events-none w-full h-full" style={{ opacity: 0.038 }}>
-        <filter id="hero-grain">
-          <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
+      {/* ── Grain / noise texture — purple tint ── */}
+      <svg aria-hidden className="absolute inset-0 pointer-events-none w-full h-full" style={{ opacity: 0.09 }}>
+        <filter id="hero-grain" x="0%" y="0%" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0.48
+                    0 0 0 0 0.42
+                    0 0 0 0 0.70
+                    0.33 0.33 0.33 0 -0.1"
+            in="noise"
+          />
         </filter>
         <rect width="100%" height="100%" filter="url(#hero-grain)" />
       </svg>
