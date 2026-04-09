@@ -26,14 +26,14 @@ function Phone() {
       <motion.div
         animate={{ y: [0, -7, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-[-0.35rem] sm:right-[-0.75rem] top-[14%] font-sans text-xs sm:text-[13px] font-medium px-3 py-1.5 rounded-full z-10"
+        className="absolute right-[-0.35rem] sm:right-[-0.75rem] top-[14%] font-sans text-xs sm:text-[13px] font-normal px-3 py-1.5 rounded-full z-10"
         style={{ background: "white", color: "#5e4985", border: "1px solid rgba(123,107,178,0.15)", boxShadow: "0 6px 20px rgba(94,73,133,0.12)", whiteSpace: "nowrap" }}>
         Disponível 24h
       </motion.div>
       <motion.div
         animate={{ y: [0, 7, 0] }}
         transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="absolute left-[-0.25rem] sm:left-[-0.65rem] bottom-[22%] font-sans text-xs sm:text-[13px] font-medium px-3 py-1.5 rounded-full z-10"
+        className="absolute left-[-0.25rem] sm:left-[-0.65rem] bottom-[22%] font-sans text-xs sm:text-[13px] font-normal px-3 py-1.5 rounded-full z-10"
         style={{ background: "#7b6bb2", color: "white", boxShadow: "0 6px 20px rgba(123,107,178,0.3)", whiteSpace: "nowrap" }}>
         +30 especialidades
       </motion.div>
@@ -71,11 +71,11 @@ export function Telemedicine() {
             initial="hidden" whileInView="visible" viewport={viewportConfig}
           >
             <motion.p variants={fadeUp}
-              className="font-sans text-[11px] font-medium tracking-[0.24em] uppercase text-[#7b6bb2] mb-5">
+              className="font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-[#7b6bb2] mb-5">
               Telemedicina
             </motion.p>
             <motion.h2 variants={fadeUp}
-              className="font-display font-semibold text-[#1a1a1a] mb-4"
+              className="font-display font-normal text-[#1a1a1a] mb-4"
               style={{ fontSize: "clamp(1.9rem, 4vw, 3.25rem)", lineHeight: 1.07, letterSpacing: "-0.02em" }}>
               Tenha um especialista Amélia disponível{" "}
               <em className="italic font-light text-[#7b6bb2]">a qualquer momento.</em>
@@ -100,7 +100,7 @@ export function Telemedicine() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-sans font-medium text-[#1a1a1a] text-sm">{b.title}</p>
+                    <p className="font-sans font-normal text-[#1a1a1a] text-sm">{b.title}</p>
                     <p className="font-sans font-light text-[#8a8a8a] text-sm leading-relaxed mt-0.5">{b.desc}</p>
                   </div>
                 </motion.li>

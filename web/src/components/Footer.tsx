@@ -20,7 +20,7 @@ const footerLinks = [
 ];
 
 const linkClass =
-  "font-sans text-sm font-medium tracking-wide text-white/80 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#5e4985] rounded-sm";
+  "font-sans text-sm font-normal tracking-wide text-white/80 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#5e4985] rounded-sm";
 
 export function Footer() {
   return (

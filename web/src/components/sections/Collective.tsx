@@ -73,7 +73,7 @@ const features = [
               viewport={{ once: true }}
               transition={{ delay: 0.4 + i * 0.12 }}>
               <div>
-                <p className="font-sans text-xs font-medium text-[#1a1a1a]">{r.label}</p>
+                <p className="font-sans text-xs font-normal text-[#1a1a1a]">{r.label}</p>
                 <p className="font-sans text-[10px] text-[#9a9a9a]">{r.range}</p>
               </div>
               <div className={`w-5 h-5 rounded-full flex items-center justify-center`}
@@ -117,11 +117,11 @@ export function Collective() {
         <motion.div variants={staggerContainer(0.1, 0)} initial="hidden" whileInView="visible" viewport={viewportConfig}
           className="text-center mb-12">
           <motion.p variants={fadeUp}
-            className="font-sans text-[11px] font-medium tracking-[0.24em] uppercase text-white/50 mb-4">
+            className="font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-white/50 mb-4">
             Operadora de planos por adesão
           </motion.p>
           <motion.h2 variants={fadeUp}
-            className="font-display font-semibold text-white"
+            className="font-display font-normal text-white"
             style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", lineHeight: 1.07, letterSpacing: "-0.02em" }}>
             Acesso ao plano pela
             <br />
@@ -138,17 +138,17 @@ export function Collective() {
             <motion.div key={f.eyebrow} variants={fadeUp}
               className="rounded-3xl p-8 flex flex-col"
               style={{ background: "rgba(255,255,255,0.94)", backdropFilter: "blur(12px)" }}>
-              <span className="font-sans text-[10px] font-medium tracking-[0.22em] uppercase text-[#7b6bb2] mb-3">
+              <span className="font-sans text-[10px] font-normal tracking-[0.22em] uppercase text-[#7b6bb2] mb-3">
                 {f.eyebrow}
               </span>
-              <h3 className="font-display font-semibold text-[#1a1a1a] mb-2"
+              <h3 className="font-display font-normal text-[#1a1a1a] mb-2"
                 style={{ fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)", lineHeight: 1.15, letterSpacing: "-0.01em" }}>
                 {f.title}
               </h3>
               <p className="font-sans font-light text-[#6b6b6b] text-sm leading-relaxed">{f.desc}</p>
               {f.visual}
               <motion.a href="#contato"
-                className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#7b6bb2] mt-6"
+                className="inline-flex items-center gap-2 font-sans text-sm font-normal text-[#7b6bb2] mt-6"
                 whileHover={{ gap: "10px" }}
                 transition={{ duration: 0.2 }}>
                 {f.cta}

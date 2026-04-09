@@ -152,7 +152,7 @@ function TweetCard({ t }: { t: (typeof all)[number] }) {
           />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="truncate font-sans text-[15px] font-bold leading-tight text-[#0f1419]">
+          <p className="truncate font-sans text-[15px] font-normal leading-tight text-[#0f1419]">
             {t.name}
           </p>
           <p className="truncate font-sans text-[13px] text-[#536471]">
@@ -160,7 +160,7 @@ function TweetCard({ t }: { t: (typeof all)[number] }) {
           </p>
         </div>
         <span
-          className="ml-1 mt-0.5 shrink-0 rounded-full px-2.5 py-1 font-sans text-[10px] font-semibold uppercase tracking-widest"
+          className="ml-1 mt-0.5 shrink-0 rounded-full px-2.5 py-1 font-sans text-[10px] font-normal uppercase tracking-widest"
           style={{ background: "rgba(123,107,178,0.08)", color: "var(--amelia-purple)" }}
         >
           Amélia
@@ -168,7 +168,7 @@ function TweetCard({ t }: { t: (typeof all)[number] }) {
       </header>
 
       {/* Role */}
-      <p className="mb-2 font-sans text-[11px] font-medium uppercase tracking-wider text-[var(--amelia-purple)]">
+      <p className="mb-2 font-sans text-[11px] font-normal uppercase tracking-wider text-[var(--amelia-purple)]">
         {t.role}
       </p>
 
@@ -278,13 +278,13 @@ export function Testimonials() {
       >
         <motion.p
           variants={fadeUp}
-          className="mb-3 font-sans text-[11px] font-medium uppercase tracking-[0.24em] text-[var(--amelia-muted)]"
+          className="mb-3 font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-[var(--amelia-muted)]"
         >
           Quem usa, recomenda
         </motion.p>
         <motion.h2
           variants={fadeUp}
-          className="font-display font-semibold tracking-tight text-[var(--amelia-ink)]"
+          className="font-display font-normal tracking-tight text-[var(--amelia-ink)]"
           style={{
             fontSize: "clamp(2rem, 4.5vw, 3rem)",
             lineHeight: 1.08,

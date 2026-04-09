@@ -217,7 +217,7 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           />
           <motion.p
-            className="font-sans text-[11px] font-medium tracking-[0.26em] uppercase text-[#7b6bb2]"
+            className="font-sans text-[11px] font-normal tracking-[0.26em] uppercase text-[#7b6bb2]"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
@@ -234,7 +234,7 @@ export function Hero() {
 
         {/* Headline — line-by-line blur reveal */}
         <h1
-          className="font-display font-semibold italic text-[#7b6bb2]"
+          className="font-display font-normal italic text-[#7b6bb2]"
           style={{ fontSize: "clamp(2.8rem, 7.5vw, 6.5rem)", lineHeight: 1.02, letterSpacing: "-0.025em" }}
         >
           {HEADLINE_LINES.map((line, i) => (
@@ -271,7 +271,7 @@ export function Hero() {
         >
           <motion.a
             href="#contato"
-            className="inline-flex items-center justify-center font-sans font-medium text-white"
+            className="inline-flex items-center justify-center font-sans font-normal text-white"
             style={{
               background: "#7b6bb2",
               borderRadius: "9999px",
@@ -288,7 +288,7 @@ export function Hero() {
 
           <motion.a
             href="#adesao"
-            className="inline-flex items-center gap-1.5 font-sans font-medium text-[#7b6bb2]"
+            className="inline-flex items-center gap-1.5 font-sans font-normal text-[#7b6bb2]"
             style={{ fontSize: "0.9375rem" }}
             whileHover={{ x: 4 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -322,12 +322,12 @@ export function Hero() {
             transition={{ delay: 1.5 + i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <span
-              className="font-display font-semibold text-[#1a1a1a]"
+              className="font-display font-normal text-[#1a1a1a]"
               style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", lineHeight: 1 }}
             >
               {v}
             </span>
-            <span className="font-sans text-[10px] font-medium tracking-[0.18em] uppercase text-[#9a9a9a]">
+            <span className="font-sans text-[10px] font-normal tracking-[0.18em] uppercase text-[#9a9a9a]">
               {l}
             </span>
           </motion.div>

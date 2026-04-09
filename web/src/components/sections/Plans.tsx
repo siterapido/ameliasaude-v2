@@ -42,7 +42,7 @@ export function Plans() {
           >
             <motion.h2
               variants={fadeUp}
-              className="font-display font-semibold tracking-tight text-[var(--amelia-ink)]"
+              className="font-display font-normal tracking-tight text-[var(--amelia-ink)]"
               style={{
                 fontSize: "clamp(2.25rem, 5vw, 3.25rem)",
                 lineHeight: 1.05,
@@ -57,7 +57,7 @@ export function Plans() {
               style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)" }}
             >
               Somos uma operadora de planos de saúde com contratação exclusiva em{" "}
-              <strong className="font-medium text-[var(--amelia-ink)]">coletivo por adesão</strong>
+              <strong className="font-normal text-[var(--amelia-ink)]">coletivo por adesão</strong>
               — ou seja, a filiação a sindicatos, conselhos de classe e associações profissionais é
               quem viabiliza o acesso ao plano.
             </motion.p>
@@ -78,7 +78,7 @@ export function Plans() {
                       transition={{ duration: 0.2 }}
                     >
                       <span
-                        className="font-display font-medium tracking-tight"
+                        className="font-display font-normal tracking-tight"
                         style={{ fontSize: "clamp(1.15rem, 2.2vw, 1.35rem)" }}
                       >
                         {t.title}
@@ -143,7 +143,7 @@ export function Plans() {
                 {stats.map(({ v, l }) => (
                   <div key={l} className="min-w-[5rem]">
                     <span
-                      className="font-display font-semibold text-[var(--amelia-deep)]"
+                      className="font-display font-normal text-[var(--amelia-deep)]"
                       style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.75rem)", lineHeight: 1 }}
                     >
                       {v}

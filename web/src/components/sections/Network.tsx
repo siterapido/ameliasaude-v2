@@ -14,11 +14,11 @@ export function Network() {
           {/* Esquerda */}
           <motion.div variants={staggerContainer(0.1, 0)} initial="hidden" whileInView="visible" viewport={viewportConfig}>
             <motion.p variants={fadeUp}
-              className="font-sans text-[11px] font-medium tracking-[0.24em] uppercase text-[#7b6bb2] mb-5">
+              className="font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-[#7b6bb2] mb-5">
               Cobertura
             </motion.p>
             <motion.h2 variants={fadeUp}
-              className="font-display font-semibold text-[#1a1a1a] mb-5"
+              className="font-display font-normal text-[#1a1a1a] mb-5"
               style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)", lineHeight: 1.05, letterSpacing: "-0.02em" }}>
               Acesso à rede mais eficiente do{" "}
               <em className="italic font-light text-[#7b6bb2]">Rio de Janeiro.</em>
@@ -31,7 +31,7 @@ export function Network() {
             </motion.p>
             <motion.div variants={fadeUp}>
               <motion.a href="#contato"
-                className="inline-flex items-center font-sans text-sm font-medium rounded-full"
+                className="inline-flex items-center font-sans text-sm font-normal rounded-full"
                 style={{ border: "1.5px solid #7b6bb2", color: "#7b6bb2", padding: "0.75rem 1.75rem" }}
                 whileHover={{ background: "#7b6bb2", color: "#fff", scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}

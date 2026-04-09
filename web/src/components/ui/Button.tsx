@@ -15,7 +15,7 @@ interface ButtonProps {
 }
 
 const base =
-  "inline-flex items-center gap-2 font-sans text-sm font-medium tracking-widest uppercase cursor-pointer transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 rounded-full";
+  "inline-flex items-center gap-2 font-sans text-sm font-normal tracking-widest uppercase cursor-pointer transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 rounded-full";
 
 const variants: Record<ButtonVariant, string> = {
   purple:

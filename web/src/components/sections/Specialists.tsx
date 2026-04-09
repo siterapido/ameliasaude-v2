@@ -56,11 +56,11 @@ export function Specialists() {
         className="text-center mb-12 px-6"
       >
         <motion.p variants={fadeUp}
-          className="font-sans text-[11px] font-medium tracking-[0.24em] uppercase text-[#7b6bb2] mb-4">
+          className="font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-[#7b6bb2] mb-4">
           Especialistas
         </motion.p>
         <motion.h2 variants={fadeUp}
-          className="font-display font-semibold text-[#1a1a1a] mb-5"
+          className="font-display font-normal text-[#1a1a1a] mb-5"
           style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", lineHeight: 1.07, letterSpacing: "-0.02em", maxWidth: 680, margin: "0 auto 1.25rem" }}>
           Conecte-se aos melhores especialistas,{" "}
           <em className="italic font-light text-[#7b6bb2]">escolhidos com rigor.</em>
@@ -68,7 +68,7 @@ export function Specialists() {
 
         <motion.div variants={fadeUp}>
           <motion.a href="#contato"
-            className="inline-flex items-center font-sans text-sm font-medium rounded-full"
+            className="inline-flex items-center font-sans text-sm font-normal rounded-full"
             style={{ border: "1.5px solid #1a1a1a", color: "#1a1a1a", padding: "0.6rem 1.5rem" }}
             whileHover={{ borderColor: "#7b6bb2", color: "#7b6bb2", scale: 1.02 }}
             transition={{ duration: 0.2 }}>
@@ -102,7 +102,7 @@ export function Specialists() {
               />
             </div>
             <div className="p-4">
-              <h3 className="font-sans font-medium text-[#1a1a1a] text-sm leading-tight mb-1">{sp.name}</h3>
+              <h3 className="font-sans font-normal text-[#1a1a1a] text-sm leading-tight mb-1">{sp.name}</h3>
               <p className="font-sans font-light text-[#9a9a9a] text-xs leading-relaxed">{sp.cred}</p>
             </div>
           </motion.article>

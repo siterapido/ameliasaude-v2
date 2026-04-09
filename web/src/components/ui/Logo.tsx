@@ -45,7 +45,7 @@ export function Logo({ variant = "dark", className = "" }: LogoProps) {
         y="23"
         fontFamily="'Cormorant Garamond', Georgia, serif"
         fontSize="16"
-        fontWeight="600"
+        fontWeight="400"
         letterSpacing="0.04em"
         fill={textColor}
         style={{ textTransform: "uppercase" }}
@@ -57,7 +57,7 @@ export function Logo({ variant = "dark", className = "" }: LogoProps) {
         y="32"
         fontFamily="'DM Sans', Arial, sans-serif"
         fontSize="8"
-        fontWeight="300"
+        fontWeight="400"
         letterSpacing="0.18em"
         fill={accentColor}
         style={{ textTransform: "uppercase" }}

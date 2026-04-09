@@ -58,14 +58,14 @@ export function Contact() {
           >
             <motion.p
               variants={fadeUp}
-              className="mb-5 font-sans text-[11px] font-medium uppercase tracking-[0.26em] text-[var(--amelia-purple)]"
+              className="mb-5 font-sans text-[11px] font-normal uppercase tracking-[0.26em] text-[var(--amelia-purple)]"
             >
               Por que a Amélia
             </motion.p>
             <motion.h2
               id="why-amelia-heading"
               variants={fadeUp}
-              className="font-display font-semibold text-[var(--amelia-ink)]"
+              className="font-display font-normal text-[var(--amelia-ink)]"
               style={{
                 fontSize: "clamp(2rem, 4.2vw, 3.25rem)",
                 lineHeight: 1.08,
@@ -100,10 +100,10 @@ export function Contact() {
                 variants={fadeUp}
                 className="border-t border-[var(--amelia-line)] pt-8 transition-[border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[var(--amelia-purple)] md:pt-10"
               >
-                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--amelia-muted)] tabular-nums">
+                <p className="text-[10px] font-normal uppercase tracking-[0.2em] text-[var(--amelia-muted)] tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-3 font-sans text-lg font-semibold tracking-tight text-[var(--amelia-ink)] md:text-xl">
+                <h3 className="mt-3 font-sans text-lg font-normal tracking-tight text-[var(--amelia-ink)] md:text-xl">
                   {item.title}
                 </h3>
                 <p className="mt-3 max-w-md font-sans font-light leading-relaxed text-[#6b6b6b]">
@@ -123,13 +123,13 @@ export function Contact() {
         >
           <motion.p
             variants={fadeUp}
-            className="mb-4 font-sans text-[11px] font-medium uppercase tracking-[0.24em] text-[var(--amelia-purple)]"
+            className="mb-4 font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-[var(--amelia-purple)]"
           >
             Contato
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="mb-4 font-display font-semibold text-[#1a1a1a]"
+            className="mb-4 font-display font-normal text-[#1a1a1a]"
             style={{
               fontSize: "clamp(2.2rem, 5vw, 4rem)",
               lineHeight: 1.05,
@@ -150,7 +150,7 @@ export function Contact() {
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
             <motion.a
               href="tel:+5521999999999"
-              className="inline-flex items-center rounded-full font-sans font-medium text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--amelia-purple)]"
+              className="inline-flex items-center rounded-full font-sans font-normal text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--amelia-purple)]"
               style={{
                 background: "#7b6bb2",
                 padding: "0.9rem 2.4rem",
@@ -164,7 +164,7 @@ export function Contact() {
             </motion.a>
             <motion.a
               href="tel:08000000000"
-              className="inline-flex items-center rounded-full font-sans font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--amelia-purple)]"
+              className="inline-flex items-center rounded-full font-sans font-normal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--amelia-purple)]"
               style={{
                 border: "1.5px solid rgba(123,107,178,0.3)",
                 color: "#5e4985",

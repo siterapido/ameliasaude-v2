@@ -35,14 +35,14 @@ export function FamilyPlan() {
         >
           <motion.span
             variants={fadeUp}
-            className="mb-4 block font-sans text-[11px] font-semibold tracking-[0.24em] uppercase text-white/70"
+            className="mb-4 block font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-white/70"
           >
             Na adesão, você e seus dependentes
           </motion.span>
 
           <motion.h2
             variants={fadeUp}
-            className="mb-6 font-display font-semibold text-white"
+            className="mb-6 font-display font-normal text-white"
             style={{
               fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
               lineHeight: 1.05,

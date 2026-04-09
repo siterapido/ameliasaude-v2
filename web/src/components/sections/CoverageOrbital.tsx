@@ -178,7 +178,7 @@ export function CoverageOrbital() {
                   sizes="48px"
                 />
               </div>
-              <span className="whitespace-nowrap font-sans text-[10px] font-medium leading-none tracking-wide text-[#4a4560] opacity-80">
+              <span className="whitespace-nowrap font-sans text-[10px] font-normal leading-none tracking-wide text-[#4a4560] opacity-80">
                 {city.name}
               </span>
             </motion.div>
