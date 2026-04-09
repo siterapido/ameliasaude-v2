@@ -20,9 +20,8 @@ const AMBIENT_DOTS = [
 ];
 
 const HEADLINE_LINES: ReactNode[] = [
-  <>Plano de saúde</>,
-  <>por <span style={{ color: "#7b6bb2" }}>adesão</span>,</>,
-  <>que cuida de você de verdade.</>,
+  <>Planos que cuidam de</>,
+  <>você de verdade</>,
 ];
 
 export function Hero() {
