@@ -6,7 +6,7 @@ import { CoverageOrbital } from "@/components/sections/CoverageOrbital";
 
 export function Network() {
   return (
-    <section id="rede" className="flex flex-col justify-center bg-white overflow-x-clip overflow-y-visible"
+    <section id="rede" className="flex flex-col justify-center overflow-x-clip overflow-y-visible bg-[#7B6BB2]"
       style={{ padding: "clamp(5rem,10vh,7rem) clamp(1.5rem,5vw,5rem)" }}>
       <div className="max-w-[min(100%,1400px)] mx-auto w-full">
         <div
@@ -24,13 +24,13 @@ export function Network() {
             >
               <motion.p
                 variants={fadeUp}
-                className="mb-5 font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-[#7b6bb2]"
+                className="mb-5 font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-white/85"
               >
                 Cobertura
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mb-5 font-display font-normal text-[#1a1a1a]"
+                className="mb-5 font-display font-normal text-white"
                 style={{
                   fontSize: "clamp(2rem, 4.5vw, 3.75rem)",
                   lineHeight: 1.05,
@@ -38,11 +38,11 @@ export function Network() {
                 }}
               >
                 Acesso à rede mais eficiente do{" "}
-                <em className="font-light italic text-[#7b6bb2]">Rio de Janeiro.</em>
+                <em className="font-light italic text-white/95">Rio de Janeiro.</em>
               </motion.h2>
               <motion.p
                 variants={fadeUp}
-                className="mb-8 max-w-md font-sans font-light leading-relaxed text-[#6b6b6b]"
+                className="mb-8 max-w-md font-sans font-light leading-relaxed text-white/80"
                 style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)" }}
               >
                 Presença em mais de 8 municípios, com hospitais, clínicas, centros médicos e
@@ -53,11 +53,11 @@ export function Network() {
                   href="#contato"
                   className="inline-flex items-center rounded-full font-sans text-sm font-normal"
                   style={{
-                    border: "1.5px solid #7b6bb2",
-                    color: "#7b6bb2",
+                    border: "1.5px solid rgba(255,255,255,0.85)",
+                    color: "#fff",
                     padding: "0.75rem 1.75rem",
                   }}
-                  whileHover={{ background: "#7b6bb2", color: "#fff", scale: 1.02 }}
+                  whileHover={{ background: "#fff", color: "#7B6BB2", scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.2 }}
                 >

@@ -5,6 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const PURPLE = "#7b6bb2";
+/** Traços e ondas sobre fundo #7B6BB2 */
+const ON_PURPLE_STROKE = "#ffffff";
 
 /** Espiral arquimediana centrada em (0,0), para ondas tipo sonar. */
 function archimedeanSpiralD(opts: {
@@ -169,7 +171,7 @@ export function CoverageOrbital() {
             style={{
               width: `${scale * 100}%`,
               height: `${scale * 100}%`,
-              border: `1px solid rgba(123,107,178,${i === 0 ? 0.18 : 0.08})`,
+              border: `1px solid rgba(255,255,255,${i === 0 ? 0.22 : 0.1})`,
             }}
           />
         ))}
@@ -210,8 +212,8 @@ export function CoverageOrbital() {
                 <path
                   d={spiralD}
                   fill="none"
-                  stroke={PURPLE}
-                  strokeOpacity={0.55}
+                  stroke={ON_PURPLE_STROKE}
+                  strokeOpacity={0.45}
                   strokeWidth={0.45}
                   strokeLinecap="round"
                   vectorEffect="non-scaling-stroke"
@@ -286,7 +288,7 @@ export function CoverageOrbital() {
                   sizes="(max-width: 640px) 40px, 68px"
                 />
               </div>
-              <span className="max-w-[4.25rem] text-center font-sans text-[9px] font-normal leading-tight tracking-wide text-[#4a4560] opacity-80 sm:max-w-none sm:text-[11px] sm:leading-none md:text-xs whitespace-normal sm:whitespace-nowrap">
+              <span className="max-w-[4.25rem] text-center font-sans text-[9px] font-normal leading-tight tracking-wide text-white/90 sm:max-w-none sm:text-[11px] sm:leading-none md:text-xs whitespace-normal sm:whitespace-nowrap">
                 {city.name}
               </span>
             </motion.div>
