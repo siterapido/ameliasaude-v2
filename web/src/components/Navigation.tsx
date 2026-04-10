@@ -191,8 +191,7 @@ export function Navigation() {
                     delay: 0.1 + i * 0.07,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="font-display text-[clamp(2.5rem,8vw,5rem)] font-light text-white/90 hover:text-white tracking-wider leading-[1.15] transition-colors duration-300 focus-visible:outline-none"
-                  style={{ fontFamily: "var(--font-cormorant)" }}
+                  className="font-display text-[clamp(1.75rem,5vw,3.5rem)] font-light text-white/90 hover:text-white tracking-wider leading-[1.15] transition-colors duration-300 focus-visible:outline-none"
                 >
                   {link.label}
                 </motion.a>
