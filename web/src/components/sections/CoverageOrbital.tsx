@@ -88,7 +88,7 @@ export function CoverageOrbital() {
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[min(100%,520px)] aspect-square select-none overflow-hidden"
+      className="relative mx-auto w-full max-w-[min(100%,min(96vw,920px))] aspect-square select-none overflow-visible"
       aria-hidden
     >
       {/* Anéis — rotação lenta */}
@@ -116,16 +116,16 @@ export function CoverageOrbital() {
 
       {/* Hub — logo Amélia */}
       <div
-        className="absolute left-1/2 top-1/2 z-20 flex min-h-[min(30%,140px)] min-w-[min(30%,140px)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_6px_28px_rgba(123,107,178,0.18),0_2px_8px_rgba(0,0,0,0.05)]"
+        className="absolute left-1/2 top-1/2 z-20 flex min-h-[min(22%,110px)] min-w-[min(22%,110px)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_6px_28px_rgba(123,107,178,0.18),0_2px_8px_rgba(0,0,0,0.05)]"
         style={{ border: `1.5px solid ${PURPLE}2a` }}
       >
-        <div className="relative h-16 w-24">
+        <div className="relative h-12 w-20">
           <Image
             src="/logo-amelia-site.png"
             alt="Amélia Saúde"
             fill
             className="object-contain"
-            sizes="96px"
+            sizes="80px"
           />
         </div>
       </div>
@@ -167,18 +167,18 @@ export function CoverageOrbital() {
                       delay: i * 0.2,
                     }
               }
-              className="flex flex-col items-center gap-[5px]"
+              className="flex flex-col items-center gap-1.5"
             >
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)]">
+              <div className="relative h-[3.75rem] w-[3.75rem] sm:h-[4.25rem] sm:w-[4.25rem] shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)]">
                 <Image
                   src={city.src}
                   alt=""
                   fill
                   className="object-cover"
-                  sizes="48px"
+                  sizes="(max-width: 640px) 60px, 68px"
                 />
               </div>
-              <span className="whitespace-nowrap font-sans text-[10px] font-normal leading-none tracking-wide text-[#4a4560] opacity-80">
+              <span className="whitespace-nowrap font-sans text-[11px] sm:text-xs font-normal leading-none tracking-wide text-[#4a4560] opacity-80">
                 {city.name}
               </span>
             </motion.div>

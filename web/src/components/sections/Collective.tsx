@@ -95,7 +95,7 @@ const features = [
 export function Collective() {
   return (
     <section id="adesao"
-      className="relative overflow-hidden"
+      className="relative flex flex-col justify-center overflow-hidden"
       style={{ background: "#5e4985", padding: "clamp(5rem,10vh,7rem) clamp(1.5rem,5vw,5rem)" }}>
 
       {/* Background rings — como a Alice tem elementos decorativos */}

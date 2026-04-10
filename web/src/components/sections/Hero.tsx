@@ -303,7 +303,7 @@ export function Hero() {
 
       {/* Stats strip */}
       <motion.div
-        className="relative z-10 mt-20 flex flex-wrap justify-center gap-10 sm:gap-16 border-t border-[rgba(123,107,178,0.12)] pt-8 w-full max-w-2xl"
+        className="relative z-10 mt-20 flex flex-wrap justify-center gap-10 sm:gap-16 border-t border-[rgba(123,107,178,0.12)] pt-8 w-full max-w-4xl"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -323,11 +323,11 @@ export function Hero() {
           >
             <span
               className="font-display font-normal text-[#1a1a1a]"
-              style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", lineHeight: 1 }}
+              style={{ fontSize: "clamp(1.95rem, 4.2vw, 3.1rem)", lineHeight: 1 }}
             >
               {v}
             </span>
-            <span className="font-sans text-[10px] font-normal tracking-[0.18em] uppercase text-[#9a9a9a]">
+            <span className="font-sans text-[11px] font-normal tracking-[0.18em] uppercase text-[#9a9a9a]">
               {l}
             </span>
           </motion.div>

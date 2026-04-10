@@ -29,7 +29,7 @@ export function Plans() {
   return (
     <section
       id="planos"
-      className="bg-white"
+      className="flex flex-col justify-center bg-white"
       style={{ padding: "clamp(4.5rem, 9vh, 6.5rem) clamp(1.5rem, 5vw, 5rem)" }}
     >
       <div className="mx-auto w-full max-w-[1100px]">
@@ -144,7 +144,7 @@ export function Plans() {
                   <div key={l} className="min-w-[5rem]">
                     <span
                       className="font-display font-normal text-[var(--amelia-deep)]"
-                      style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.75rem)", lineHeight: 1 }}
+                      style={{ fontSize: "clamp(1.65rem, 3.2vw, 2.25rem)", lineHeight: 1 }}
                     >
                       {v}
                     </span>

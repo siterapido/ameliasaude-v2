@@ -30,7 +30,7 @@ export function Contact() {
   return (
     <section
       id="contato"
-      className="relative overflow-hidden bg-white"
+      className="relative flex flex-col justify-center overflow-hidden bg-white"
       style={{ padding: "clamp(5rem, 10vh, 7rem) clamp(1.5rem, 5vw, 5rem) 0" }}
     >
       {/* Faixa sutil — profundidade sem “card grid” genérico */}

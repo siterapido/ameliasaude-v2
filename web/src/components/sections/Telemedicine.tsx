@@ -9,8 +9,8 @@ function Phone() {
   return (
     <div
       className="relative mx-auto w-full max-w-[min(100%,88vw)] lg:max-w-none
-        [width:clamp(220px,68vw,400px)] lg:[width:clamp(240px,34vw,420px)]
-        xl:[width:clamp(260px,30vw,460px)] lg:justify-self-center xl:justify-self-end
+        [width:clamp(180px,56vw,320px)] lg:[width:clamp(200px,24vw,340px)]
+        xl:[width:clamp(210px,22vw,360px)] lg:justify-self-center xl:justify-self-end
         lg:translate-x-[clamp(0px,2.5vw,2rem)] origin-center">
       <Image
         src={telemedicinaPhone}
@@ -18,7 +18,7 @@ function Phone() {
         className="w-full h-auto
           drop-shadow-[0_32px_64px_rgba(26,26,26,0.18)]
           lg:drop-shadow-[0_48px_96px_rgba(26,26,26,0.22)]"
-        sizes="(max-width: 1024px) 68vw, (max-width: 1280px) 34vw, 460px"
+        sizes="(max-width: 1024px) 56vw, (max-width: 1280px) 24vw, 360px"
         priority
       />
 
@@ -49,12 +49,12 @@ const bullets = [
 
 export function Telemedicine() {
   return (
-    <section id="telemedicina" className="bg-white overflow-x-clip overflow-y-visible"
+    <section id="telemedicina" className="flex flex-col justify-center bg-white overflow-x-clip overflow-y-visible"
       style={{ padding: "clamp(5rem,12vh,8rem) clamp(1.25rem,4vw,4rem)" }}>
       <div className="max-w-[min(100%,1380px)] mx-auto w-full">
         <div
-          className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.88fr)]
-            gap-12 lg:gap-8 xl:gap-14 items-center lg:items-center
+          className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]
+            gap-12 lg:gap-10 xl:gap-16 items-center lg:items-center
             lg:min-h-[min(56vh,600px)]">
 
           {/* Mockup — coluna mais larga, sensação imersiva */}
@@ -87,21 +87,31 @@ export function Telemedicine() {
               e comodidade sem sair de casa.
             </motion.p>
 
-            {/* Bullets com check — igual à Alice */}
-            <motion.ul className="flex flex-col gap-5">
+            {/* Bullets com check — destaque maior que o mockup */}
+            <motion.ul className="flex flex-col gap-7">
               {bullets.map((b, i) => (
                 <motion.li key={b.title} variants={fadeUp}
                   transition={{ delay: 0.1 * i }}
-                  className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                  className="flex items-start gap-5">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                     style={{ background: "#7b6bb2" }}>
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden>
+                    <svg width="12" height="12" viewBox="0 0 10 10" fill="none" aria-hidden>
                       <path d="M2 5l2.5 2.5L8 2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-sans font-normal text-[#1a1a1a] text-sm">{b.title}</p>
-                    <p className="font-sans font-light text-[#8a8a8a] text-sm leading-relaxed mt-0.5">{b.desc}</p>
+                    <p
+                      className="font-sans font-medium text-[#1a1a1a] leading-snug"
+                      style={{ fontSize: "clamp(1rem, 1.35vw, 1.2rem)" }}
+                    >
+                      {b.title}
+                    </p>
+                    <p
+                      className="font-sans font-light text-[#8a8a8a] leading-relaxed mt-1.5"
+                      style={{ fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)" }}
+                    >
+                      {b.desc}
+                    </p>
                   </div>
                 </motion.li>
               ))}

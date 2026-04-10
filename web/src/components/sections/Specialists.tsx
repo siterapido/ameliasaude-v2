@@ -46,7 +46,7 @@ const specialties = [
 
 export function Specialists() {
   return (
-    <section id="especialistas-grid" className="bg-white overflow-hidden"
+    <section id="especialistas-grid" className="flex flex-col justify-center bg-white overflow-hidden"
       style={{ padding: "clamp(5rem,10vh,7rem) 0" }}>
 
       {/* Header — centered, exato como na Alice */}

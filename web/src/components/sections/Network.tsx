@@ -6,10 +6,13 @@ import { CoverageOrbital } from "@/components/sections/CoverageOrbital";
 
 export function Network() {
   return (
-    <section id="rede" className="bg-white overflow-hidden"
+    <section id="rede" className="flex flex-col justify-center bg-white overflow-x-clip overflow-y-visible"
       style={{ padding: "clamp(5rem,10vh,7rem) clamp(1.5rem,5vw,5rem)" }}>
-      <div className="max-w-[1200px] mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center" style={{ minHeight: "65vh" }}>
+      <div className="max-w-[min(100%,1400px)] mx-auto w-full">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] gap-16 lg:gap-6 xl:gap-10 items-center"
+          style={{ minHeight: "min(72vh,900px)" }}
+        >
 
           {/* Esquerda */}
           <motion.div variants={staggerContainer(0.1, 0)} initial="hidden" whileInView="visible" viewport={viewportConfig}>
@@ -47,7 +50,7 @@ export function Network() {
             whileInView={{ opacity: 1 }}
             viewport={viewportConfig}
             transition={{ duration: 0.5 }}
-            className="relative flex min-h-[min(92vw,560px)] items-center justify-center lg:min-h-[480px]"
+            className="relative flex min-h-[min(88vw,640px)] items-center justify-center lg:min-h-[min(62vh,680px)]"
           >
             <CoverageOrbital />
           </motion.div>

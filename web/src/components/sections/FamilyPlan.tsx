@@ -8,7 +8,7 @@ export function FamilyPlan() {
   return (
     <section
       id="beneficiarios"
-      className="relative flex min-h-[60vh] md:min-h-[70vh] items-center overflow-hidden bg-[var(--amelia-deep)]"
+      className="relative flex flex-col justify-center min-h-[100svh] items-center overflow-hidden bg-[var(--amelia-deep)]"
     >
       {/* Background Image */}
       <div

@@ -265,7 +265,7 @@ export function Testimonials() {
   return (
     <SectionWrapper
       id="depoimentos"
-      className="overflow-hidden bg-white"
+      className="flex flex-col justify-center overflow-hidden bg-white"
       style={{ padding: "clamp(4.5rem, 9vh, 6.5rem) 0" }}
     >
       {/* Cabeçalho com padding lateral */}
