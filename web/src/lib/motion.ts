@@ -18,10 +18,11 @@ export const springGentle: Transition = {
   damping: 20,
 };
 
-/* ─── Fade Up ─── */
+/* ─── Fade Up ───
+ * Sem opacity:0 no hidden — evita títulos “sumidos” se o viewport não reativar a animação ao rolar. */
 
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 1, y: 36 },
   visible: {
     opacity: 1,
     y: 0,
@@ -30,7 +31,7 @@ export const fadeUp: Variants = {
 };
 
 export const fadeUpFast: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 1, y: 22 },
   visible: {
     opacity: 1,
     y: 0,
@@ -41,9 +42,10 @@ export const fadeUpFast: Variants = {
 /* ─── Fade In ─── */
 
 export const fadeIn: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1, y: 10 },
   visible: {
     opacity: 1,
+    y: 0,
     transition: { duration: 0.6, ease: "easeOut" },
   },
 };
@@ -110,5 +112,6 @@ export const revealLine: Variants = {
 
 export const viewportConfig = {
   once: true,
-  margin: "-80px",
+  /** Margem menos agressiva que -80px — dispara “in view” com mais folga ao rolar de volta. */
+  margin: "-40px 0px",
 } as const;

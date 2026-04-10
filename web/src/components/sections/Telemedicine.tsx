@@ -9,20 +9,18 @@ function Phone() {
   return (
     <div
       className="relative mx-auto w-full max-w-[min(100%,88vw)] lg:max-w-none
-        [width:clamp(180px,56vw,320px)] lg:[width:clamp(200px,24vw,340px)]
-        xl:[width:clamp(210px,22vw,360px)] lg:justify-self-center xl:justify-self-end
-        lg:translate-x-[clamp(0px,2.5vw,2rem)] origin-center">
+        [width:clamp(180px,56vw,320px)] lg:[width:clamp(200px,26vw,340px)]
+        xl:[width:clamp(210px,24vw,360px)] justify-self-center origin-center">
       <Image
         src={telemedicinaPhone}
         alt="Consulta de telemedicina com Dra. Ana Silva"
         className="w-full h-auto
           drop-shadow-[0_32px_64px_rgba(26,26,26,0.18)]
           lg:drop-shadow-[0_48px_96px_rgba(26,26,26,0.22)]"
-        sizes="(max-width: 1024px) 56vw, (max-width: 1280px) 24vw, 360px"
+        sizes="(max-width: 1024px) 56vw, (max-width: 1280px) 26vw, 360px"
         priority
       />
 
-      {/* Floating chips — posição proporcional ao mockup maior */}
       <motion.div
         animate={{ y: [0, -7, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -53,45 +51,87 @@ export function Telemedicine() {
       style={{ padding: "clamp(5rem,12vh,8rem) clamp(1.25rem,4vw,4rem)" }}>
       <div className="max-w-[min(100%,1380px)] mx-auto w-full">
         <div
-          className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]
-            gap-12 lg:gap-10 xl:gap-16 items-center lg:items-center
+          className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]
+            gap-12 lg:gap-8 xl:gap-12 items-center
             lg:min-h-[min(56vh,600px)]">
 
-          {/* Mockup — coluna mais larga, sensação imersiva */}
+          {/* Esquerda: título, subtítulo, CTAs */}
+          <div className="relative z-10 flex min-h-0 flex-col justify-center lg:pr-2 xl:pr-4">
+            <motion.div
+              variants={staggerContainer(0.1, 0.1)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px 0px -8% 0px", amount: 0.2 }}
+            >
+              <motion.p variants={fadeUp}
+                className="font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-[#7b6bb2] mb-5">
+                Telemedicina
+              </motion.p>
+              <motion.h2 variants={fadeUp}
+                className="font-display font-normal text-[#1a1a1a] mb-4"
+                style={{ fontSize: "clamp(1.9rem, 4vw, 3.25rem)", lineHeight: 1.07, letterSpacing: "-0.02em" }}>
+                Tenha um especialista Amélia disponível{" "}
+                <em className="italic font-light text-[#7b6bb2]">a qualquer momento.</em>
+              </motion.h2>
+              <motion.p variants={fadeUp}
+                className="font-sans font-light text-[#6b6b6b] leading-relaxed mb-8"
+                style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)" }}>
+                Mais de 30 especialidades disponíveis por telemedicina, com praticidade
+                e comodidade sem sair de casa.
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="flex items-center gap-5 flex-wrap">
+                <motion.a
+                  href="#contato"
+                  className="inline-flex items-center justify-center font-sans font-medium text-white shadow-lg shadow-[#7b6bb2]/20"
+                  style={{
+                    background: "#7b6bb2",
+                    borderRadius: "9999px",
+                    padding: "1rem 2.4rem",
+                    fontSize: "0.9375rem",
+                    letterSpacing: "0.005em",
+                  }}
+                  whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                >
+                  Fale conosco
+                </motion.a>
+                <motion.a
+                  href="#adesao"
+                  className="inline-flex items-center gap-1.5 font-sans font-medium text-[#7b6bb2] hover:text-[#5e4985] transition-colors"
+                  style={{ fontSize: "0.9375rem" }}
+                  whileHover={{ x: 4 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                >
+                  Como aderir
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </motion.a>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Centro: mockup */}
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportConfig}
-            className="flex justify-center lg:grid lg:place-items-center
-              lg:-ml-[clamp(0px,4vw,2.5rem)]">
+            className="flex justify-center lg:px-2">
             <Phone />
           </motion.div>
 
-          {/* Texto — direita, como na Alice */}
-          <motion.div
-            variants={staggerContainer(0.1, 0.1)}
-            initial="hidden" whileInView="visible" viewport={viewportConfig}
-          >
-            <motion.p variants={fadeUp}
-              className="font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-[#7b6bb2] mb-5">
-              Telemedicina
-            </motion.p>
-            <motion.h2 variants={fadeUp}
-              className="font-display font-normal text-[#1a1a1a] mb-4"
-              style={{ fontSize: "clamp(1.9rem, 4vw, 3.25rem)", lineHeight: 1.07, letterSpacing: "-0.02em" }}>
-              Tenha um especialista Amélia disponível{" "}
-              <em className="italic font-light text-[#7b6bb2]">a qualquer momento.</em>
-            </motion.h2>
-            <motion.p variants={fadeUp}
-              className="font-sans font-light text-[#6b6b6b] leading-relaxed mb-8"
-              style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)" }}>
-              Mais de 30 especialidades disponíveis por telemedicina, com praticidade
-              e comodidade sem sair de casa.
-            </motion.p>
-
-            {/* Bullets com check — destaque maior que o mockup */}
-            <motion.ul className="flex flex-col gap-7">
+          {/* Direita: pontos */}
+          <div className="relative z-10 flex min-h-0 flex-col justify-center lg:pl-2 xl:pl-4">
+            <motion.ul
+              className="flex flex-col gap-7"
+              variants={staggerContainer(0.08, 0.08)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px 0px -8% 0px", amount: 0.15 }}
+            >
               {bullets.map((b, i) => (
                 <motion.li key={b.title} variants={fadeUp}
-                  transition={{ delay: 0.1 * i }}
+                  transition={{ delay: 0.08 * i }}
                   className="flex items-start gap-5">
                   <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                     style={{ background: "#7b6bb2" }}>
@@ -116,7 +156,7 @@ export function Telemedicine() {
                 </motion.li>
               ))}
             </motion.ul>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

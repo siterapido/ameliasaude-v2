@@ -1,9 +1,29 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const PURPLE = "#7b6bb2";
+
+/** Espiral arquimediana centrada em (0,0), para ondas tipo sonar. */
+function archimedeanSpiralD(opts: {
+  turns: number;
+  maxR: number;
+  steps?: number;
+}): string {
+  const { turns, maxR, steps = 96 } = opts;
+  const maxAngle = turns * 2 * Math.PI;
+  let d = "";
+  for (let i = 0; i <= steps; i++) {
+    const t = (i / steps) * maxAngle;
+    const r = Math.max(0.15, (i / steps) * maxR);
+    const x = r * Math.cos(t - Math.PI / 2);
+    const y = r * Math.sin(t - Math.PI / 2);
+    d += (i === 0 ? "M" : "L") + `${x.toFixed(3)},${y.toFixed(3)}`;
+  }
+  return d;
+}
 
 const cities: { name: string; src: string }[] = [
   {
@@ -55,12 +75,26 @@ type CityPlacement = {
 
 /** Entre o anel médio (33%) e o externo (42%). */
 const PETROPOLIS_RADIUS_PCT = 36;
+const PETROPOLIS_RADIUS_COMPACT_PCT = 40;
 
-function buildPlacements(): CityPlacement[] {
+/**
+ * Mobile: arco superior mais uniforme (≈NW · topo · NE) e anéis um pouco mais abertos
+ * para afastar “Rio de Janeiro” do hub.
+ */
+const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
+  { radiusPct: 29, anglesDeg: [-90, 146, 40] },
+  { radiusPct: 36, anglesDeg: [-40, 93, -134] },
+  { radiusPct: 44, anglesDeg: [6, 186] },
+];
+
+function buildPlacements(
+  layers: { radiusPct: number; anglesDeg: number[] }[],
+  petropolisRadiusPct: number = PETROPOLIS_RADIUS_PCT
+): CityPlacement[] {
   const out: CityPlacement[] = [];
   let idx = 0;
-  for (let layerIndex = 0; layerIndex < ORBIT_LAYERS.length; layerIndex++) {
-    const { radiusPct, anglesDeg } = ORBIT_LAYERS[layerIndex];
+  for (let layerIndex = 0; layerIndex < layers.length; layerIndex++) {
+    const { radiusPct, anglesDeg } = layers[layerIndex];
     for (const angleDeg of anglesDeg) {
       if (idx >= cities.length) break;
       out.push({ city: cities[idx], angleDeg, radiusPct, layerIndex });
@@ -69,7 +103,7 @@ function buildPlacements(): CityPlacement[] {
   }
   return out.map((p) =>
     p.city.name === "Petrópolis"
-      ? { ...p, radiusPct: PETROPOLIS_RADIUS_PCT }
+      ? { ...p, radiusPct: petropolisRadiusPct }
       : p
   );
 }
@@ -82,9 +116,36 @@ function polarToPercent(angleDeg: number, radiusPct: number) {
   };
 }
 
+const SONAR_WAVES = 3;
+const SONAR_DURATION = 3.2;
+const SPIRAL_TURNS = 2.35;
+const SPIRAL_MAX_R = 47;
+
 export function CoverageOrbital() {
   const reduceMotion = useReducedMotion();
-  const placements = buildPlacements();
+  const [compactOrbit, setCompactOrbit] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const apply = () => setCompactOrbit(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
+  const layers = compactOrbit ? ORBIT_LAYERS_COMPACT : ORBIT_LAYERS;
+  const placements = useMemo(
+    () =>
+      buildPlacements(
+        layers,
+        compactOrbit ? PETROPOLIS_RADIUS_COMPACT_PCT : PETROPOLIS_RADIUS_PCT
+      ),
+    [layers, compactOrbit]
+  );
+  const spiralD = useMemo(
+    () => archimedeanSpiralD({ turns: SPIRAL_TURNS, maxR: SPIRAL_MAX_R }),
+    []
+  );
 
   return (
     <div
@@ -114,12 +175,59 @@ export function CoverageOrbital() {
         ))}
       </motion.div>
 
+      {/* Ondas em espiral — pulso sonar minimalista no centro */}
+      <div className="pointer-events-none absolute inset-0 z-[12] flex items-center justify-center">
+        <svg
+          className="h-[92%] w-[92%] max-h-[min(92vw,820px)] max-w-[min(92vw,820px)] overflow-visible"
+          viewBox="0 0 100 100"
+          aria-hidden
+        >
+          <g transform="translate(50,50)">
+            {Array.from({ length: SONAR_WAVES }, (_, i) => (
+              <motion.g
+                key={i}
+                initial={false}
+                animate={
+                  reduceMotion
+                    ? { scale: 0.72, opacity: 0.08 }
+                    : {
+                        scale: [0.28, 1.06],
+                        opacity: [0.32, 0],
+                      }
+                }
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : {
+                        duration: SONAR_DURATION,
+                        repeat: Infinity,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: (i * SONAR_DURATION) / SONAR_WAVES,
+                      }
+                }
+                style={{ transformOrigin: "0px 0px" }}
+              >
+                <path
+                  d={spiralD}
+                  fill="none"
+                  stroke={PURPLE}
+                  strokeOpacity={0.55}
+                  strokeWidth={0.45}
+                  strokeLinecap="round"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </motion.g>
+            ))}
+          </g>
+        </svg>
+      </div>
+
       {/* Hub — logo Amélia */}
       <div
-        className="absolute left-1/2 top-1/2 z-20 flex min-h-[min(22%,110px)] min-w-[min(22%,110px)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_6px_28px_rgba(123,107,178,0.18),0_2px_8px_rgba(0,0,0,0.05)]"
+        className="absolute left-1/2 top-1/2 z-20 flex min-h-[min(20%,96px)] min-w-[min(20%,96px)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_6px_28px_rgba(123,107,178,0.18),0_2px_8px_rgba(0,0,0,0.05)] sm:min-h-[min(22%,110px)] sm:min-w-[min(22%,110px)]"
         style={{ border: `1.5px solid ${PURPLE}2a` }}
       >
-        <div className="relative h-12 w-20">
+        <div className="relative h-10 w-[4.5rem] sm:h-12 sm:w-20">
           <Image
             src="/logo-amelia-site.png"
             alt="Amélia Saúde"
@@ -169,16 +277,16 @@ export function CoverageOrbital() {
               }
               className="flex flex-col items-center gap-1.5"
             >
-              <div className="relative h-[3.75rem] w-[3.75rem] sm:h-[4.25rem] sm:w-[4.25rem] shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)]">
+              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)] sm:h-[3.75rem] sm:w-[3.75rem] md:h-[4.25rem] md:w-[4.25rem]">
                 <Image
                   src={city.src}
                   alt=""
                   fill
                   className="object-cover"
-                  sizes="(max-width: 640px) 60px, 68px"
+                  sizes="(max-width: 640px) 40px, 68px"
                 />
               </div>
-              <span className="whitespace-nowrap font-sans text-[11px] sm:text-xs font-normal leading-none tracking-wide text-[#4a4560] opacity-80">
+              <span className="max-w-[4.25rem] text-center font-sans text-[9px] font-normal leading-tight tracking-wide text-[#4a4560] opacity-80 sm:max-w-none sm:text-[11px] sm:leading-none md:text-xs whitespace-normal sm:whitespace-nowrap">
                 {city.name}
               </span>
             </motion.div>

@@ -10,16 +10,18 @@ export function FamilyPlan() {
       id="beneficiarios"
       className="relative flex flex-col justify-center min-h-[100svh] items-center overflow-hidden bg-[var(--amelia-deep)]"
     >
-      {/* Background Image */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/familia-bg.webp')" }}
       />
 
-      {/* Gradient Overlay */}
       <div
-        className="absolute inset-0 z-0 bg-gradient-to-l from-[var(--amelia-deep)] via-[var(--amelia-deep)]/90 to-transparent"
-        aria-hidden="true"
+        className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--amelia-deep)]/50 via-[var(--amelia-deep)]/20 to-[var(--amelia-deep)]/85 md:hidden"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 z-0 hidden bg-gradient-to-l from-[var(--amelia-deep)] via-[var(--amelia-deep)]/90 to-transparent md:block"
+        aria-hidden
       />
 
       <div
@@ -31,7 +33,7 @@ export function FamilyPlan() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="max-w-2xl ml-auto md:text-right"
+          className="mx-auto flex max-w-2xl flex-col items-center text-center md:ml-auto md:mr-0 md:items-end md:text-right"
         >
           <motion.span
             variants={fadeUp}
@@ -58,7 +60,7 @@ export function FamilyPlan() {
 
           <motion.p
             variants={fadeUp}
-            className="mb-10 max-w-xl ml-auto font-sans text-white/80"
+            className="mb-10 max-w-xl font-sans text-white/80 md:ml-auto"
             style={{
               fontSize: "clamp(1rem, 2vw, 1.25rem)",
               lineHeight: 1.6,

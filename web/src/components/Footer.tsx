@@ -13,8 +13,8 @@ import {
 const footerLinks = [
   { label: "Planos", href: "#planos" },
   { label: "Rede", href: "#rede" },
-  { label: "Especialistas", href: "#especialistas-grid" },
   { label: "Telemedicina", href: "#telemedicina" },
+  { label: "Especialistas", href: "#especialistas-grid" },
   { label: "Adesão", href: "#adesao" },
   { label: "Contato", href: "#contato" },
 ];

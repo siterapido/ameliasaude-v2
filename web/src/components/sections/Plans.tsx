@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { staggerContainer, fadeUp, viewportConfig } from "@/lib/motion";
+import { staggerContainer, fadeUp } from "@/lib/motion";
 
 const bars = [
   { label: "Consultas", pct: 100 },
@@ -38,8 +38,15 @@ export function Plans() {
             variants={staggerContainer(0.08, 0)}
             initial="hidden"
             whileInView="visible"
-            viewport={viewportConfig}
+            viewport={{ once: true, margin: "0px 0px -8% 0px", amount: 0.2 }}
+            className="relative z-10"
           >
+            <motion.p
+              variants={fadeUp}
+              className="mb-4 font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-[var(--amelia-purple)]"
+            >
+              Contratação
+            </motion.p>
             <motion.h2
               variants={fadeUp}
               className="font-display font-normal tracking-tight text-[var(--amelia-ink)]"
@@ -108,10 +115,32 @@ export function Plans() {
             variants={staggerContainer(0.08, 0.12)}
             initial="hidden"
             whileInView="visible"
-            viewport={viewportConfig}
-            className="lg:border-l lg:border-[var(--amelia-line)] lg:pl-14"
+            viewport={{ once: true, margin: "0px 0px -8% 0px", amount: 0.2 }}
+            className="relative z-10 lg:border-l lg:border-[var(--amelia-line)] lg:pl-14"
           >
             <motion.div variants={fadeUp} className="flex flex-col gap-8">
+              <div>
+                <p className="font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-[var(--amelia-purple)]">
+                  Inclusões
+                </p>
+                <h3
+                  className="font-display mt-4 font-normal tracking-tight text-[var(--amelia-ink)]"
+                  style={{
+                    fontSize: "clamp(1.5rem, 3.2vw, 2.05rem)",
+                    lineHeight: 1.12,
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  Cobertura assistencial completa
+                </h3>
+                <p
+                  className="mt-3 max-w-md font-sans font-light leading-relaxed text-[#6b6b6b]"
+                  style={{ fontSize: "clamp(0.9rem, 1.35vw, 1.02rem)" }}
+                >
+                  Consultas, exames, internações e cirurgias com rede credenciada e atendimento próximo a
+                  você.
+                </p>
+              </div>
               <div className="flex flex-col gap-5">
                 {bars.map((b, i) => (
                   <motion.div key={b.label} variants={fadeUp} transition={{ delay: 0.04 * i }}>

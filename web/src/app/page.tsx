@@ -1,8 +1,8 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/sections/Hero";
 import { Network } from "@/components/sections/Network";
-import { Specialists } from "@/components/sections/Specialists";
 import { Telemedicine } from "@/components/sections/Telemedicine";
+import { Specialists } from "@/components/sections/Specialists";
 import { Plans } from "@/components/sections/Plans";
 import { FamilyPlan } from "@/components/sections/FamilyPlan";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -17,8 +17,8 @@ export default function Home() {
       <main id="main-content" className="min-h-0 flex-1">
         <Hero />
         <Network />
-        <Specialists />
         <Telemedicine />
+        <Specialists />
         <Plans />
         <FamilyPlan />
         <Testimonials />

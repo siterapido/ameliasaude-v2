@@ -36,6 +36,13 @@ export function Navigation() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  /** Menu fechado no topo: traços claros no hero; ao rolar: borda e traços roxos */
+  const toggleBorder =
+    menuOpen ? "rgba(255,255,255,0.3)" : scrolled ? "rgba(123,107,178,0.5)" : "rgba(255,255,255,0.6)";
+  const toggleStroke = menuOpen ? "#ffffff" : scrolled ? "#7b6bb2" : "#ffffff";
+  const toggleBg =
+    menuOpen ? "rgba(255,255,255,0.1)" : scrolled ? "rgba(123,107,178,0.06)" : "transparent";
+
   return (
     <>
       <motion.header
@@ -80,24 +87,14 @@ export function Navigation() {
             />
           </a>
 
-          {/* Direita: CTA + toggle */}
-          <div className="flex items-center gap-3">
-            <Button variant="purple" href="#contato" onClick={closeMenu}>
-              Fale conosco
-            </Button>
-
-            {/* Hamburger toggle — pill arredondado */}
+          <div className="flex items-center">
             <motion.button
-              className="relative z-[60] flex flex-col justify-center items-center gap-[5px] rounded-full border transition-colors duration-300"
+              className="relative z-[60] flex flex-col justify-center items-center gap-[5px] rounded-full border transition-[border-color,background-color] duration-300"
               style={{
                 width: 48,
                 height: 48,
-                borderColor: menuOpen
-                  ? "rgba(255,255,255,0.3)"
-                  : "rgba(123,107,178,0.25)",
-                background: menuOpen
-                  ? "rgba(255,255,255,0.1)"
-                  : "rgba(123,107,178,0.06)",
+                borderColor: toggleBorder,
+                background: toggleBg,
               }}
               onClick={() => setMenuOpen((v) => !v)}
               aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
@@ -110,7 +107,7 @@ export function Navigation() {
                 animate={
                   menuOpen
                     ? { rotate: 45, y: 6, backgroundColor: "#ffffff" }
-                    : { rotate: 0, y: 0, backgroundColor: "#1a1a1a" }
+                    : { rotate: 0, y: 0, backgroundColor: toggleStroke }
                 }
                 transition={{ duration: 0.3 }}
                 className="block w-5 h-[1.5px] rounded-full"
@@ -119,7 +116,7 @@ export function Navigation() {
                 animate={
                   menuOpen
                     ? { opacity: 0, x: -4, backgroundColor: "#ffffff" }
-                    : { opacity: 1, x: 0, backgroundColor: "#1a1a1a" }
+                    : { opacity: 1, x: 0, backgroundColor: toggleStroke }
                 }
                 transition={{ duration: 0.2 }}
                 className="block w-5 h-[1.5px] rounded-full"
@@ -128,7 +125,7 @@ export function Navigation() {
                 animate={
                   menuOpen
                     ? { rotate: -45, y: -6, backgroundColor: "#ffffff" }
-                    : { rotate: 0, y: 0, backgroundColor: "#1a1a1a" }
+                    : { rotate: 0, y: 0, backgroundColor: toggleStroke }
                 }
                 transition={{ duration: 0.3 }}
                 className="block w-5 h-[1.5px] rounded-full"
@@ -149,7 +146,9 @@ export function Navigation() {
             className="fixed inset-0 z-40 flex flex-col"
             style={{
               background:
-                "linear-gradient(135deg, #2d1f5e 0%, #5e4985 50%, #7b6bb2 100%)",
+                "linear-gradient(165deg, #3d2a6e 0%, #5e4985 42%, #6b5aa3 100%)",
+              backdropFilter: "blur(24px) saturate(140%)",
+              WebkitBackdropFilter: "blur(24px) saturate(140%)",
             }}
           >
             {/* Background decorative elements */}
