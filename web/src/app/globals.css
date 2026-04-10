@@ -49,6 +49,10 @@ section {
   min-height: 100svh;
 }
 
+footer {
+  scroll-snap-align: end;
+}
+
 ::selection { background: var(--amelia-purple); color: #fff; }
 
 ::-webkit-scrollbar { width: 3px; }
