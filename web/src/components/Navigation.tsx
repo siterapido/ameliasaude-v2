@@ -95,7 +95,7 @@ export function Navigation() {
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
                   scrolled
                     ? "text-gray-700 hover:text-[#7b6bb2]"
-                    : "text-white/80 hover:text-white"
+                    : "text-[#7b6bb2] hover:text-[#5e4985]"
                 }`}
               >
                 {link.label}
