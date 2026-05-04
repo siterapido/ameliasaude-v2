@@ -30,7 +30,7 @@ export function Blog() {
           </motion.span>
           <motion.h2
             variants={fadeUp}
-            className="mx-auto max-w-[700px] font-display text-[clamp(3rem, 7vw, 5.5rem)] font-normal tracking-[-0.03em] leading-[1.05] text-[#7b6bb2]"
+            className="mx-auto max-w-[700px] font-display text-[clamp(3rem, 8vw, 6rem)] font-normal tracking-[-0.03em] leading-[1.05] text-[#7b6bb2]"
           >
             Conteúdos para cuidar de você
           </motion.h2>
@@ -70,7 +70,7 @@ export function Blog() {
                   <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.14em] text-[#7b6bb2]">
                     {post.category}
                   </span>
-                  <h3 className="mt-3 font-display text-[clamp(1.4rem, 2.2vw, 1.8rem)] font-normal leading-[1.15] tracking-[-0.02em] text-[#1a1a1a] group-hover:text-[#5e4985] transition-colors duration-200">
+                  <h3 className="mt-3 font-display text-[clamp(2.1rem, 3.3vw, 2.7rem)] font-normal leading-[1.15] tracking-[-0.02em] text-[#1a1a1a] group-hover:text-[#5e4985] transition-colors duration-200">
                     {post.title}
                   </h3>
                   <p className="mt-4 font-sans font-light leading-relaxed text-[#5c5470] text-[0.95rem] line-clamp-2">
