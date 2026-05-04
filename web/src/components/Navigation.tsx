@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Planos", href: "#beneficiarios" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export function Navigation() {
