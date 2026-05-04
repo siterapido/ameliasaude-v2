@@ -59,30 +59,6 @@ const specialties: {
     photo:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=480&fit=crop&crop=faces",
   },
-  {
-    name: "Neurologista",
-    variant: "compact",
-    photo:
-      "https://images.unsplash.com/photo-1551190822-a9333d879580?w=400&h=480&fit=crop&crop=faces",
-  },
-  {
-    name: "Endocrinologista",
-    variant: "compact",
-    photo:
-      "https://images.unsplash.com/photo-1643297654329-f6ba3102ba9b?w=400&h=480&fit=crop&crop=faces",
-  },
-  {
-    name: "Otorrino",
-    variant: "compact",
-    photo:
-      "https://images.unsplash.com/photo-1622902046580-2b47f01feda8?w=400&h=480&fit=crop&crop=faces",
-  },
-  {
-    name: "Urologista",
-    variant: "compact",
-    photo:
-      "https://images.unsplash.com/photo-1607990281513-2c110a88bd8c?w=400&h=480&fit=crop&crop=faces",
-  },
 ];
 
 const glassCard =
