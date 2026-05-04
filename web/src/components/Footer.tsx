@@ -11,11 +11,10 @@ import {
 } from "@/lib/motion";
 
 const footerLinks = [
-  { label: "Planos", href: "#planos" },
+  { label: "Planos", href: "#beneficiarios" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
   { label: "Especialistas", href: "#especialistas-grid" },
-  { label: "Adesão", href: "#adesao" },
   { label: "Contato", href: "#contato" },
 ];
 

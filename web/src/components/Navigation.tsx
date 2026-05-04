@@ -6,10 +6,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 const navLinks = [
-  { label: "Planos", href: "#planos" },
+  { label: "Planos", href: "#beneficiarios" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
-  { label: "Adesão", href: "#adesao" },
 ];
 
 export function Navigation() {

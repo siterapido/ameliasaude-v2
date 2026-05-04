@@ -49,15 +49,15 @@ const specialties: {
   },
   {
     name: "Psiquiatra",
-    variant: "compact",
+    variant: "hero",
     photo:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=480&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=800&h=560&fit=crop&crop=faces",
   },
   {
     name: "Oftalmologista",
-    variant: "compact",
+    variant: "hero",
     photo:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=480&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=560&fit=crop&crop=faces",
   },
 ];
 

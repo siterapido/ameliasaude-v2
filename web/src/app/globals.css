@@ -59,13 +59,3 @@ footer {
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(123,107,178,0.25); border-radius: 2px; }
-
-/* ─── Marquee (depoimentos) — triplicado: loop em -33.333% ─── */
-@keyframes marquee-left {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.3334%); }
-}
-@keyframes marquee-right {
-  from { transform: translateX(-33.3334%); }
-  to   { transform: translateX(0); }
-}

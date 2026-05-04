@@ -98,24 +98,6 @@ export function Telemedicine() {
                 >
                   Consulta pronto atendimento
                 </motion.a>
-                <motion.a
-                  href="#adesao"
-                  className="inline-flex items-center justify-center font-sans font-semibold text-center text-[#7b6bb2] shadow-sm"
-                  style={{
-                    border: "1.5px solid rgba(123,107,178,0.45)",
-                    borderRadius: "9999px",
-                    padding: "1rem 1.75rem",
-                    fontSize: "clamp(0.7rem, 1.8vw, 0.8125rem)",
-                    letterSpacing: "0.01em",
-                    lineHeight: 1.25,
-                    background: "rgba(255,255,255,0.9)",
-                  }}
-                  whileHover={{ borderColor: "#7b6bb2", backgroundColor: "rgba(123,107,178,0.08)", scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                >
-                  Pronto atendimento
-                </motion.a>
               </motion.div>
             </motion.div>
           </div>
@@ -163,6 +145,31 @@ export function Telemedicine() {
                 </motion.li>
               ))}
             </motion.ul>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px 0px -8% 0px", amount: 0.15 }}
+              className="mt-10 w-full max-w-md lg:max-w-none"
+            >
+              <motion.a
+                href="#contato"
+                className="inline-flex w-full sm:w-auto items-center justify-center font-sans font-semibold text-white text-center shadow-lg shadow-[#7b6bb2]/20"
+                style={{
+                  background: "#7b6bb2",
+                  borderRadius: "9999px",
+                  padding: "1rem 1.75rem",
+                  fontSize: "clamp(0.7rem, 1.8vw, 0.8125rem)",
+                  letterSpacing: "0.01em",
+                  lineHeight: 1.25,
+                }}
+                whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              >
+                Pronto atendimento
+              </motion.a>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -131,25 +131,15 @@ export function HealthExperience() {
       className="relative flex flex-col justify-center overflow-hidden"
       style={{ padding: "clamp(5.25rem, 11vh, 8.5rem) clamp(1.5rem, 5vw, 5rem)" }}
     >
-      {/* Fundo premium — profundidade na paleta ameixa */}
+      {/* Fundo sólido + textura quadriculada sutil */}
+      <div className="pointer-events-none absolute inset-0 bg-[#7B6BB1]" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(168deg,#241835_0%,#3d2d58_32%,var(--amelia-deep)_58%,#5c4a82_88%,#6b5a92_100%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_95%_55%_at_50%_-8%,rgba(183,162,236,0.38),transparent_58%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_45%_at_100%_100%,rgba(123,107,178,0.22),transparent_55%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -left-[30%] top-[40%] h-[min(90vw,640px)] w-[min(90vw,640px)] rounded-full bg-[var(--amelia-purple)]/20 blur-[130px]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-[25%] bottom-[-10%] h-[min(80vw,520px)] w-[min(80vw,520px)] rounded-full bg-[#8f7fce]/18 blur-[110px]"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "repeating-conic-gradient(from 90deg at 50% 50%, rgba(255,255,255,0.04) 0% 25%, transparent 25% 50%)",
+          backgroundSize: "20px 20px",
+        }}
         aria-hidden
       />
 
@@ -198,15 +188,15 @@ export function HealthExperience() {
             <motion.li
               key={title}
               variants={fadeUp}
-              className="flex flex-col rounded-[1.35rem] border border-white/[0.13] bg-white/[0.06] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_14px_48px_-18px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-[border-color,background-color,box-shadow] duration-300 hover:border-white/[0.22] hover:bg-white/[0.1] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_22px_56px_-20px_rgba(0,0,0,0.45)]"
+              className="flex flex-col rounded-[1.35rem] border border-[var(--amelia-line)] bg-white p-8 shadow-[0_14px_40px_-20px_rgba(36,24,53,0.18)] transition-[border-color,box-shadow] duration-300 hover:border-[rgba(94,73,133,0.22)] hover:shadow-[0_22px_48px_-18px_rgba(36,24,53,0.22)]"
             >
-              <div className="mb-6 text-[#d8cef0]">
+              <div className="mb-6 text-[var(--amelia-purple)]">
                 <Icon className="shrink-0 opacity-95" />
               </div>
-              <h3 className="font-display text-base font-normal tracking-[0.02em] text-white">
+              <h3 className="font-display text-base font-normal tracking-[0.02em] text-[var(--amelia-deep)]">
                 {title}
               </h3>
-              <p className="mt-3 font-sans text-sm font-light leading-relaxed tracking-normal text-white/68">
+              <p className="mt-3 font-sans text-sm font-light leading-relaxed tracking-normal text-[#5c5470]">
                 {body}
               </p>
             </motion.li>

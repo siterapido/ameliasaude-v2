@@ -3,29 +3,6 @@
 import { motion } from "framer-motion";
 import { staggerContainer, fadeUp, viewportConfig } from "@/lib/motion";
 
-const pillars = [
-  {
-    title: "Cobertura no Rio de Janeiro",
-    description:
-      "Rede credenciada em municípios de todo o estado, para consultas, exames e internações com tranquilidade.",
-  },
-  {
-    title: "Telemedicina 24 horas",
-    description:
-      "Orientação médica por vídeo ou chat quando você precisar, sem filas nem deslocamento desnecessário.",
-  },
-  {
-    title: "Rede de confiança",
-    description:
-      "Hospitais, clínicas e laboratórios selecionados para combinar qualidade assistencial e praticidade.",
-  },
-  {
-    title: "Coletivo por adesão",
-    description:
-      "Contratação exclusiva por sindicatos, conselhos de classe e associações profissionais, com regras e canais definidos para filiados.",
-  },
-] as const;
-
 export function Contact() {
   return (
     <section
@@ -44,76 +21,6 @@ export function Contact() {
       />
 
       <div className="relative z-[1] mx-auto w-full max-w-[1200px]">
-        <div
-          role="region"
-          aria-labelledby="why-amelia-heading"
-          className="mb-[clamp(4rem,8vw,6rem)]"
-        >
-          <motion.div
-            variants={staggerContainer(0.08, 0)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-            className="mx-auto max-w-[720px] text-center"
-          >
-            <motion.p
-              variants={fadeUp}
-              className="mb-5 font-sans text-[11px] font-normal tracking-[0.08em] text-[var(--amelia-purple)]"
-            >
-              Por que a Amélia
-            </motion.p>
-            <motion.h2
-              id="why-amelia-heading"
-              variants={fadeUp}
-              className="font-display font-normal text-[var(--amelia-ink)]"
-              style={{
-                fontSize: "clamp(2rem, 4.2vw, 3.25rem)",
-                lineHeight: 1.08,
-                letterSpacing: "-0.03em",
-              }}
-            >
-              Um plano pensado para{" "}
-              <em className="font-light not-italic text-[var(--amelia-deep)]">
-                viver com segurança
-              </em>{" "}
-              no dia a dia.
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              className="mx-auto mt-5 max-w-[480px] font-sans font-light leading-relaxed text-[#6b6b6b]"
-              style={{ fontSize: "clamp(0.9rem, 1.35vw, 1.05rem)" }}
-            >
-              Transparência, acesso à saúde e atendimento que respeita o seu tempo.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer(0.1, 0.12)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-            className="mt-14 grid gap-10 sm:gap-12 md:grid-cols-2 md:gap-x-16 md:gap-y-14"
-          >
-            {pillars.map((item, index) => (
-              <motion.article
-                key={item.title}
-                variants={fadeUp}
-                className="border-t border-[var(--amelia-line)] pt-8 transition-[border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[var(--amelia-purple)] md:pt-10"
-              >
-                <p className="text-[10px] font-normal tracking-[0.06em] text-[var(--amelia-muted)] tabular-nums">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-3 font-sans text-lg font-normal tracking-tight text-[var(--amelia-ink)] md:text-xl">
-                  {item.title}
-                </h3>
-                <p className="mt-3 max-w-md font-sans font-light leading-relaxed text-[#6b6b6b]">
-                  {item.description}
-                </p>
-              </motion.article>
-            ))}
-          </motion.div>
-        </div>
-
         <motion.div
           variants={staggerContainer(0.1, 0)}
           initial="hidden"
