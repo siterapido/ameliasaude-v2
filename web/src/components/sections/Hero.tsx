@@ -56,7 +56,7 @@ export function Hero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col justify-between" style={{ minHeight: "100%" }}>
+      <div className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col justify-between" style={{ minHeight: "100%", gap: "1.5rem" }}>
 
         {/* Headline */}
         <h1
@@ -89,7 +89,7 @@ export function Hero() {
         </motion.p>
 
         {/* Bottom section with CTAs and social proof */}
-        <div className="mt-auto">
+        <div className="mt-auto" style={{ marginTop: "auto" }}>
           {/* CTAs */}
           <motion.div
             className="flex items-center gap-3"
