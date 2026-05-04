@@ -51,7 +51,7 @@ export function Hero() {
 
       {/* ── Gradient Overlay ── */}
       <div
-        className="pointer-events-none absolute inset-0 max-md:bg-[linear-gradient(90deg,#fff_0%,#fff_20%,rgba(255,255,255,0.9)_50%,rgba(255,255,255,0.38)_65%,transparent_80%)] md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
+        className="pointer-events-none absolute inset-0 max-md:bg-[linear-gradient(90deg,#fff_0%,#fff_12%,rgba(255,255,255,0.9)_34%,rgba(255,255,255,0.38)_52%,transparent_70%)] md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
         aria-hidden
       />
 
@@ -78,19 +78,14 @@ export function Hero() {
 
         {/* Body copy */}
         <motion.p
-          className="font-sans font-light text-[#4a4a4a] max-w-[120px] md:max-w-[560px] leading-relaxed"
+          className="font-sans font-light text-[#4a4a4a] max-w-[320px] md:max-w-[560px] leading-relaxed"
           style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
           initial={{ y: 16 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="md:hidden">
-            Melhor plano<br />de saúde<br />para você,<br />sua família<br />e sua<br />empresa,<br />com um<br />time<br />sempre<br />pronto<br />para lhe<br />atender<br />com<br />agilidade,<br />transparência<br />e segurança.<br />
-          </span>
-          <span className="hidden md:inline">
-            Melhor plano de saúde para você, sua família e sua empresa, com um time sempre pronto para lhe
-            atender com agilidade, transparência e segurança.
-          </span>
+          Melhor plano de saúde para você, sua família e sua empresa, com um time sempre pronto para lhe
+          atender com agilidade, transparência e segurança.
         </motion.p>
 
         {/* CTAs */}
