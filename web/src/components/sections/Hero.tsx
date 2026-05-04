@@ -28,7 +28,7 @@ export function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative flex flex-col justify-center overflow-hidden bg-white"
+      className="relative flex flex-col justify-between overflow-hidden bg-white"
       style={{ minHeight: "100svh", padding: "9rem 2rem 5rem" }}
     >
       {/* ── Background Image ── */}
@@ -44,19 +44,19 @@ export function Hero() {
           alt="Família feliz à direita"
           fill
           priority
-          className="object-cover object-[62%_42%] sm:object-[70%_center] md:object-[85%_center] lg:object-right"
+          className="object-cover object-center max-md:object-[center_center]"
           sizes="100vw"
         />
       </motion.div>
 
-      {/* ── Gradient Overlay ── */}
+      {/* ── Glassmorphism Overlay ── */}
       <div
-        className="pointer-events-none absolute inset-0 max-md:bg-[linear-gradient(90deg,#fff_0%,#fff_12%,rgba(255,255,255,0.9)_34%,rgba(255,255,255,0.38)_52%,transparent_70%)] md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
+        className="pointer-events-none absolute inset-0 max-md:bg-white/75 md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
         aria-hidden
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col items-start gap-5">
+      <div className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col justify-between" style={{ minHeight: "100%" }}>
 
         {/* Headline */}
         <h1
@@ -78,7 +78,7 @@ export function Hero() {
 
         {/* Body copy */}
         <motion.p
-          className="font-sans font-light text-[#4a4a4a] max-w-[320px] md:max-w-[560px] leading-relaxed"
+          className="font-sans font-light text-[#333333] max-w-[320px] md:max-w-[560px] leading-relaxed"
           style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
           initial={{ y: 16 }}
           animate={{ y: 0 }}
@@ -88,79 +88,82 @@ export function Hero() {
           atender com agilidade, transparência e segurança.
         </motion.p>
 
-        {/* CTAs */}
-        <motion.div
-          className="mt-4 flex items-center gap-5 flex-wrap justify-start"
-          initial={{ y: 16 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <motion.a
-            href="https://ameliasaude.com.br/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-sans font-medium text-[#7b6bb2] shadow-sm"
-            style={{
-              border: "1.5px solid rgba(123,107,178,0.35)",
-              borderRadius: "9999px",
-              padding: "1rem 2.4rem",
-              fontSize: "0.9375rem",
-              letterSpacing: "0.005em",
-              background: "rgba(255,255,255,0.85)",
-            }}
-            whileHover={{ borderColor: "#7b6bb2", scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        {/* Bottom section with CTAs and social proof */}
+        <div className="mt-auto">
+          {/* CTAs */}
+          <motion.div
+            className="flex items-center gap-3"
+            initial={{ y: 16 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
           >
-            Já sou cliente
-          </motion.a>
+            <motion.a
+              href="https://ameliasaude.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center font-sans font-medium text-[#7b6bb2] shadow-sm"
+              style={{
+                border: "1.5px solid rgba(123,107,178,0.35)",
+                borderRadius: "9999px",
+                padding: "0.625rem 1.25rem",
+                fontSize: "0.75rem",
+                letterSpacing: "0.005em",
+                background: "rgba(255,255,255,0.9)",
+              }}
+              whileHover={{ borderColor: "#7b6bb2", scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              Já sou cliente
+            </motion.a>
 
-          <motion.a
-            href="#contato"
-            className="inline-flex items-center justify-center font-sans font-medium text-white shadow-lg shadow-[#7b6bb2]/20"
-            style={{
-              background: "#7b6bb2",
-              borderRadius: "9999px",
-              padding: "1rem 2.4rem",
-              fontSize: "0.9375rem",
-              letterSpacing: "0.005em",
-            }}
-            whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            <motion.a
+              href="#contato"
+              className="inline-flex items-center justify-center font-sans font-medium text-white shadow-lg shadow-[#7b6bb2]/20"
+              style={{
+                background: "#7b6bb2",
+                borderRadius: "9999px",
+                padding: "0.625rem 1.25rem",
+                fontSize: "0.75rem",
+                letterSpacing: "0.005em",
+              }}
+              whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              Fazer orçamento
+            </motion.a>
+          </motion.div>
+
+          {/* Prova social — avatares */}
+          <motion.div
+            className="mt-3 flex flex-wrap items-center gap-2"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            Fazer orçamento
-          </motion.a>
-        </motion.div>
-
-        {/* Prova social — avatares */}
-        <motion.div
-          className="mt-2 flex flex-wrap items-center gap-4"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="flex items-center pl-1">
-            {SOCIAL_AVATARS.map((src, i) => (
-              <div
-                key={src}
-                className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-[0_1px_6px_rgba(0,0,0,0.08)] md:h-12 md:w-12"
-                style={{ marginLeft: i === 0 ? 0 : -14 }}
-              >
-                <Image
-                  src={src}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="48px"
-                />
-              </div>
-            ))}
-          </div>
-          <p className="font-sans text-[0.9375rem] font-normal leading-snug text-[#1a1a1a]">
-            <span className="font-semibold text-[#7b6bb2]">+2.500</span> famílias protegidas
-          </p>
-        </motion.div>
+            <div className="flex items-center pl-1">
+              {SOCIAL_AVATARS.map((src, i) => (
+                <div
+                  key={src}
+                  className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-[0_1px_6px_rgba(0,0,0,0.08)] md:h-12 md:w-12"
+                  style={{ marginLeft: i === 0 ? 0 : -8 }}
+                >
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="48px"
+                  />
+                </div>
+              ))}
+            </div>
+            <p className="font-sans text-[0.8125rem] font-normal leading-snug text-[#1a1a1a]">
+              <span className="font-semibold text-[#7b6bb2]">+2.500</span> famílias protegidas
+            </p>
+          </motion.div>
+        </div>
       </div>
 
       <motion.div
