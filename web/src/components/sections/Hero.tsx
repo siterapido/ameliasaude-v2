@@ -44,7 +44,7 @@ export function Hero() {
           alt="Família feliz à direita"
           fill
           priority
-          className="object-cover object-[30%_center] max-md:object-[30%_center] sm:object-[70%_center] md:object-[85%_center] lg:object-right"
+          className="object-cover object-[75%_center] max-md:object-[75%_center] sm:object-[70%_center] md:object-[85%_center] lg:object-right"
           sizes="100vw"
         />
       </motion.div>
