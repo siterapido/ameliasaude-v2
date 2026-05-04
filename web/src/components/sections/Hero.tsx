@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 const HEADLINE_LINES: ReactNode[] = [
-  <>SUA SAÚDE EM</>,
-  <>NOSSOS PLANOS</>,
+  <>sua saúde em</>,
+  <>nossos planos</>,
 ];
 
 /** Retratos genéricos para stack social — substitua por fotos reais da marca quando houver. */
@@ -78,7 +78,7 @@ export function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-display font-normal italic text-[#7b6bb2]"
+          className="font-display font-normal lowercase italic text-[#7b6bb2]"
           style={{ fontSize: "clamp(2.8rem, 7.5vw, 6.5rem)", lineHeight: 1.02, letterSpacing: "-0.025em" }}
         >
           {HEADLINE_LINES.map((line, i) => (
@@ -180,39 +180,6 @@ export function Hero() {
           </p>
         </motion.div>
       </div>
-
-      {/* Stats strip */}
-      <motion.div
-        className="relative z-10 mt-20 flex flex-wrap justify-start gap-10 sm:gap-16 border-t border-[rgba(123,107,178,0.15)] pt-8 w-full max-w-[1200px] mx-auto"
-        initial={{ y: 16 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 1.4, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {[
-          { v: "30+", l: "Especialidades" },
-          { v: "80%", l: "Resolutividade" },
-          { v: "24h", l: "Disponível" },
-          { v: "8+",  l: "Municípios" },
-        ].map(({ v, l }, i) => (
-          <motion.div
-            key={l}
-            className="flex flex-col items-start gap-1"
-            initial={{ y: 8 }}
-            animate={{ y: 0 }}
-            transition={{ delay: 1.5 + i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span
-              className="font-display font-normal text-[#1a1a1a]"
-              style={{ fontSize: "clamp(1.95rem, 4.2vw, 3.1rem)", lineHeight: 1 }}
-            >
-              {v}
-            </span>
-            <span className="font-sans text-[11px] font-medium tracking-[0.18em] uppercase text-[#7b6bb2]">
-              {l}
-            </span>
-          </motion.div>
-        ))}
-      </motion.div>
 
       <motion.div
         initial={{ y: 6 }}
