@@ -95,16 +95,16 @@ export function Navigation() {
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
                   scrolled
                     ? "text-gray-700 hover:text-[#7b6bb2]"
-                    : "text-[#7b6bb2] hover:text-[#5e4985]"
+                    : "text-black hover:text-[#7b6bb2]"
                 }`}
               >
                 {link.label}
               </a>
             ))}
             <Button
-              variant={scrolled ? "purple" : "ghost-white"}
+              variant="outline"
               href="#contato"
-              className="ml-2"
+              className="ml-2 !border-black !text-black hover:!bg-black hover:!text-white hover:!border-black"
             >
               Fale conosco
             </Button>
