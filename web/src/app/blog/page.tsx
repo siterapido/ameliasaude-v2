@@ -89,10 +89,6 @@ function BlogContent() {
               </p>
             </div>
 
-            <div className="mx-auto max-w-[600px] mb-12">
-              <SearchBar onSearch={handleSearch} initialValue={searchQuery} />
-            </div>
-
             <div className="flex flex-col lg:flex-row gap-12">
               <div className="flex-1 lg:max-w-[70%]">
                 {paginatedPosts.length === 0 ? (
@@ -121,7 +117,11 @@ function BlogContent() {
               
               <div className="hidden lg:block lg:w-[30%]">
                 <div className="sticky top-24">
-                  <BlogSidebar activeCategory={categoryParam || undefined} />
+                  <BlogSidebar 
+                    activeCategory={categoryParam || undefined} 
+                    onSearch={handleSearch}
+                    searchQuery={searchQuery}
+                  />
                 </div>
               </div>
             </div>
