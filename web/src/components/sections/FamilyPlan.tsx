@@ -12,7 +12,7 @@ export function FamilyPlan() {
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat"
-        style={{ backgroundImage: "url('/familia-bg.webp')", transform: "scaleX(-1)", backgroundPosition: "65% center" }}
+        style={{ backgroundImage: "url('/familia-bg.webp')", transform: "scaleX(-1)", backgroundPosition: "95% center" }}
       />
 
       <div
