@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { blogPosts } from "@/src/data/blog";
+import { blogPosts } from "@/data/blog";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function BlogPage() {
               <span className="mb-5 block font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-[#7b6bb2]">
                 Blog Amélia Saúde
               </span>
-              <h2 className="mx-auto max-w-[700px] font-display text-[clamp(2.5rem, 6vw, 3.75rem)] font-normal tracking-[-0.03em] leading-[1.05] text-[#7b6bb2]">
+              <h2 className="mx-auto max-w-[700px] font-display text-[clamp(2.5rem, 6vw, 4.5rem)] font-normal tracking-[-0.03em] leading-[1.05] text-[#7b6bb2]">
                 Conteúdos para cuidar de você
               </h2>
               <p className="mx-auto mt-6 max-w-[560px] font-sans font-light leading-relaxed text-[#5c5470] text-[clamp(1.05rem, 1.6vw, 1.25rem)]">
@@ -50,7 +50,7 @@ export default function BlogPage() {
                     <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.14em] text-[#7b6bb2]">
                       {post.category}
                     </span>
-                    <h3 className="mt-3 font-display text-[clamp(1.25rem, 2.2vw, 1.5rem)] font-normal leading-[1.15] tracking-[-0.02em] text-[#1a1a1a] group-hover:text-[#5e4985] transition-colors duration-200">
+                    <h3 className="mt-3 font-display text-[clamp(1.25rem, 2vw, 1.6rem)] font-normal leading-[1.15] tracking-[-0.02em] text-[#1a1a1a] group-hover:text-[#5e4985] transition-colors duration-200">
                       {post.title}
                     </h3>
                     <p className="mt-4 font-sans font-light leading-relaxed text-[#5c5470] text-[0.95rem] line-clamp-2">

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { getPostBySlug, blogPosts } from "@/src/data/blog";
+import { getPostBySlug, blogPosts } from "@/data/blog";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -63,7 +63,7 @@ export default async function BlogPostPage({ params }: Props) {
           </span>
 
           {/* Title */}
-          <h1 className="mt-4 font-display text-[clamp(2rem, 5vw, 3.25rem)] font-normal tracking-[-0.03em] leading-[1.08] text-[#1a1a1a]">
+          <h1 className="mt-4 font-display text-[clamp(2.5rem, 6vw, 4.5rem)] font-normal tracking-[-0.03em] leading-[1.08] text-[#7b6bb2]">
             {post.title}
           </h1>
 
@@ -131,7 +131,7 @@ export default async function BlogPostPage({ params }: Props) {
                       <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-[#7b6bb2]">
                         {rp.category}
                       </span>
-                      <h3 className="mt-2 font-display text-[clamp(1.1rem, 2vw, 1.3rem)] font-normal leading-[1.15] tracking-[-0.02em] text-[#1a1a1a] group-hover:text-[#5e4985] transition-colors duration-200">
+                      <h3 className="mt-2 font-display text-[clamp(1.25rem, 2vw, 1.5rem)] font-normal leading-[1.15] tracking-[-0.02em] text-[#1a1a1a] group-hover:text-[#5e4985] transition-colors duration-200">
                         {rp.title}
                       </h3>
                       <div className="mt-3 flex items-center gap-3 font-sans text-[11px] text-[#8a8a8a]">

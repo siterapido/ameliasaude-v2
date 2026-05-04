@@ -146,7 +146,7 @@ export function Specialists() {
                         ? "(max-width: 1024px) 100vw, 50vw"
                         : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     }
-                    className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    className={`object-cover ${sp.name === "Clínico geral" ? "object-center" : "object-top"} transition-transform duration-500 ease-out group-hover:scale-[1.03]`}
                   />
                   <div
                     className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(26,26,26,0.35)] via-transparent to-transparent opacity-80 lg:opacity-100 lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[rgba(255,255,255,0.08)]"

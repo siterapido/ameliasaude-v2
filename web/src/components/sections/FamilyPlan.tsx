@@ -16,11 +16,11 @@ export function FamilyPlan() {
       />
 
       <div
-        className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--amelia-deep)]/50 via-[var(--amelia-deep)]/20 to-[var(--amelia-deep)]/85 md:hidden"
+        className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--amelia-deep)]/70 via-[var(--amelia-deep)]/40 to-[var(--amelia-deep)]/95 md:hidden"
         aria-hidden
       />
       <div
-        className="absolute inset-0 z-0 hidden bg-gradient-to-l from-[var(--amelia-deep)] via-[var(--amelia-deep)]/90 to-transparent md:block"
+        className="absolute inset-0 z-0 hidden bg-gradient-to-l from-[var(--amelia-deep)] via-[var(--amelia-deep)]/95 to-[var(--amelia-deep)]/40 md:block"
         aria-hidden
       />
 
@@ -33,7 +33,7 @@ export function FamilyPlan() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="mx-auto flex max-w-2xl flex-col items-center text-center md:ml-auto md:mr-0 md:items-end md:text-right"
+          className="mx-auto flex max-w-2xl flex-col items-center text-center"
         >
           <motion.span
             variants={fadeUp}
@@ -60,7 +60,7 @@ export function FamilyPlan() {
 
           <motion.p
             variants={fadeUp}
-            className="mb-10 max-w-xl font-sans text-white/80 md:ml-auto"
+            className="mb-10 max-w-xl font-sans text-white/80"
             style={{
               fontSize: "clamp(1rem, 2vw, 1.25rem)",
               lineHeight: 1.6,

@@ -56,7 +56,7 @@ export function Hero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-start gap-5">
+      <div className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col items-start gap-5">
 
         {/* Headline */}
         <h1
@@ -78,7 +78,7 @@ export function Hero() {
 
         {/* Body copy */}
         <motion.p
-          className="font-sans font-light text-[#4a4a4a] max-w-[560px] leading-relaxed"
+          className="font-sans font-light text-[#4a4a4a] max-w-[320px] md:max-w-[560px] leading-relaxed"
           style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
           initial={{ y: 16 }}
           animate={{ y: 0 }}
