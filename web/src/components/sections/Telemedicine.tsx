@@ -79,26 +79,6 @@ export function Telemedicine() {
                 Mais de 30 especialidades disponíveis por telemedicina, com praticidade
                 e comodidade sem sair de casa.
               </motion.p>
-
-              <motion.div variants={fadeUp} className="flex items-center gap-5 flex-wrap">
-                <motion.a
-                  href="#contato"
-                  className="inline-flex items-center justify-center font-sans font-semibold text-white text-center shadow-lg shadow-[#7b6bb2]/20"
-                  style={{
-                    background: "#7b6bb2",
-                    borderRadius: "9999px",
-                    padding: "1rem 1.75rem",
-                    fontSize: "clamp(0.7rem, 1.8vw, 0.8125rem)",
-                    letterSpacing: "0.01em",
-                    lineHeight: 1.25,
-                  }}
-                  whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                >
-                  Consulta pronto atendimento
-                </motion.a>
-              </motion.div>
             </motion.div>
           </div>
 

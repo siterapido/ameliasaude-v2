@@ -58,24 +58,6 @@ export function Hero() {
       {/* ── Content ── */}
       <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-start gap-5">
 
-        {/* Eyebrow */}
-        <div className="flex items-center gap-3">
-          <motion.p
-            className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#7b6bb2]"
-            initial={{ y: 8 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
-          >
-            Rio de Janeiro · Operadora · Adesão
-          </motion.p>
-          <motion.div
-            className="h-px bg-[rgba(123,107,178,0.45)]"
-            initial={{ width: 0 }}
-            animate={{ width: 48 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          />
-        </div>
-
         {/* Headline */}
         <h1
           className="font-display font-normal lowercase italic text-[#7b6bb2]"
