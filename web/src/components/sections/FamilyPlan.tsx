@@ -12,7 +12,7 @@ export function FamilyPlan() {
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/familia-bg.webp')" }}
+        style={{ backgroundImage: "url('/familia-bg.webp')", filter: "invert(1)" }}
       />
 
       <div
