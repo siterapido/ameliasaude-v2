@@ -138,7 +138,7 @@ export function Footer() {
                 width={1840}
                 height={515}
                 sizes="(max-width: 640px) 55vw, 200px"
-                className="h-auto w-full object-contain opacity-[0.97]"
+                className="h-auto w-full object-contain mix-blend-screen contrast-[1.05]"
               />
             </a>
             <p className="max-w-[280px] font-sans text-sm leading-relaxed tracking-wide text-white/65">
