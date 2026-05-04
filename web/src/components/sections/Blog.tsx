@@ -39,7 +39,7 @@ export function Blog() {
     >
       <div className="mx-auto max-w-[1200px]">
         <motion.div
-          variants={staggerContainer}
+          variants={staggerContainer(0.1, 0.05)}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
@@ -66,7 +66,7 @@ export function Blog() {
         </motion.div>
 
         <motion.div
-          variants={staggerContainer}
+          variants={staggerContainer(0.1, 0.05)}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
