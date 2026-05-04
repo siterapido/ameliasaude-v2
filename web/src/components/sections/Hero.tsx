@@ -51,7 +51,7 @@ export function Hero() {
 
       {/* ── Gradient Overlay ── */}
       <div
-        className="pointer-events-none absolute inset-0 max-md:bg-[linear-gradient(90deg,#fff_0%,#fff_12%,rgba(255,255,255,0.9)_34%,rgba(255,255,255,0.38)_52%,transparent_70%)] md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
+        className="pointer-events-none absolute inset-0 max-md:bg-[linear-gradient(90deg,#fff_0%,#fff_20%,rgba(255,255,255,0.9)_50%,rgba(255,255,255,0.38)_65%,transparent_80%)] md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
         aria-hidden
       />
 
@@ -78,14 +78,19 @@ export function Hero() {
 
         {/* Body copy */}
         <motion.p
-          className="font-sans font-light text-[#4a4a4a] max-w-[320px] md:max-w-[560px] leading-relaxed"
+          className="font-sans font-light text-[#4a4a4a] max-w-[120px] md:max-w-[560px] leading-relaxed"
           style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
           initial={{ y: 16 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
         >
-          Melhor plano de saúde para você, sua família e sua empresa, com um time sempre pronto para lhe
-          atender com agilidade, transparência e segurança.
+          <span className="md:hidden">
+            Melhor plano<br />de saúde<br />para você,<br />sua família<br />e sua<br />empresa,<br />com um<br />time<br />sempre<br />pronto<br />para lhe<br />atender<br />com<br />agilidade,<br />transparência<br />e segurança.<br />
+          </span>
+          <span className="hidden md:inline">
+            Melhor plano de saúde para você, sua família e sua empresa, com um time sempre pronto para lhe
+            atender com agilidade, transparência e segurança.
+          </span>
         </motion.p>
 
         {/* CTAs */}
@@ -103,8 +108,8 @@ export function Hero() {
             style={{
               border: "1.5px solid rgba(123,107,178,0.35)",
               borderRadius: "9999px",
-              padding: "1rem 2.4rem",
-              fontSize: "0.9375rem",
+              padding: "0.75rem 1.8rem",
+              fontSize: "0.8125rem",
               letterSpacing: "0.005em",
               background: "rgba(255,255,255,0.85)",
             }}
@@ -121,8 +126,8 @@ export function Hero() {
             style={{
               background: "#7b6bb2",
               borderRadius: "9999px",
-              padding: "1rem 2.4rem",
-              fontSize: "0.9375rem",
+              padding: "0.75rem 1.8rem",
+              fontSize: "0.8125rem",
               letterSpacing: "0.005em",
             }}
             whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
@@ -135,7 +140,7 @@ export function Hero() {
 
         {/* Prova social — avatares */}
         <motion.div
-          className="mt-2 flex flex-wrap items-center gap-4"
+          className="mt-2 flex flex-wrap items-center gap-2"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
@@ -144,8 +149,8 @@ export function Hero() {
             {SOCIAL_AVATARS.map((src, i) => (
               <div
                 key={src}
-                className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-[0_1px_6px_rgba(0,0,0,0.08)] md:h-12 md:w-12"
-                style={{ marginLeft: i === 0 ? 0 : -14 }}
+                className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-[0_1px_6px_rgba(0,0,0,0.08)] md:h-12 md:w-12"
+                style={{ marginLeft: i === 0 ? 0 : -8 }}
               >
                 <Image
                   src={src}
