@@ -94,14 +94,6 @@ function IconLinkedIn({ className }: { className?: string }) {
   );
 }
 
-function IconSparkle({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M12 2l1.2 4.2L17 7l-4.2 1.2L12 12l-1.2-4.8L7 7l4.2-.8L12 2zm7 8l.8 2.8 2.8.8-2.8.8-.8 2.8-.8-2.8-2.8-.8 2.8-.8.8-2.8L19 10zm-14 6l1 3.5 3.5 1-3.5 1-1 3.5-1-3.5-3.5-1 3.5-1 1-3.5z" />
-    </svg>
-  );
-}
-
 export function Footer() {
   return (
     <footer
@@ -321,14 +313,6 @@ export function Footer() {
           </div>
         </motion.div>
       </div>
-
-      <a
-        href="#hero"
-        className={`fixed bottom-6 right-[clamp(1rem,4vw,2rem)] z-30 flex h-14 w-14 items-center justify-center rounded-full bg-[#c9bcf0] text-[#2d2245] shadow-[0_12px_40px_rgba(45,34,69,0.4)] transition-[transform,box-shadow] hover:scale-[1.05] hover:shadow-[0_16px_44px_rgba(45,34,69,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${ringFooter}`}
-        aria-label="Voltar ao topo da página"
-      >
-        <IconSparkle className="h-6 w-6" />
-      </a>
     </footer>
   );
 }
