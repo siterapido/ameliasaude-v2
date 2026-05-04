@@ -54,6 +54,15 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 max-md:bg-white/75 md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
         aria-hidden
       />
+      {/* ── Center Brightness Gradient ── */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-white/40 md:hidden"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 hidden md:block bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0)_60%)]"
+        aria-hidden
+      />
 
       {/* ── Content ── */}
       <div className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col justify-between" style={{ minHeight: "100%", gap: "1.5rem" }}>
