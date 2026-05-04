@@ -29,7 +29,7 @@ export function Hero() {
       id="hero"
       ref={ref}
       className="relative flex flex-col justify-between overflow-hidden bg-white"
-      style={{ minHeight: "100svh", padding: "9rem 2rem 3rem" }}
+      style={{ minHeight: "100svh", padding: "9rem 2rem 1.5rem" }}
     >
       {/* ── Background Image ── */}
       <motion.div 
