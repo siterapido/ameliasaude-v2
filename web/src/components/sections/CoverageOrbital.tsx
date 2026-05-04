@@ -54,7 +54,7 @@ const cities: { name: string; src: string }[] = [
   },
   {
     name: "São João de Meriti",
-    src: "https://images.unsplash.com/photo-1544986581-0287a3cd0c3c?w=160&h=160&fit=crop&q=80",
+    src: "/sao-joao-de-meriti.jpg",
   },
   {
     name: "Magé",
@@ -66,7 +66,7 @@ const cities: { name: string; src: string }[] = [
   },
   {
     name: "Mesquita",
-    src: "https://images.unsplash.com/photo-1469854523086e02802f6fe0?w=160&h=160&fit=crop&q=80",
+    src: "/mesquita.jpg",
   },
 ];
 
