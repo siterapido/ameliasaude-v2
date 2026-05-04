@@ -102,7 +102,7 @@ export function Navigation() {
               </a>
             ))}
             <Button
-              variant={scrolled ? "default" : "ghost-white"}
+              variant={scrolled ? "purple" : "ghost-white"}
               href="#contato"
               className="ml-2"
             >
