@@ -131,17 +131,7 @@ export function HealthExperience() {
       className="relative flex flex-col justify-center overflow-hidden"
       style={{ padding: "clamp(5.25rem, 11vh, 8.5rem) clamp(1.5rem, 5vw, 5rem)" }}
     >
-      {/* Fundo sólido + textura quadriculada sutil */}
       <div className="pointer-events-none absolute inset-0 bg-[#7B6BB1]" aria-hidden />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "repeating-conic-gradient(from 90deg at 50% 50%, rgba(255,255,255,0.04) 0% 25%, transparent 25% 50%)",
-          backgroundSize: "20px 20px",
-        }}
-        aria-hidden
-      />
 
       <div className="relative z-10 mx-auto w-full max-w-[1140px]">
         <motion.div
