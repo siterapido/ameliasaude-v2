@@ -102,9 +102,9 @@ export function Navigation() {
               </a>
             ))}
             <Button
-              variant="outline"
+              variant="purple"
               href="#contato"
-              className="ml-2 !border-black !text-black hover:!bg-black hover:!text-white hover:!border-black"
+              className="ml-2"
             >
               Fale conosco
             </Button>
