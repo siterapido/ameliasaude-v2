@@ -39,10 +39,14 @@ const legalLinks = [
 
 const accent = "text-[#c9bcf0]";
 const iconBox =
-  "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[rgba(201,188,240,0.35)] bg-[rgba(123,107,178,0.12)] text-[#d8cef7]";
+  "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[rgba(255,255,255,0.18)] bg-[rgba(255,255,255,0.08)] text-[#ede9fa]";
 
 const linkMuted =
-  "font-sans text-sm font-normal tracking-wide text-white/75 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#120b1f] rounded-sm";
+  "font-sans text-sm font-normal tracking-wide text-white/75 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--amelia-deep)] rounded-sm";
+
+/** Ring-offset alinhado ao fundo roxo do rodapé (evitar concat dinâmica para o Tailwind ver a classe). */
+const ringFooter =
+  "focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--amelia-deep)]";
 
 const headingClass =
   "font-sans text-[11px] font-semibold uppercase tracking-[0.14em] text-white";
@@ -102,10 +106,10 @@ export function Footer() {
   return (
     <footer
       id="rodape"
-      className="relative mt-auto overflow-hidden bg-[#0a0612]"
+      className="relative mt-auto overflow-hidden bg-[var(--amelia-deep)]"
       style={{
         backgroundImage:
-          "radial-gradient(ellipse 120% 80% at 50% -20%, rgba(123, 107, 178, 0.22), transparent 55%), radial-gradient(ellipse 70% 50% at 100% 100%, rgba(94, 73, 133, 0.18), transparent 45%)",
+          "linear-gradient(165deg, rgba(74, 54, 118, 0.95) 0%, var(--amelia-deep) 42%, rgba(123, 107, 178, 0.88) 100%), radial-gradient(ellipse 90% 55% at 50% -15%, rgba(255, 255, 255, 0.14), transparent 55%), radial-gradient(ellipse 65% 45% at 100% 110%, rgba(45, 34, 85, 0.45), transparent 50%)",
       }}
       aria-labelledby="footer-heading"
     >
@@ -125,7 +129,7 @@ export function Footer() {
           <motion.div variants={fadeUp} className="flex flex-col gap-5 sm:col-span-2 lg:col-span-1">
             <a
               href="#hero"
-              className="inline-block w-[min(200px,55vw)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.5)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0612] rounded-sm"
+              className={`inline-block w-[min(200px,55vw)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.5)] ${ringFooter} rounded-sm`}
               aria-label="Amélia Saúde — voltar ao início"
             >
               <Image
@@ -148,7 +152,7 @@ export function Footer() {
                 href={CONTACT.site}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(201,188,240,0.35)] text-[#d8cef7] transition-colors hover:border-[rgba(201,188,240,0.55)] hover:bg-[rgba(123,107,178,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0612]`}
+                className={`flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(201,188,240,0.35)] text-[#d8cef7] transition-colors hover:border-[rgba(201,188,240,0.55)] hover:bg-[rgba(255,255,255,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] ${ringFooter}`}
                 aria-label="Site oficial Amélia Saúde"
               >
                 <IconInstagram className="h-[18px] w-[18px]" />
@@ -157,7 +161,7 @@ export function Footer() {
                 href={CONTACT.site}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(201,188,240,0.35)] text-[#d8cef7] transition-colors hover:border-[rgba(201,188,240,0.55)] hover:bg-[rgba(123,107,178,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0612]`}
+                className={`flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(201,188,240,0.35)] text-[#d8cef7] transition-colors hover:border-[rgba(201,188,240,0.55)] hover:bg-[rgba(255,255,255,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] ${ringFooter}`}
                 aria-label="Amélia Saúde no LinkedIn"
               >
                 <IconLinkedIn className="h-[18px] w-[18px]" />
@@ -208,7 +212,7 @@ export function Footer() {
                   href={CONTACT.whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0612]"
+                  className={`group flex gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] ${ringFooter}`}
                 >
                   <span className={iconBox}>
                     <IconWhatsApp className="h-[18px] w-[18px]" />
@@ -226,7 +230,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="group flex gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0612]"
+                  className={`group flex gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] ${ringFooter}`}
                 >
                   <span className={iconBox}>
                     <IconMail className="h-[18px] w-[18px]" />
@@ -244,7 +248,7 @@ export function Footer() {
               <li>
                 <a
                   href={CONTACT.phoneHref}
-                  className="group flex gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0612]"
+                  className={`group flex gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] ${ringFooter}`}
                 >
                   <span className={iconBox}>
                     <IconPhone className="h-[18px] w-[18px]" />
@@ -260,7 +264,7 @@ export function Footer() {
               <li>
                 <a
                   href={CONTACT.sacHref}
-                  className="group flex gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0612]"
+                  className={`group flex gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.45)] ${ringFooter}`}
                 >
                   <span className={iconBox}>
                     <IconPhone className="h-[18px] w-[18px]" />
@@ -280,19 +284,19 @@ export function Footer() {
           <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
             <p className={headingClass}>Certificações</p>
             <ul className="flex flex-col gap-3">
-              <li className="rounded-lg border border-[rgba(201,188,240,0.35)] bg-[rgba(18,11,31,0.45)] px-4 py-3">
+              <li className="rounded-lg border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.06)] px-4 py-3 backdrop-blur-[2px]">
                 <span className={`inline-block rounded px-2 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-wider ${accent} ring-1 ring-[rgba(201,188,240,0.35)]`}>
                   ANS
                 </span>
                 <p className="mt-2 font-sans text-sm text-white/75">Registro 424277</p>
               </li>
-              <li className="rounded-lg border border-[rgba(201,188,240,0.35)] bg-[rgba(18,11,31,0.45)] px-4 py-3">
+              <li className="rounded-lg border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.06)] px-4 py-3 backdrop-blur-[2px]">
                 <span className={`inline-block rounded px-2 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-wider ${accent} ring-1 ring-[rgba(201,188,240,0.35)]`}>
                   SSL
                 </span>
                 <p className="mt-2 font-sans text-sm text-white/75">Conexão segura</p>
               </li>
-              <li className="rounded-lg border border-[rgba(201,188,240,0.35)] bg-[rgba(18,11,31,0.45)] px-4 py-3">
+              <li className="rounded-lg border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.06)] px-4 py-3 backdrop-blur-[2px]">
                 <span className={`inline-block rounded px-2 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-wider ${accent} ring-1 ring-[rgba(201,188,240,0.35)]`}>
                   LGPD
                 </span>
@@ -320,7 +324,7 @@ export function Footer() {
 
       <a
         href="#hero"
-        className="fixed bottom-6 right-[clamp(1rem,4vw,2rem)] z-30 flex h-14 w-14 items-center justify-center rounded-full bg-[#c9bcf0] text-[#2d2245] shadow-[0_12px_40px_rgba(94,73,133,0.45)] transition-[transform,box-shadow] hover:scale-[1.05] hover:shadow-[0_16px_44px_rgba(94,73,133,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0612]"
+        className={`fixed bottom-6 right-[clamp(1rem,4vw,2rem)] z-30 flex h-14 w-14 items-center justify-center rounded-full bg-[#c9bcf0] text-[#2d2245] shadow-[0_12px_40px_rgba(45,34,69,0.4)] transition-[transform,box-shadow] hover:scale-[1.05] hover:shadow-[0_16px_44px_rgba(45,34,69,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${ringFooter}`}
         aria-label="Voltar ao topo da página"
       >
         <IconSparkle className="h-6 w-6" />
