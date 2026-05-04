@@ -32,8 +32,7 @@ const specialties: {
   {
     name: "Clínico geral",
     variant: "compact",
-    photo:
-      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=400&h=480&fit=crop&crop=faces",
+    photo: "/clinico geral.jpg",
   },
   {
     name: "Dermatologista",
