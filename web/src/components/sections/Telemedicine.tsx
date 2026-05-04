@@ -64,7 +64,7 @@ export function Telemedicine() {
               viewport={{ once: true, margin: "0px 0px -8% 0px", amount: 0.2 }}
             >
               <motion.p variants={fadeUp}
-                className="font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-[#7b6bb2] mb-5">
+                className="font-sans text-[11px] font-normal tracking-[0.1em] text-[#7b6bb2] mb-5">
                 Telemedicina
               </motion.p>
               <motion.h2 variants={fadeUp}
@@ -83,13 +83,13 @@ export function Telemedicine() {
               <motion.div variants={fadeUp} className="flex items-center gap-5 flex-wrap">
                 <motion.a
                   href="#contato"
-                  className="inline-flex items-center justify-center font-sans font-semibold uppercase text-white text-center shadow-lg shadow-[#7b6bb2]/20"
+                  className="inline-flex items-center justify-center font-sans font-semibold text-white text-center shadow-lg shadow-[#7b6bb2]/20"
                   style={{
                     background: "#7b6bb2",
                     borderRadius: "9999px",
                     padding: "1rem 1.75rem",
                     fontSize: "clamp(0.7rem, 1.8vw, 0.8125rem)",
-                    letterSpacing: "0.04em",
+                    letterSpacing: "0.01em",
                     lineHeight: 1.25,
                   }}
                   whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
@@ -100,13 +100,13 @@ export function Telemedicine() {
                 </motion.a>
                 <motion.a
                   href="#adesao"
-                  className="inline-flex items-center justify-center font-sans font-semibold uppercase text-center text-[#7b6bb2] shadow-sm"
+                  className="inline-flex items-center justify-center font-sans font-semibold text-center text-[#7b6bb2] shadow-sm"
                   style={{
                     border: "1.5px solid rgba(123,107,178,0.45)",
                     borderRadius: "9999px",
                     padding: "1rem 1.75rem",
                     fontSize: "clamp(0.7rem, 1.8vw, 0.8125rem)",
-                    letterSpacing: "0.04em",
+                    letterSpacing: "0.01em",
                     lineHeight: 1.25,
                     background: "rgba(255,255,255,0.9)",
                   }}

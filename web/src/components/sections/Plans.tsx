@@ -43,7 +43,7 @@ export function Plans() {
           >
             <motion.p
               variants={fadeUp}
-              className="mb-4 font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-[var(--amelia-purple)]"
+              className="mb-4 font-sans text-[11px] font-normal tracking-[0.1em] text-[var(--amelia-purple)]"
             >
               Contratação
             </motion.p>
@@ -120,7 +120,7 @@ export function Plans() {
           >
             <motion.div variants={fadeUp} className="flex flex-col gap-8">
               <div>
-                <p className="font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-[var(--amelia-purple)]">
+                <p className="font-sans text-[11px] font-normal tracking-[0.1em] text-[var(--amelia-purple)]">
                   Inclusões
                 </p>
                 <h3
@@ -177,7 +177,7 @@ export function Plans() {
                     >
                       {v}
                     </span>
-                    <p className="mt-0.5 font-sans text-[11px] uppercase tracking-[0.12em] text-[var(--amelia-muted)]">
+                    <p className="mt-0.5 font-sans text-[11px] tracking-[0.04em] text-[var(--amelia-muted)]">
                       {l}
                     </p>
                   </div>

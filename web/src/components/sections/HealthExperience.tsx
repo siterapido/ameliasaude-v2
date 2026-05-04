@@ -141,7 +141,7 @@ export function HealthExperience() {
         >
           <motion.span
             variants={fadeUp}
-            className="mb-5 inline-flex rounded-full border border-[var(--amelia-line)] bg-white/80 px-4 py-2 font-sans text-[11px] font-normal uppercase tracking-[0.22em] text-[var(--amelia-purple)] shadow-sm backdrop-blur-sm"
+            className="mb-5 inline-flex rounded-full border border-[var(--amelia-line)] bg-white/80 px-4 py-2 font-sans text-[11px] font-normal tracking-[0.08em] text-[var(--amelia-purple)] shadow-sm backdrop-blur-sm"
           >
             Planos de saúde feitos para você
           </motion.span>
@@ -158,7 +158,7 @@ export function HealthExperience() {
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mt-12 max-w-2xl font-sans font-light uppercase leading-relaxed tracking-[0.12em] text-[var(--amelia-deep)]"
+            className="mt-12 max-w-2xl font-sans font-light leading-relaxed tracking-[0.04em] text-[var(--amelia-deep)]"
             style={{ fontSize: "clamp(0.78rem, 1.15vw, 0.9rem)" }}
           >
             A melhor experiência em planos de saúde.
@@ -181,10 +181,10 @@ export function HealthExperience() {
               <div className="mb-5 text-[var(--amelia-ink)]">
                 <Icon className="shrink-0" />
               </div>
-              <h3 className="font-display text-base font-normal uppercase tracking-[0.08em] text-[var(--amelia-ink)]">
+              <h3 className="font-display text-base font-normal tracking-[0.02em] text-[var(--amelia-ink)]">
                 {title}
               </h3>
-              <p className="mt-3 font-sans text-sm font-light uppercase leading-relaxed tracking-[0.06em] text-[#5c5c5c]">
+              <p className="mt-3 font-sans text-sm font-light leading-relaxed tracking-normal text-[#5c5c5c]">
                 {body}
               </p>
             </motion.li>
@@ -200,7 +200,7 @@ export function HealthExperience() {
         >
           <motion.a
             href="#contato"
-            className="inline-flex items-center justify-center rounded-2xl bg-[var(--amelia-ink)] px-10 py-4 font-sans text-sm font-normal uppercase tracking-[0.18em] text-white shadow-md transition-colors hover:bg-[var(--amelia-deep)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--amelia-purple)]"
+            className="inline-flex items-center justify-center rounded-2xl bg-[var(--amelia-ink)] px-10 py-4 font-sans text-sm font-normal tracking-[0.04em] text-white shadow-md transition-colors hover:bg-[var(--amelia-deep)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--amelia-purple)]"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >

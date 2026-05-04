@@ -226,7 +226,7 @@ export function Navigation() {
               className="pb-10 text-center"
             >
               <p
-                className="font-sans text-xs tracking-[0.2em] uppercase"
+                className="font-sans text-xs tracking-[0.08em]"
                 style={{ color: "rgba(255,255,255,0.35)" }}
               >
                 Amélia Saúde · Rio de Janeiro

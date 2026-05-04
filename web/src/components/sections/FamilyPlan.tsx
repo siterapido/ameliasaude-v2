@@ -37,7 +37,7 @@ export function FamilyPlan() {
         >
           <motion.span
             variants={fadeUp}
-            className="mb-4 block font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-white/70"
+            className="mb-4 block font-sans text-[11px] font-normal tracking-[0.1em] text-white/70"
           >
             Plano Carioca 10
           </motion.span>

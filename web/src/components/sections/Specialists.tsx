@@ -183,7 +183,7 @@ export function Specialists() {
                     isHero ? "lg:justify-center lg:border-l lg:border-t-0 lg:from-white/25 lg:to-white/[0.07]" : ""
                   }`}
                 >
-                  <p className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--amelia-purple)]/90">
+                  <p className="font-sans text-[10px] font-medium tracking-[0.06em] text-[var(--amelia-purple)]/90">
                     Especialidade
                   </p>
                   <h3 className="font-display mt-1 text-xl font-normal tracking-tight text-[var(--amelia-ink)] sm:text-[1.35rem]">

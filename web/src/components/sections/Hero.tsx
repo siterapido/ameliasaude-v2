@@ -61,7 +61,7 @@ export function Hero() {
         {/* Eyebrow */}
         <div className="flex items-center gap-3">
           <motion.p
-            className="font-sans text-[11px] font-medium tracking-[0.26em] uppercase text-[#7b6bb2]"
+            className="font-sans text-[11px] font-medium tracking-[0.08em] text-[#7b6bb2]"
             initial={{ y: 8 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}

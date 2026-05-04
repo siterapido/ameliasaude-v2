@@ -24,13 +24,13 @@ export function Network() {
             >
               <motion.p
                 variants={fadeUp}
-                className="mb-5 font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-white/85"
+                className="mb-5 font-sans text-[11px] font-normal tracking-[0.1em] text-white/85"
               >
                 Cobertura
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mb-5 font-display font-normal uppercase text-white"
+                className="mb-5 font-display font-normal text-white"
                 style={{
                   fontSize: "clamp(2rem, 4.5vw, 3.75rem)",
                   lineHeight: 1.05,
@@ -41,7 +41,7 @@ export function Network() {
               </motion.h2>
               <motion.p
                 variants={fadeUp}
-                className="mb-8 max-w-md font-sans font-light uppercase leading-relaxed text-white/80"
+                className="mb-8 max-w-md font-sans font-light leading-relaxed text-white/80"
                 style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)" }}
               >
                 Rede eficiente, presente em mais de 8 municípios no Rio e Grande Rio com mais de
@@ -50,7 +50,7 @@ export function Network() {
               <motion.div variants={fadeUp}>
                 <motion.button
                   type="button"
-                  className="inline-flex cursor-pointer items-center rounded-full font-sans text-sm font-normal uppercase"
+                  className="inline-flex cursor-pointer items-center rounded-full font-sans text-sm font-normal tracking-wide"
                   style={{
                     border: "1.5px solid rgba(255,255,255,0.85)",
                     color: "#fff",

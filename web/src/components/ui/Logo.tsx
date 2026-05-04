@@ -46,9 +46,8 @@ export function Logo({ variant = "dark", className = "" }: LogoProps) {
         fontFamily="'Cormorant Garamond', Georgia, serif"
         fontSize="16"
         fontWeight="400"
-        letterSpacing="0.04em"
+        letterSpacing="0.02em"
         fill={textColor}
-        style={{ textTransform: "uppercase" }}
       >
         amélia
       </text>
@@ -58,9 +57,8 @@ export function Logo({ variant = "dark", className = "" }: LogoProps) {
         fontFamily="'DM Sans', Arial, sans-serif"
         fontSize="8"
         fontWeight="400"
-        letterSpacing="0.18em"
+        letterSpacing="0.06em"
         fill={accentColor}
-        style={{ textTransform: "uppercase" }}
       >
         saúde
       </text>

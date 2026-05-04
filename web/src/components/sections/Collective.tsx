@@ -117,7 +117,7 @@ export function Collective() {
         <motion.div variants={staggerContainer(0.1, 0)} initial="hidden" whileInView="visible" viewport={viewportConfig}
           className="text-center mb-12">
           <motion.p variants={fadeUp}
-            className="font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-white/50 mb-4">
+            className="font-sans text-[11px] font-normal tracking-[0.1em] text-white/50 mb-4">
             Operadora de planos por adesão
           </motion.p>
           <motion.h2 variants={fadeUp}
@@ -138,7 +138,7 @@ export function Collective() {
             <motion.div key={f.eyebrow} variants={fadeUp}
               className="rounded-3xl p-8 flex flex-col"
               style={{ background: "rgba(255,255,255,0.94)", backdropFilter: "blur(12px)" }}>
-              <span className="font-sans text-[10px] font-normal tracking-[0.22em] uppercase text-[#7b6bb2] mb-3">
+              <span className="font-sans text-[10px] font-normal tracking-[0.08em] text-[#7b6bb2] mb-3">
                 {f.eyebrow}
               </span>
               <h3 className="font-display font-normal text-[#1a1a1a] mb-2"

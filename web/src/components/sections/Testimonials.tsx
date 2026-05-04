@@ -160,7 +160,7 @@ function TweetCard({ t }: { t: (typeof all)[number] }) {
           </p>
         </div>
         <span
-          className="ml-1 mt-0.5 shrink-0 rounded-full px-2.5 py-1 font-sans text-[10px] font-normal uppercase tracking-widest"
+          className="ml-1 mt-0.5 shrink-0 rounded-full px-2.5 py-1 font-sans text-[10px] font-normal tracking-wide"
           style={{ background: "rgba(123,107,178,0.08)", color: "var(--amelia-purple)" }}
         >
           Amélia
@@ -168,7 +168,7 @@ function TweetCard({ t }: { t: (typeof all)[number] }) {
       </header>
 
       {/* Role */}
-      <p className="mb-2 font-sans text-[11px] font-normal uppercase tracking-wider text-[var(--amelia-purple)]">
+      <p className="mb-2 font-sans text-[11px] font-normal tracking-wide text-[var(--amelia-purple)]">
         {t.role}
       </p>
 
@@ -278,7 +278,7 @@ export function Testimonials() {
       >
         <motion.p
           variants={fadeUp}
-          className="mb-3 font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-[var(--amelia-muted)]"
+          className="mb-3 font-sans text-[11px] font-normal tracking-[0.1em] text-[var(--amelia-muted)]"
         >
           Quem usa, recomenda
         </motion.p>

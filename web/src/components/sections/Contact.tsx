@@ -58,7 +58,7 @@ export function Contact() {
           >
             <motion.p
               variants={fadeUp}
-              className="mb-5 font-sans text-[11px] font-normal uppercase tracking-[0.26em] text-[var(--amelia-purple)]"
+              className="mb-5 font-sans text-[11px] font-normal tracking-[0.08em] text-[var(--amelia-purple)]"
             >
               Por que a Amélia
             </motion.p>
@@ -100,7 +100,7 @@ export function Contact() {
                 variants={fadeUp}
                 className="border-t border-[var(--amelia-line)] pt-8 transition-[border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[var(--amelia-purple)] md:pt-10"
               >
-                <p className="text-[10px] font-normal uppercase tracking-[0.2em] text-[var(--amelia-muted)] tabular-nums">
+                <p className="text-[10px] font-normal tracking-[0.06em] text-[var(--amelia-muted)] tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </p>
                 <h3 className="mt-3 font-sans text-lg font-normal tracking-tight text-[var(--amelia-ink)] md:text-xl">
@@ -123,7 +123,7 @@ export function Contact() {
         >
           <motion.p
             variants={fadeUp}
-            className="mb-4 font-sans text-[11px] font-normal uppercase tracking-[0.24em] text-[var(--amelia-purple)]"
+            className="mb-4 font-sans text-[11px] font-normal tracking-[0.1em] text-[var(--amelia-purple)]"
           >
             Contato
           </motion.p>
