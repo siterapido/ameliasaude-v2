@@ -47,19 +47,19 @@ export function Blog() {
         >
           <motion.span
             variants={fadeUp}
-            className="mb-4 block font-sans text-[11px] font-medium uppercase tracking-[0.14em] text-[#7b6bb2]"
+            className="mb-5 block font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-[#7b6bb2]"
           >
             Blog Amélia Saúde
           </motion.span>
           <motion.h2
             variants={fadeUp}
-            className="mx-auto max-w-[600px] font-display text-[clamp(2rem, 5vw, 3rem)] font-normal tracking-[-0.025em] leading-[1.08] text-[#1a1a1a]"
+            className="mx-auto max-w-[700px] font-display text-[clamp(2.5rem, 6vw, 3.75rem)] font-normal tracking-[-0.03em] leading-[1.05] text-[#7b6bb2]"
           >
             Conteúdos para cuidar de você
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-4 max-w-[520px] font-sans font-light leading-relaxed text-[#5c5470] text-[clamp(1rem, 1.5vw, 1.125rem)]"
+            className="mx-auto mt-6 max-w-[560px] font-sans font-light leading-relaxed text-[#5c5470] text-[clamp(1.05rem, 1.6vw, 1.25rem)]"
           >
             Dicas, novidades e orientações para você fazer as melhores escolhas em saúde.
           </motion.p>
@@ -86,14 +86,14 @@ export function Blog() {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
-              <div className="p-6">
-                <span className="font-sans text-[10px] font-medium uppercase tracking-[0.12em] text-[#7b6bb2]">
+              <div className="p-7">
+                <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.14em] text-[#7b6bb2]">
                   {post.category}
                 </span>
-                <h3 className="mt-2 font-display text-[clamp(1.1rem, 2vw, 1.3rem)] font-normal leading-[1.15] tracking-[-0.02em] text-[#1a1a1a] group-hover:text-[#5e4985] transition-colors duration-200">
+                <h3 className="mt-3 font-display text-[clamp(1.25rem, 2.2vw, 1.5rem)] font-normal leading-[1.15] tracking-[-0.02em] text-[#1a1a1a] group-hover:text-[#5e4985] transition-colors duration-200">
                   {post.title}
                 </h3>
-                <p className="mt-3 font-sans text-sm font-light leading-relaxed text-[#5c5470] line-clamp-2">
+                <p className="mt-4 font-sans font-light leading-relaxed text-[#5c5470] text-[0.95rem] line-clamp-2">
                   {post.excerpt}
                 </p>
                 <div className="mt-4 flex items-center gap-3 border-t border-[#e4dcf5] pt-4 font-sans text-[11px] text-[#8a8a8a]">
