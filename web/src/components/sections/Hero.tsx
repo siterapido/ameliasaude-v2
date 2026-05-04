@@ -56,7 +56,7 @@ export function Hero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-[40%] md:mx-auto flex flex-col justify-between" style={{ height: "100%" }}>
+      <div className="relative z-10 w-full max-w-[60%] md:mx-auto flex flex-col justify-between" style={{ height: "100%" }}>
 
         {/* Headline */}
         <h1
