@@ -29,7 +29,7 @@ export function Hero() {
       id="hero"
       ref={ref}
       className="relative flex flex-col justify-between overflow-hidden bg-white"
-      style={{ minHeight: "100svh", padding: "9rem 2rem 5rem" }}
+      style={{ minHeight: "100svh", padding: "9rem 2rem 3rem" }}
     >
       {/* ── Background Image ── */}
       <motion.div 
@@ -44,7 +44,7 @@ export function Hero() {
           alt="Família feliz à direita"
           fill
           priority
-          className="object-cover object-center max-md:object-[center_center]"
+          className="object-cover object-[30%_center] max-md:object-[30%_center] sm:object-[70%_center] md:object-[85%_center] lg:object-right"
           sizes="100vw"
         />
       </motion.div>

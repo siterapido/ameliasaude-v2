@@ -38,10 +38,10 @@ export function Navigation() {
 
   /** Menu fechado no topo: traços claros no hero; ao rolar: borda e traços roxos */
   const toggleBorder =
-    menuOpen ? "rgba(255,255,255,0.3)" : scrolled ? "rgba(123,107,178,0.5)" : "rgba(255,255,255,0.6)";
-  const toggleStroke = menuOpen ? "#ffffff" : scrolled ? "#7b6bb2" : "#ffffff";
+    menuOpen ? "rgba(123,107,178,0.8)" : scrolled ? "rgba(123,107,178,0.5)" : "rgba(255,255,255,0.6)";
+  const toggleStroke = menuOpen ? "#7b6bb2" : scrolled ? "#7b6bb2" : "#ffffff";
   const toggleBg =
-    menuOpen ? "rgba(255,255,255,0.1)" : scrolled ? "rgba(123,107,178,0.06)" : "transparent";
+    menuOpen ? "rgba(255,255,255,0.9)" : scrolled ? "rgba(123,107,178,0.06)" : "transparent";
 
   return (
     <>
