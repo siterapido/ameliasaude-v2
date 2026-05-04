@@ -30,28 +30,27 @@ export function Network() {
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mb-5 font-display font-normal text-white"
+                className="mb-5 font-display font-normal uppercase text-white"
                 style={{
                   fontSize: "clamp(2rem, 4.5vw, 3.75rem)",
                   lineHeight: 1.05,
                   letterSpacing: "-0.02em",
                 }}
               >
-                Acesso à rede mais eficiente do{" "}
-                <em className="font-light italic text-white/95">Rio de Janeiro.</em>
+                Ampla rede credenciada pertinho de você
               </motion.h2>
               <motion.p
                 variants={fadeUp}
-                className="mb-8 max-w-md font-sans font-light leading-relaxed text-white/80"
+                className="mb-8 max-w-md font-sans font-light uppercase leading-relaxed text-white/80"
                 style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)" }}
               >
-                Presença em mais de 8 municípios, com hospitais, clínicas, centros médicos e
-                laboratórios no Rio e Grande Rio.
+                Rede eficiente, presente em mais de 8 municípios no Rio e Grande Rio com mais de
+                20 hospitais para lhe atender.
               </motion.p>
               <motion.div variants={fadeUp}>
-                <motion.a
-                  href="#contato"
-                  className="inline-flex items-center rounded-full font-sans text-sm font-normal"
+                <motion.button
+                  type="button"
+                  className="inline-flex cursor-pointer items-center rounded-full font-sans text-sm font-normal uppercase"
                   style={{
                     border: "1.5px solid rgba(255,255,255,0.85)",
                     color: "#fff",
@@ -60,9 +59,10 @@ export function Network() {
                   whileHover={{ background: "#fff", color: "#7B6BB2", scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.2 }}
+                  aria-label="Conheça nossa rede hospitalar (em breve: lista de hospitais)"
                 >
-                  Conheça nossa rede credenciada
-                </motion.a>
+                  Conheça nossa rede hospitalar
+                </motion.button>
               </motion.div>
             </motion.div>
           </div>

@@ -40,9 +40,9 @@ function Phone() {
 }
 
 const bullets = [
-  { title: "Protocolos clínicos por especialidade", desc: "Cada atendimento segue protocolos validados clinicamente." },
-  { title: "Prescrição eletrônica completa", desc: "Medicamentos, exames e atestados emitidos digitalmente." },
+  { title: "Pronto atendimento digital 24 horas", desc: "comodidade e segurança em qualquer horário do seu dia." },
   { title: "80% resolutividade na 1ª consulta", desc: "A maioria dos casos resolvidos já no primeiro atendimento." },
+  { title: "Prescrição eletrônica completa", desc: "Medicamentos, exames e atestados emitidos digitalmente." },
 ];
 
 export function Telemedicine() {
@@ -83,31 +83,38 @@ export function Telemedicine() {
               <motion.div variants={fadeUp} className="flex items-center gap-5 flex-wrap">
                 <motion.a
                   href="#contato"
-                  className="inline-flex items-center justify-center font-sans font-medium text-white shadow-lg shadow-[#7b6bb2]/20"
+                  className="inline-flex items-center justify-center font-sans font-semibold uppercase text-white text-center shadow-lg shadow-[#7b6bb2]/20"
                   style={{
                     background: "#7b6bb2",
                     borderRadius: "9999px",
-                    padding: "1rem 2.4rem",
-                    fontSize: "0.9375rem",
-                    letterSpacing: "0.005em",
+                    padding: "1rem 1.75rem",
+                    fontSize: "clamp(0.7rem, 1.8vw, 0.8125rem)",
+                    letterSpacing: "0.04em",
+                    lineHeight: 1.25,
                   }}
                   whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
-                  Fale conosco
+                  Consulta pronto atendimento
                 </motion.a>
                 <motion.a
                   href="#adesao"
-                  className="inline-flex items-center gap-1.5 font-sans font-medium text-[#7b6bb2] hover:text-[#5e4985] transition-colors"
-                  style={{ fontSize: "0.9375rem" }}
-                  whileHover={{ x: 4 }}
+                  className="inline-flex items-center justify-center font-sans font-semibold uppercase text-center text-[#7b6bb2] shadow-sm"
+                  style={{
+                    border: "1.5px solid rgba(123,107,178,0.45)",
+                    borderRadius: "9999px",
+                    padding: "1rem 1.75rem",
+                    fontSize: "clamp(0.7rem, 1.8vw, 0.8125rem)",
+                    letterSpacing: "0.04em",
+                    lineHeight: 1.25,
+                    background: "rgba(255,255,255,0.9)",
+                  }}
+                  whileHover={{ borderColor: "#7b6bb2", backgroundColor: "rgba(123,107,178,0.08)", scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
-                  Como aderir
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  Pronto atendimento
                 </motion.a>
               </motion.div>
             </motion.div>

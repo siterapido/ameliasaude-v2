@@ -53,12 +53,20 @@ const cities: { name: string; src: string }[] = [
     src: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=160&h=160&fit=crop&q=80",
   },
   {
-    name: "Petrópolis",
-    src: "/petropolis.jpg",
+    name: "São João de Meriti",
+    src: "https://images.unsplash.com/photo-1544986581-0287a3cd0c3c?w=160&h=160&fit=crop&q=80",
   },
   {
     name: "Magé",
     src: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=160&h=160&fit=crop&q=80",
+  },
+  {
+    name: "Nilópolis",
+    src: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=160&h=160&fit=crop&q=80",
+  },
+  {
+    name: "Mesquita",
+    src: "https://images.unsplash.com/photo-1469854523086e02802f6fe0?w=160&h=160&fit=crop&q=80",
   },
 ];
 
@@ -66,6 +74,7 @@ const ORBIT_LAYERS: { radiusPct: number; anglesDeg: number[] }[] = [
   { radiusPct: 24, anglesDeg: [-90, 30, 150] },
   { radiusPct: 33, anglesDeg: [-30, 90, 210] },
   { radiusPct: 42, anglesDeg: [0, 180] },
+  { radiusPct: 46, anglesDeg: [50, 230] },
 ];
 
 type CityPlacement = {
@@ -75,9 +84,9 @@ type CityPlacement = {
   layerIndex: number;
 };
 
-/** Entre o anel médio (33%) e o externo (42%). */
-const PETROPOLIS_RADIUS_PCT = 36;
-const PETROPOLIS_RADIUS_COMPACT_PCT = 40;
+/** Entre o anel médio (33%) e o externo (42%) — posição de São João de Meriti. */
+const MERITI_RADIUS_PCT = 36;
+const MERITI_RADIUS_COMPACT_PCT = 40;
 
 /**
  * Mobile: arco superior mais uniforme (≈NW · topo · NE) e anéis um pouco mais abertos
@@ -87,11 +96,12 @@ const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
   { radiusPct: 29, anglesDeg: [-90, 146, 40] },
   { radiusPct: 36, anglesDeg: [-40, 93, -134] },
   { radiusPct: 44, anglesDeg: [6, 186] },
+  { radiusPct: 50, anglesDeg: [55, 235] },
 ];
 
 function buildPlacements(
   layers: { radiusPct: number; anglesDeg: number[] }[],
-  petropolisRadiusPct: number = PETROPOLIS_RADIUS_PCT
+  meritiRadiusPct: number = MERITI_RADIUS_PCT
 ): CityPlacement[] {
   const out: CityPlacement[] = [];
   let idx = 0;
@@ -104,8 +114,8 @@ function buildPlacements(
     }
   }
   return out.map((p) =>
-    p.city.name === "Petrópolis"
-      ? { ...p, radiusPct: petropolisRadiusPct }
+    p.city.name === "São João de Meriti"
+      ? { ...p, radiusPct: meritiRadiusPct }
       : p
   );
 }
@@ -140,7 +150,7 @@ export function CoverageOrbital() {
     () =>
       buildPlacements(
         layers,
-        compactOrbit ? PETROPOLIS_RADIUS_COMPACT_PCT : PETROPOLIS_RADIUS_PCT
+        compactOrbit ? MERITI_RADIUS_COMPACT_PCT : MERITI_RADIUS_PCT
       ),
     [layers, compactOrbit]
   );

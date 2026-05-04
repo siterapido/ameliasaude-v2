@@ -39,7 +39,7 @@ export function FamilyPlan() {
             variants={fadeUp}
             className="mb-4 block font-sans text-[11px] font-normal tracking-[0.24em] uppercase text-white/70"
           >
-            Na adesão, você e seus dependentes
+            Plano Carioca 10
           </motion.span>
 
           <motion.h2
@@ -54,7 +54,7 @@ export function FamilyPlan() {
             Cuidado de verdade
             <br />
             <em className="font-light italic text-white/90">
-              para quem você ama.
+              para os cariocas.
             </em>
           </motion.h2>
 
@@ -66,14 +66,13 @@ export function FamilyPlan() {
               lineHeight: 1.6,
             }}
           >
-            No coletivo por adesão, titulares e dependentes enxergam a mesma rede
-            credenciada e o mesmo padrão de atendimento — consultas, exames e
-            internação com a tranquilidade de um plano pensado para a vida real.
+            Para o carioca que cuida de si e de quem ama — com a mesma leveza de
+            uma tarde na orla.
           </motion.p>
 
           <motion.div variants={fadeUp}>
             <Button variant="ghost-white" href="#contato">
-              Falar sobre a adesão
+              Saiba mais
             </Button>
           </motion.div>
         </motion.div>

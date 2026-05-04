@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Network } from "@/components/sections/Network";
 import { Telemedicine } from "@/components/sections/Telemedicine";
 import { Specialists } from "@/components/sections/Specialists";
+import { HealthExperience } from "@/components/sections/HealthExperience";
 import { Plans } from "@/components/sections/Plans";
 import { FamilyPlan } from "@/components/sections/FamilyPlan";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -19,6 +20,7 @@ export default function Home() {
         <Network />
         <Telemedicine />
         <Specialists />
+        <HealthExperience />
         <Plans />
         <FamilyPlan />
         <Testimonials />

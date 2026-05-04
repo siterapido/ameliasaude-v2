@@ -6,9 +6,17 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 const HEADLINE_LINES: ReactNode[] = [
-  <>Planos que cuidam</>,
-  <>de você de verdade</>,
+  <>SUA SAÚDE EM</>,
+  <>NOSSOS PLANOS</>,
 ];
+
+/** Retratos genéricos para stack social — substitua por fotos reais da marca quando houver. */
+const SOCIAL_AVATARS = [
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=96&h=96&fit=crop&crop=faces",
+] as const;
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -42,10 +50,6 @@ export function Hero() {
       </motion.div>
 
       {/* ── Gradient Overlay ── */}
-      {/* 
-        This white gradient starts fully opaque on the left, 
-        and gradually fades to transparent on the right to reveal the family.
-      */}
       <div
         className="pointer-events-none absolute inset-0 max-md:bg-[linear-gradient(90deg,#fff_0%,#fff_12%,rgba(255,255,255,0.9)_34%,rgba(255,255,255,0.38)_52%,transparent_70%)] md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
         aria-hidden
@@ -92,14 +96,14 @@ export function Hero() {
 
         {/* Body copy */}
         <motion.p
-          className="font-sans font-light text-[#4a4a4a] max-w-[480px] leading-relaxed"
+          className="font-sans font-light text-[#4a4a4a] max-w-[560px] leading-relaxed"
           style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
           initial={{ y: 16 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
         >
-          Coletivo por adesão: contratação via sindicatos, conselhos e associações profissionais, com
-          rede credenciada no Rio de Janeiro e atendimento sem burocracia.
+          Melhor plano de saúde para você, sua família e sua empresa, com um time sempre pronto para lhe
+          atender com agilidade, transparência e segurança.
         </motion.p>
 
         {/* CTAs */}
@@ -109,6 +113,26 @@ export function Hero() {
           animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
+          <motion.a
+            href="https://ameliasaude.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center font-sans font-medium text-[#7b6bb2] shadow-sm"
+            style={{
+              border: "1.5px solid rgba(123,107,178,0.35)",
+              borderRadius: "9999px",
+              padding: "1rem 2.4rem",
+              fontSize: "0.9375rem",
+              letterSpacing: "0.005em",
+              background: "rgba(255,255,255,0.85)",
+            }}
+            whileHover={{ borderColor: "#7b6bb2", scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+          >
+            Já sou cliente
+          </motion.a>
+
           <motion.a
             href="#contato"
             className="inline-flex items-center justify-center font-sans font-medium text-white shadow-lg shadow-[#7b6bb2]/20"
@@ -123,25 +147,41 @@ export function Hero() {
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
-            Fale conosco
+            Fazer orçamento
           </motion.a>
+        </motion.div>
 
-          <motion.a
-            href="#adesao"
-            className="inline-flex items-center gap-1.5 font-sans font-medium text-[#7b6bb2] hover:text-[#5e4985] transition-colors"
-            style={{ fontSize: "0.9375rem" }}
-            whileHover={{ x: 4 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          >
-            Como aderir
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </motion.a>
+        {/* Prova social — avatares */}
+        <motion.div
+          className="mt-2 flex flex-wrap items-center gap-4"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="flex items-center pl-1">
+            {SOCIAL_AVATARS.map((src, i) => (
+              <div
+                key={src}
+                className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-[0_1px_6px_rgba(0,0,0,0.08)] md:h-12 md:w-12"
+                style={{ marginLeft: i === 0 ? 0 : -14 }}
+              >
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="48px"
+                />
+              </div>
+            ))}
+          </div>
+          <p className="font-sans text-[0.9375rem] font-normal leading-snug text-[#1a1a1a]">
+            <span className="font-semibold text-[#7b6bb2]">+2.500</span> famílias protegidas
+          </p>
         </motion.div>
       </div>
 
-      {/* Stats strip - Aligned Left now */}
+      {/* Stats strip */}
       <motion.div
         className="relative z-10 mt-20 flex flex-wrap justify-start gap-10 sm:gap-16 border-t border-[rgba(123,107,178,0.15)] pt-8 w-full max-w-[1200px] mx-auto"
         initial={{ y: 16 }}
@@ -174,7 +214,6 @@ export function Hero() {
         ))}
       </motion.div>
 
-      {/* Scroll indicator (Optional, we can align it to the left or keep it centered at the bottom of the section) */}
       <motion.div
         initial={{ y: 6 }}
         animate={{ y: 0 }}
