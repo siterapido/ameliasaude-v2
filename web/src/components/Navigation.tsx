@@ -86,7 +86,32 @@ export function Navigation() {
             />
           </a>
 
-          <div className="flex items-center">
+          {/* Desktop nav links */}
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Menu principal">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
+                  scrolled
+                    ? "text-gray-700 hover:text-[#7b6bb2]"
+                    : "text-white/80 hover:text-white"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+            <Button
+              variant={scrolled ? "default" : "ghost-white"}
+              href="#contato"
+              className="ml-2"
+            >
+              Fale conosco
+            </Button>
+          </nav>
+
+          {/* Mobile toggle — hidden on desktop */}
+          <div className="flex items-center lg:hidden">
             <motion.button
               className="relative z-[60] flex flex-col justify-center items-center gap-[5px] rounded-full border transition-[border-color,background-color] duration-300"
               style={{
