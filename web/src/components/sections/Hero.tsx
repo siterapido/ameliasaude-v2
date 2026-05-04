@@ -28,7 +28,7 @@ export function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative flex flex-col justify-center overflow-hidden bg-white"
+      className="relative flex flex-col justify-between overflow-hidden bg-white"
       style={{ minHeight: "100svh", padding: "9rem 2rem 5rem" }}
     >
       {/* ── Background Image ── */}
@@ -56,7 +56,7 @@ export function Hero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col items-start gap-5">
+      <div className="relative z-10 w-full max-w-[40%] md:mx-auto flex flex-col justify-between" style={{ height: "100%" }}>
 
         {/* Headline */}
         <h1
