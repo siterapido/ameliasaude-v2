@@ -11,8 +11,8 @@ export function FamilyPlan() {
       className="relative flex flex-col justify-center min-h-[100svh] items-center overflow-hidden bg-[var(--amelia-deep)]"
     >
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/familia-bg.webp')", transform: "scaleX(-1)" }}
+        className="absolute inset-0 z-0 bg-cover bg-no-repeat"
+        style={{ backgroundImage: "url('/familia-bg.webp')", transform: "scaleX(-1)", backgroundPosition: "65% center" }}
       />
 
       <div
