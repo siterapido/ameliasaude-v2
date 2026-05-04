@@ -28,7 +28,7 @@ export function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative flex flex-col justify-between overflow-hidden bg-white"
+      className="relative flex flex-col justify-center overflow-hidden bg-white"
       style={{ minHeight: "100svh", padding: "9rem 2rem 5rem" }}
     >
       {/* ── Background Image ── */}
@@ -56,7 +56,7 @@ export function Hero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-[60%] md:mx-auto flex flex-col justify-between" style={{ height: "100%" }}>
+      <div className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col items-start gap-5">
 
         {/* Headline */}
         <h1
@@ -103,8 +103,8 @@ export function Hero() {
             style={{
               border: "1.5px solid rgba(123,107,178,0.35)",
               borderRadius: "9999px",
-              padding: "0.75rem 1.8rem",
-              fontSize: "0.8125rem",
+              padding: "1rem 2.4rem",
+              fontSize: "0.9375rem",
               letterSpacing: "0.005em",
               background: "rgba(255,255,255,0.85)",
             }}
@@ -121,8 +121,8 @@ export function Hero() {
             style={{
               background: "#7b6bb2",
               borderRadius: "9999px",
-              padding: "0.75rem 1.8rem",
-              fontSize: "0.8125rem",
+              padding: "1rem 2.4rem",
+              fontSize: "0.9375rem",
               letterSpacing: "0.005em",
             }}
             whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
@@ -135,7 +135,7 @@ export function Hero() {
 
         {/* Prova social — avatares */}
         <motion.div
-          className="mt-2 flex flex-wrap items-center gap-2"
+          className="mt-2 flex flex-wrap items-center gap-4"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
@@ -144,8 +144,8 @@ export function Hero() {
             {SOCIAL_AVATARS.map((src, i) => (
               <div
                 key={src}
-                className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-[0_1px_6px_rgba(0,0,0,0.08)] md:h-12 md:w-12"
-                style={{ marginLeft: i === 0 ? 0 : -8 }}
+                className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-[0_1px_6px_rgba(0,0,0,0.08)] md:h-12 md:w-12"
+                style={{ marginLeft: i === 0 ? 0 : -14 }}
               >
                 <Image
                   src={src}
