@@ -32,7 +32,7 @@ export function Hero() {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <Image
-          src="/hero-family.png"
+          src="/hero-nova.png"
           alt="Família feliz à direita"
           fill
           priority
