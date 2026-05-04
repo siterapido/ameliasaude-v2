@@ -36,12 +36,10 @@ export function Navigation() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  /** Menu fechado no topo: traços claros no hero; ao rolar: borda e traços roxos */
-  const toggleBorder =
-    menuOpen ? "rgba(123,107,178,0.8)" : scrolled ? "rgba(123,107,178,0.5)" : "rgba(255,255,255,0.6)";
-  const toggleStroke = menuOpen ? "#7b6bb2" : scrolled ? "#7b6bb2" : "#ffffff";
-  const toggleBg =
-    menuOpen ? "rgba(255,255,255,0.9)" : scrolled ? "rgba(123,107,178,0.06)" : "transparent";
+  /** Toggle always purple */
+  const toggleBorder = "rgba(123,107,178,0.5)";
+  const toggleStroke = "#7b6bb2";
+  const toggleBg = "transparent";
 
   return (
     <>
@@ -131,7 +129,7 @@ export function Navigation() {
               <motion.span
                 animate={
                   menuOpen
-                    ? { rotate: 45, y: 6, backgroundColor: "#ffffff" }
+                    ? { rotate: 45, y: 6, backgroundColor: "#7b6bb2" }
                     : { rotate: 0, y: 0, backgroundColor: toggleStroke }
                 }
                 transition={{ duration: 0.3 }}
@@ -140,7 +138,7 @@ export function Navigation() {
               <motion.span
                 animate={
                   menuOpen
-                    ? { opacity: 0, x: -4, backgroundColor: "#ffffff" }
+                    ? { opacity: 0, x: -4, backgroundColor: "#7b6bb2" }
                     : { opacity: 1, x: 0, backgroundColor: toggleStroke }
                 }
                 transition={{ duration: 0.2 }}
@@ -149,7 +147,7 @@ export function Navigation() {
               <motion.span
                 animate={
                   menuOpen
-                    ? { rotate: -45, y: -6, backgroundColor: "#ffffff" }
+                    ? { rotate: -45, y: -6, backgroundColor: "#7b6bb2" }
                     : { rotate: 0, y: 0, backgroundColor: toggleStroke }
                 }
                 transition={{ duration: 0.3 }}
