@@ -12,10 +12,14 @@ export function FamilyPlan() {
                  justify-end items-start
                  md:justify-center md:items-center"
     >
-      {/* Background image — mobile (mirrored) */}
+      {/* Background image — mobile (mirrored, centered vertically) */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat md:hidden"
-        style={{ backgroundImage: "url('/familia-bg.webp')", transform: "scaleX(-1)", backgroundPosition: "center 20%" }}
+        style={{
+          backgroundImage: "url('/familia-bg.webp')",
+          transform: "scaleX(-1)",
+          backgroundPosition: "center center",
+        }}
       />
       {/* Background image — desktop */}
       <div
@@ -47,14 +51,14 @@ export function FamilyPlan() {
         >
           <motion.span
             variants={fadeUp}
-            className="mb-3 block font-sans text-[12px] font-medium tracking-[0.15em] uppercase text-[var(--amelia-deep)]/60"
+            className="mb-3 block font-sans text-[12px] font-medium tracking-[0.15em] uppercase text-white/70"
           >
             Plano Carioca 10
           </motion.span>
 
           <motion.h2
             variants={fadeUp}
-            className="mb-4 font-display font-normal text-[var(--amelia-deep)]"
+            className="mb-4 font-display font-normal text-white"
             style={{
               fontSize: "clamp(2.8rem, 8vw, 4.2rem)",
               lineHeight: 0.95,
@@ -63,14 +67,14 @@ export function FamilyPlan() {
           >
             Cuidado de verdade
             <br />
-            <em className="font-light italic text-[var(--amelia-deep)]/80">
+            <em className="font-light italic text-white/85">
               para os cariocas.
             </em>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mb-8 max-w-2xl font-sans text-[var(--amelia-deep)]/70"
+            className="mb-8 max-w-2xl font-sans text-white/80"
             style={{
               fontSize: "clamp(1.05rem, 2vw, 1.15rem)",
               lineHeight: 1.5,
@@ -82,7 +86,11 @@ export function FamilyPlan() {
           </motion.p>
 
           <motion.div variants={fadeUp}>
-            <Button variant="outline" href="#contato" className="border-[var(--amelia-deep)] text-[var(--amelia-deep)] hover:bg-[var(--amelia-deep)] hover:text-white">
+            <Button
+              variant="outline"
+              href="#contato"
+              className="border-white text-white hover:bg-white hover:text-[var(--amelia-deep)]"
+            >
               Saiba mais
             </Button>
           </motion.div>
