@@ -8,66 +8,62 @@ export function FamilyPlan() {
   return (
     <section
       id="beneficiarios"
-      className="relative flex flex-col justify-center min-h-[100svh] items-center overflow-hidden bg-[var(--amelia-deep)]"
+      className="relative flex flex-col justify-end min-h-[100svh] items-center overflow-hidden bg-white"
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat md:hidden"
-        style={{ backgroundImage: "url('/familia-bg.webp')", transform: "scaleX(-1)", backgroundPosition: "30% center" }}
+        style={{ backgroundImage: "url('/familia-bg.webp')", transform: "scaleX(-1)", backgroundPosition: "center 20%" }}
       />
       <div
         className="absolute inset-0 z-0 hidden bg-cover bg-no-repeat md:block"
-        style={{ backgroundImage: "url('/familia-bg.webp')", backgroundPosition: "30% center" }}
+        style={{ backgroundImage: "url('/familia-bg.webp')", backgroundPosition: "center 20%" }}
       />
 
       <div
-        className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--amelia-deep)]/70 via-[var(--amelia-deep)]/40 to-[var(--amelia-deep)]/95 md:hidden"
-        aria-hidden
-      />
-      <div
-        className="absolute inset-0 z-0 hidden bg-gradient-to-r from-[var(--amelia-deep)]/60 via-[var(--amelia-deep)]/25 to-[var(--amelia-deep)]/50 md:block"
+        className="absolute inset-0 z-0 bg-gradient-to-t from-white via-white/95 to-transparent"
         aria-hidden
       />
 
       <div
         className="relative z-10 w-full max-w-[1200px] mx-auto"
-        style={{ padding: "clamp(3rem, 8vh, 6rem) clamp(1.5rem, 5vw, 5rem)" }}
+        style={{ padding: "clamp(2rem, 5vh, 4rem) clamp(1.5rem, 5vw, 5rem)" }}
       >
         <motion.div
           variants={staggerContainer(0.15, 0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="mx-auto flex max-w-2xl flex-col items-center text-center"
+          className="mx-auto flex max-w-3xl flex-col items-center text-center"
         >
           <motion.span
             variants={fadeUp}
-            className="mb-4 block font-sans text-[11px] font-normal tracking-[0.1em] text-white/70"
+            className="mb-3 block font-sans text-[12px] font-medium tracking-[0.15em] uppercase text-[var(--amelia-deep)]/60"
           >
             Plano Carioca 10
           </motion.span>
 
           <motion.h2
             variants={fadeUp}
-            className="mb-6 font-display font-normal text-white"
+            className="mb-4 font-display font-normal text-[var(--amelia-deep)]"
             style={{
-              fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
+              fontSize: "clamp(2.2rem, 7vw, 4.2rem)",
+              lineHeight: 1,
+              letterSpacing: "-0.03em",
             }}
           >
             Cuidado de verdade
             <br />
-            <em className="font-light italic text-white/90">
+            <em className="font-light italic text-[var(--amelia-deep)]/80">
               para os cariocas.
             </em>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mb-10 max-w-xl font-sans text-white/80"
+            className="mb-8 max-w-2xl font-sans text-[var(--amelia-deep)]/70"
             style={{
-              fontSize: "clamp(1rem, 2vw, 1.25rem)",
-              lineHeight: 1.6,
+              fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)",
+              lineHeight: 1.5,
             }}
           >
             Para o carioca que cuida de si e de quem ama — com a mesma leveza de
@@ -75,7 +71,7 @@ export function FamilyPlan() {
           </motion.p>
 
           <motion.div variants={fadeUp}>
-            <Button variant="ghost-white" href="#contato">
+            <Button variant="outline" href="#contato" className="border-[var(--amelia-deep)] text-[var(--amelia-deep)] hover:bg-[var(--amelia-deep)] hover:text-white">
               Saiba mais
             </Button>
           </motion.div>
