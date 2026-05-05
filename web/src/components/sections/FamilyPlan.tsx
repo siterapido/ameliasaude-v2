@@ -8,32 +8,42 @@ export function FamilyPlan() {
   return (
     <section
       id="beneficiarios"
-      className="relative flex flex-col justify-end min-h-[100svh] items-center overflow-hidden bg-white"
+      className="relative flex flex-col min-h-[100svh] overflow-hidden bg-white
+                 justify-end items-start
+                 md:justify-center md:items-center"
     >
+      {/* Background image — mobile (mirrored) */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat md:hidden"
         style={{ backgroundImage: "url('/familia-bg.webp')", transform: "scaleX(-1)", backgroundPosition: "center 20%" }}
       />
+      {/* Background image — desktop */}
       <div
         className="absolute inset-0 z-0 hidden bg-cover bg-no-repeat md:block"
         style={{ backgroundImage: "url('/familia-bg.webp')", backgroundPosition: "center 20%" }}
       />
 
+      {/* Gradient overlay — mobile: lighter / desktop: stronger for readability */}
       <div
-        className="absolute inset-0 z-0 bg-gradient-to-t from-white via-white/80 to-transparent"
+        className="absolute inset-0 z-0
+                   bg-gradient-to-t from-white/90 via-white/30 to-transparent
+                   md:bg-gradient-to-t md:from-white/80 md:via-white/50 md:to-white/20"
         aria-hidden
       />
 
       <div
-        className="relative z-10 w-full max-w-[1200px] mx-auto"
-        style={{ padding: "clamp(3rem, 10vh, 6rem) clamp(1.5rem, 5vw, 2rem) clamp(2.5rem, 5vh, 5rem)" }}
+        className="relative z-10 w-full max-w-[1200px] mx-auto
+                   px-[clamp(1.5rem,5vw,2rem)]
+                   pb-[clamp(2.5rem,5vh,5rem)] pt-[clamp(3rem,10vh,6rem)]"
       >
         <motion.div
           variants={staggerContainer(0.15, 0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="mx-auto flex max-w-3xl flex-col items-center text-center"
+          className="flex max-w-3xl flex-col
+                     items-start text-left
+                     md:items-center md:text-center md:mx-auto"
         >
           <motion.span
             variants={fadeUp}
