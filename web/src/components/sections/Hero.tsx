@@ -27,12 +27,12 @@ export function Hero() {
       id="hero"
       ref={ref}
       className="relative flex flex-col overflow-hidden bg-white"
-      style={{ minHeight: "100svh" }}
+      style={{ minHeight: "clamp(750px, 125svh, 125svh)" }}
     >
       {/* ── Background Image ── */}
       <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ y: imageY }}
+        className="absolute inset-x-0 top-0 pointer-events-none will-change-transform h-[55%] md:h-full"
+        style={{ y: imageY, translateZ: 0 }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
@@ -42,17 +42,21 @@ export function Hero() {
           alt="Família feliz à direita"
           fill
           priority
-          quality={95}
-          className="object-cover object-[75%_center] max-md:object-[75%_center] sm:object-[70%_center] md:object-[85%_center] lg:object-right"
+          quality={100}
+          className="object-cover object-[85%_10%] md:object-right"
+          style={{ 
+            imageRendering: "auto",
+            filter: "contrast(1.02) brightness(1.03)"
+          }}
           sizes="(max-width: 768px) 100vw, 100vw"
         />
       </motion.div>
 
-      {/* ── Mobile Overlay Gradient — mais transparente, bottom-to-top ── */}
+      {/* ── Mobile Overlay Gradient — suave transição para o branco ── */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 md:hidden"
+        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[55%] md:hidden"
         style={{
-          background: "linear-gradient(to top, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 35%, rgba(255,255,255,0.15) 65%, transparent 100%)"
+          background: "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%)"
         }}
         aria-hidden
       />
@@ -64,19 +68,18 @@ export function Hero() {
       />
 
       {/* ── Content ── */}
-      {/* Mobile: tudo em baixo (justify-end) | Desktop: tudo centralizado (justify-center items-center) */}
       <div
         className="relative z-10 flex flex-1 flex-col w-full
                    justify-end items-start
                    md:justify-center md:items-start"
-        style={{ padding: "clamp(2rem, 10vh, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(2rem, 5vh, 4rem)" }}
+        style={{ padding: "clamp(2rem, 10vh, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(6rem, 15vh, 10rem)" }}
       >
         <div className="flex flex-col gap-6 w-full max-w-[1200px] md:mx-auto md:items-start md:text-left">
 
           {/* Headline */}
           <h1
             className="font-display font-normal lowercase italic text-[#7b6bb2]"
-            style={{ fontSize: "clamp(3.2rem, 8vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.03em" }}
+            style={{ fontSize: "clamp(3.2rem, 12vw, 8rem)", lineHeight: 0.82, letterSpacing: "-0.03em" }}
           >
             {HEADLINE_LINES.map((line, i) => (
               <motion.div
@@ -93,8 +96,8 @@ export function Hero() {
 
           {/* Body copy */}
           <motion.p
-            className="font-sans font-light text-[#333333] max-w-[300px] md:max-w-[560px] leading-relaxed text-[0.875rem] md:text-[1.0625rem]"
-            style={{ lineHeight: 1.55 }}
+            className="font-sans font-light text-[#4a4a4a] max-w-[280px] md:max-w-[560px] leading-relaxed text-[0.875rem] md:text-[1.0625rem]"
+            style={{ lineHeight: 1.6 }}
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}

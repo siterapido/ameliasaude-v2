@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { staggerContainer, fadeUp, viewportConfig } from "@/lib/motion";
 import { Button } from "@/components/ui/Button";
 
+import Image from "next/image";
+
 export function FamilyPlan() {
   return (
     <section
@@ -12,26 +14,30 @@ export function FamilyPlan() {
                  justify-end items-start
                  md:justify-center md:items-center"
     >
-      {/* Background image — mobile (mirrored, centered vertically) */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-no-repeat md:hidden"
-        style={{
-          backgroundImage: "url('/familia-bg.webp')",
-          transform: "scaleX(-1)",
-          backgroundPosition: "center center",
-        }}
-      />
-      {/* Background image — desktop */}
-      <div
-        className="absolute inset-0 z-0 hidden bg-cover bg-no-repeat md:block"
-        style={{ backgroundImage: "url('/familia-bg.webp')", backgroundPosition: "center 20%" }}
-      />
+      {/* Background image — optimized with next/image */}
+      <div className="absolute inset-0 z-0" style={{ transform: "translateZ(0)" }}>
+        <Image
+          src="/familia-bg.webp"
+          alt="Família feliz"
+          fill
+          priority
+          quality={100}
+          className="object-cover 
+                     scale-x-[-1] object-center
+                     md:scale-x-100 md:object-[center_20%]"
+          style={{ 
+            imageRendering: "auto",
+            filter: "contrast(1.04) brightness(1.02)"
+          }}
+          sizes="(max-width: 768px) 100vw, 100vw"
+        />
+      </div>
 
-      {/* Gradient overlay — roxo bottom-to-top */}
+      {/* Gradient overlay — roxo suavizado para evitar ruído/banding */}
       <div
         className="absolute inset-0 z-0
-                   bg-gradient-to-t from-[#7b6bb2]/90 via-[#7b6bb2]/40 to-transparent
-                   md:from-[#7b6bb2]/80 md:via-[#7b6bb2]/35 md:to-transparent"
+                   bg-[linear-gradient(to_top,#7b6bb2_0%,rgba(123,107,178,0.7)_35%,rgba(123,107,178,0)_85%)]
+                   md:bg-gradient-to-t md:from-[#7b6bb2]/80 md:via-[#7b6bb2]/35 md:to-transparent"
         aria-hidden
       />
 
