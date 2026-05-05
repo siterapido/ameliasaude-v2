@@ -11,8 +11,12 @@ export function FamilyPlan() {
       className="relative flex flex-col justify-center min-h-[100svh] items-center overflow-hidden bg-[var(--amelia-deep)]"
     >
       <div
-        className="absolute inset-0 z-0 bg-cover bg-no-repeat"
+        className="absolute inset-0 z-0 bg-cover bg-no-repeat md:hidden"
         style={{ backgroundImage: "url('/familia-bg.webp')", transform: "scaleX(-1)", backgroundPosition: "30% center" }}
+      />
+      <div
+        className="absolute inset-0 z-0 hidden bg-cover bg-no-repeat md:block"
+        style={{ backgroundImage: "url('/familia-bg.webp')", backgroundPosition: "30% center" }}
       />
 
       <div
@@ -20,7 +24,7 @@ export function FamilyPlan() {
         aria-hidden
       />
       <div
-        className="absolute inset-0 z-0 hidden bg-gradient-to-l from-[var(--amelia-deep)] via-[var(--amelia-deep)]/95 to-[var(--amelia-deep)]/40 md:block"
+        className="absolute inset-0 z-0 hidden bg-gradient-to-l from-[var(--amelia-deep)]/40 via-[var(--amelia-deep)]/10 to-[var(--amelia-deep)]/50 md:block"
         aria-hidden
       />
 
