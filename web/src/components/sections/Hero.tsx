@@ -29,32 +29,34 @@ export function Hero() {
       className="relative flex flex-col overflow-hidden bg-white"
       style={{ minHeight: "clamp(750px, 125svh, 125svh)" }}
     >
-      {/* ── Background Image ── */}
-      <motion.div
-        className="absolute inset-x-0 top-0 pointer-events-none will-change-transform h-[55%] md:h-full"
-        style={{ y: imageY, translateZ: 0 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+      {/* ── Background Image Container ── */}
+      <div
+        className="absolute inset-x-0 top-0 z-0 overflow-hidden h-[55%] md:h-full"
+        style={{ transform: "translateZ(0)" }}
       >
-        <Image
-          src="/hero-nova.png"
-          alt="Família feliz à direita"
-          fill
-          priority
-          quality={100}
-          className="object-cover object-[85%_10%] md:object-right"
-          style={{ 
-            imageRendering: "auto",
-            filter: "contrast(1.02) brightness(1.03)"
-          }}
-          sizes="(max-width: 768px) 100vw, 100vw"
-        />
-      </motion.div>
+        <motion.div
+          className="relative w-full h-[115%] md:h-full will-change-transform"
+          style={{ y: imageY }}
+        >
+          <Image
+            src="/hero-nova.png"
+            alt="Família feliz à direita"
+            fill
+            priority
+            quality={100}
+            className="object-cover object-[85%_10%] md:object-right"
+            style={{ 
+              imageRendering: "auto",
+              filter: "contrast(1.02) brightness(1.03)"
+            }}
+            sizes="(max-width: 768px) 100vw, 100vw"
+          />
+        </motion.div>
+      </div>
 
       {/* ── Mobile Overlay Gradient — suave transição para o branco ── */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[55%] md:hidden"
+        className="pointer-events-none absolute inset-x-0 top-0 z-1 h-[55%] md:hidden"
         style={{
           background: "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%)"
         }}
