@@ -20,13 +20,13 @@ export function FamilyPlan() {
       />
 
       <div
-        className="absolute inset-0 z-0 bg-gradient-to-t from-white via-white/95 to-transparent"
+        className="absolute inset-0 z-0 bg-gradient-to-t from-white via-white/80 to-transparent"
         aria-hidden
       />
 
       <div
         className="relative z-10 w-full max-w-[1200px] mx-auto"
-        style={{ padding: "clamp(2rem, 5vh, 4rem) clamp(1.5rem, 5vw, 5rem)" }}
+        style={{ padding: "clamp(3rem, 10vh, 6rem) clamp(1.5rem, 5vw, 2rem) clamp(2.5rem, 5vh, 5rem)" }}
       >
         <motion.div
           variants={staggerContainer(0.15, 0.1)}
@@ -46,8 +46,8 @@ export function FamilyPlan() {
             variants={fadeUp}
             className="mb-4 font-display font-normal text-[var(--amelia-deep)]"
             style={{
-              fontSize: "clamp(2.2rem, 7vw, 4.2rem)",
-              lineHeight: 1,
+              fontSize: "clamp(2.8rem, 8vw, 4.2rem)",
+              lineHeight: 0.95,
               letterSpacing: "-0.03em",
             }}
           >
@@ -62,8 +62,9 @@ export function FamilyPlan() {
             variants={fadeUp}
             className="mb-8 max-w-2xl font-sans text-[var(--amelia-deep)]/70"
             style={{
-              fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)",
+              fontSize: "clamp(1.05rem, 2vw, 1.15rem)",
               lineHeight: 1.5,
+              marginTop: "0.5rem"
             }}
           >
             Para o carioca que cuida de si e de quem ama — com a mesma leveza de

@@ -28,8 +28,8 @@ export function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative flex flex-col justify-between overflow-hidden bg-white"
-      style={{ minHeight: "100svh", padding: "9rem 2rem 1.5rem" }}
+      className="relative flex flex-col overflow-hidden bg-white"
+      style={{ minHeight: "100svh" }}
     >
       {/* ── Background Image ── */}
       <motion.div 
@@ -49,14 +49,15 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* ── Glassmorphism Overlay ── */}
+      {/* ── Mobile Overlay Gradient ── */}
       <div
-        className="pointer-events-none absolute inset-0 max-md:bg-white/75 md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
+        className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-white/10 via-white/80 to-white md:hidden"
         aria-hidden
       />
-      {/* ── Center Brightness Gradient ── */}
+      
+      {/* ── Desktop Glassmorphism Overlay ── */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-white/40 md:hidden"
+        className="pointer-events-none absolute inset-0 hidden md:block md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
         aria-hidden
       />
       <div
@@ -65,12 +66,15 @@ export function Hero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col justify-between" style={{ minHeight: "100%", gap: "1.5rem" }}>
+      <div 
+        className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col justify-end md:justify-between flex-1" 
+        style={{ padding: "clamp(2rem, 10vh, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(2rem, 5vh, 4rem)", gap: "2.5rem" }}
+      >
 
         {/* Headline */}
         <h1
           className="font-display font-normal lowercase italic text-[#7b6bb2]"
-          style={{ fontSize: "clamp(2.8rem, 7.5vw, 6.5rem)", lineHeight: 1.02, letterSpacing: "-0.025em" }}
+          style={{ fontSize: "clamp(3.2rem, 8vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.03em" }}
         >
           {HEADLINE_LINES.map((line, i) => (
             <motion.div
@@ -87,8 +91,8 @@ export function Hero() {
 
         {/* Body copy */}
         <motion.p
-          className="font-sans font-light text-[#333333] max-w-[320px] md:max-w-[560px] leading-relaxed"
-          style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
+          className="font-sans font-light text-[#333333] max-w-[340px] md:max-w-[560px] leading-relaxed"
+          style={{ fontSize: "clamp(1.05rem, 2vw, 1.125rem)", marginTop: "-1rem" }}
           initial={{ y: 16 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
@@ -146,7 +150,7 @@ export function Hero() {
 
           {/* Prova social — avatares */}
           <motion.div
-            className="mt-3 flex flex-wrap items-center gap-2"
+            className="mt-6 flex flex-wrap items-center gap-3"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
