@@ -23,11 +23,11 @@ export function FamilyPlan() {
         style={{ backgroundImage: "url('/familia-bg.webp')", backgroundPosition: "center 20%" }}
       />
 
-      {/* Gradient overlay — mobile: lighter / desktop: stronger for readability */}
+      {/* Gradient overlay — roxo bottom-to-top */}
       <div
         className="absolute inset-0 z-0
-                   bg-gradient-to-t from-white/90 via-white/30 to-transparent
-                   md:bg-gradient-to-t md:from-white/80 md:via-white/50 md:to-white/20"
+                   bg-gradient-to-t from-[#7b6bb2]/90 via-[#7b6bb2]/40 to-transparent
+                   md:from-[#7b6bb2]/80 md:via-[#7b6bb2]/35 md:to-transparent"
         aria-hidden
       />
 
