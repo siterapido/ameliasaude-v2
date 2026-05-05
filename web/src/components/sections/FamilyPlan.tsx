@@ -24,7 +24,7 @@ export function FamilyPlan() {
         aria-hidden
       />
       <div
-        className="absolute inset-0 z-0 hidden bg-gradient-to-l from-[var(--amelia-deep)]/40 via-[var(--amelia-deep)]/10 to-[var(--amelia-deep)]/50 md:block"
+        className="absolute inset-0 z-0 hidden bg-gradient-to-r from-[var(--amelia-deep)]/60 via-[var(--amelia-deep)]/25 to-[var(--amelia-deep)]/50 md:block"
         aria-hidden
       />
 
