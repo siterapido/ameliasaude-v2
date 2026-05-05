@@ -10,7 +10,6 @@ const HEADLINE_LINES: ReactNode[] = [
   <>nossos planos</>,
 ];
 
-/** Retratos genéricos para stack social — substitua por fotos reais da marca quando houver. */
 const SOCIAL_AVATARS = [
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop&crop=faces",
   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=faces",
@@ -21,7 +20,6 @@ const SOCIAL_AVATARS = [
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
   return (
@@ -32,7 +30,7 @@ export function Hero() {
       style={{ minHeight: "100svh" }}
     >
       {/* ── Background Image ── */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{ y: imageY }}
         initial={{ opacity: 0 }}
@@ -49,65 +47,66 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* ── Mobile Overlay Gradient ── */}
+      {/* ── Mobile Overlay Gradient — mais transparente, bottom-to-top ── */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-white/10 via-white/80 to-white md:hidden"
+        className="pointer-events-none absolute inset-0 z-0 md:hidden"
+        style={{
+          background: "linear-gradient(to top, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 35%, rgba(255,255,255,0.15) 65%, transparent 100%)"
+        }}
         aria-hidden
       />
-      
-      {/* ── Desktop Glassmorphism Overlay ── */}
+
+      {/* ── Desktop Gradient — left fade ── */}
       <div
         className="pointer-events-none absolute inset-0 hidden md:block md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
         aria-hidden
       />
-      <div
-        className="pointer-events-none absolute inset-0 hidden md:block bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0)_60%)]"
-        aria-hidden
-      />
 
       {/* ── Content ── */}
-      <div 
-        className="relative z-10 w-full max-w-[1200px] md:mx-auto flex flex-col justify-end md:justify-between flex-1" 
-        style={{ padding: "clamp(2rem, 10vh, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(2rem, 5vh, 4rem)", gap: "2.5rem" }}
+      {/* Mobile: tudo em baixo (justify-end) | Desktop: tudo centralizado (justify-center items-center) */}
+      <div
+        className="relative z-10 flex flex-1 flex-col w-full
+                   justify-end items-start
+                   md:justify-center md:items-center"
+        style={{ padding: "clamp(2rem, 10vh, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(2rem, 5vh, 4rem)" }}
       >
+        <div className="flex flex-col gap-6 w-full max-w-[1200px] md:mx-auto md:items-center md:text-center">
 
-        {/* Headline */}
-        <h1
-          className="font-display font-normal lowercase italic text-[#7b6bb2]"
-          style={{ fontSize: "clamp(3.2rem, 8vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.03em" }}
-        >
-          {HEADLINE_LINES.map((line, i) => (
-            <motion.div
-              key={i}
-              className="block"
-              initial={{ y: 48, filter: "blur(8px)" }}
-              animate={{ y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 1.0, delay: 0.35 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {line}
-            </motion.div>
-          ))}
-        </h1>
+          {/* Headline */}
+          <h1
+            className="font-display font-normal lowercase italic text-[#7b6bb2]"
+            style={{ fontSize: "clamp(3.2rem, 8vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.03em" }}
+          >
+            {HEADLINE_LINES.map((line, i) => (
+              <motion.div
+                key={i}
+                className="block"
+                initial={{ y: 48, filter: "blur(8px)" }}
+                animate={{ y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1.0, delay: 0.35 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {line}
+              </motion.div>
+            ))}
+          </h1>
 
-        {/* Body copy */}
-        <motion.p
-          className="font-sans font-light text-[#333333] max-w-[340px] md:max-w-[560px] leading-relaxed"
-          style={{ fontSize: "clamp(1.05rem, 2vw, 1.125rem)", marginTop: "-1rem" }}
-          initial={{ y: 16 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
-        >
-          Melhor plano de saúde para você, sua família e sua empresa, com um time sempre pronto para lhe
-          atender com agilidade, transparência e segurança.
-        </motion.p>
+          {/* Body copy */}
+          <motion.p
+            className="font-sans font-light text-[#333333] max-w-[340px] md:max-w-[560px] leading-relaxed"
+            style={{ fontSize: "clamp(1.05rem, 2vw, 1.125rem)" }}
+            initial={{ y: 16, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Melhor plano de saúde para você, sua família e sua empresa, com um time sempre pronto para lhe
+            atender com agilidade, transparência e segurança.
+          </motion.p>
 
-        {/* Bottom section with CTAs and social proof */}
-        <div className="mt-auto" style={{ marginTop: "auto" }}>
           {/* CTAs */}
           <motion.div
             className="flex items-center gap-3"
-            initial={{ y: 16 }}
-            animate={{ y: 0 }}
+            initial={{ y: 16, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
           >
             <motion.a
@@ -148,9 +147,9 @@ export function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* Prova social — avatares */}
+          {/* Social proof */}
           <motion.div
-            className="mt-6 flex flex-wrap items-center gap-3"
+            className="flex flex-wrap items-center gap-3"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
@@ -162,13 +161,7 @@ export function Hero() {
                   className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-[0_1px_6px_rgba(0,0,0,0.08)] md:h-12 md:w-12"
                   style={{ marginLeft: i === 0 ? 0 : -8 }}
                 >
-                  <Image
-                    src={src}
-                    alt=""
-                    fill
-                    className="object-cover"
-                    sizes="48px"
-                  />
+                  <Image src={src} alt="" fill className="object-cover" sizes="48px" />
                 </div>
               ))}
             </div>
@@ -176,9 +169,11 @@ export function Hero() {
               <span className="font-semibold text-[#7b6bb2]">+2.500</span> famílias protegidas
             </p>
           </motion.div>
+
         </div>
       </div>
 
+      {/* Scroll indicator */}
       <motion.div
         initial={{ y: 6 }}
         animate={{ y: 0 }}
