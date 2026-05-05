@@ -42,8 +42,9 @@ export function Hero() {
           alt="Família feliz à direita"
           fill
           priority
-          className="object-cover object-[75%_center] max-md:object-[75%_center] sm:object-[70%_center] md:object-[85%_center] lg:object-right"
-          sizes="100vw"
+          quality={95}
+          className="object-cover max-md:object-[50%_10%] sm:object-[60%_10%] md:object-[85%_center] lg:object-right"
+          sizes="(max-width: 768px) 100vw, 100vw"
         />
       </motion.div>
 
@@ -92,8 +93,8 @@ export function Hero() {
 
           {/* Body copy */}
           <motion.p
-            className="font-sans font-light text-[#333333] max-w-[340px] md:max-w-[560px] leading-relaxed"
-            style={{ fontSize: "clamp(1.05rem, 2vw, 1.125rem)" }}
+            className="font-sans font-light text-[#333333] max-w-[300px] md:max-w-[560px] leading-relaxed text-[0.875rem] md:text-[1.0625rem]"
+            style={{ lineHeight: 1.55 }}
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
