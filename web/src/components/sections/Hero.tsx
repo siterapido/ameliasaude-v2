@@ -67,10 +67,10 @@ export function Hero() {
       <div
         className="relative z-10 flex flex-1 flex-col w-full
                    justify-end items-start
-                   md:justify-center md:items-center"
+                   md:justify-center md:items-start"
         style={{ padding: "clamp(2rem, 10vh, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(2rem, 5vh, 4rem)" }}
       >
-        <div className="flex flex-col gap-6 w-full max-w-[1200px] md:mx-auto md:items-center md:text-center">
+        <div className="flex flex-col gap-6 w-full max-w-[1200px] md:mx-auto md:items-start md:text-left">
 
           {/* Headline */}
           <h1
