@@ -110,7 +110,7 @@ export function Hero() {
 
                 {/* Body copy */}
                 <motion.p
-                  className="font-sans font-light text-[#4a4a4a] max-w-[280px] md:max-w-[340px] leading-relaxed text-[0.875rem] md:text-[1.125rem]"
+                  className="font-sans font-light text-[#4a4a4a] max-w-[320px] md:max-w-[480px] leading-relaxed text-[0.875rem] md:text-[1.125rem]"
                   style={{ lineHeight: 1.6 }}
                   initial={{ y: 16, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
