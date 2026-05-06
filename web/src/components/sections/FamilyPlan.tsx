@@ -23,7 +23,7 @@ export function FamilyPlan() {
           priority
           quality={100}
           className="object-cover 
-                     scale-x-[-1] object-center
+                     object-[32%_20%]
                      md:scale-x-100 md:object-[center_20%]"
           style={{ 
             imageRendering: "auto",

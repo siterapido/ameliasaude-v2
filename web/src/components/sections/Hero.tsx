@@ -39,7 +39,7 @@ export function Hero() {
           style={{ y: imageY }}
         >
           <Image
-            src="/hero-nova.png"
+            src="/hero-nova.webp"
             alt="Família feliz à direita"
             fill
             priority
@@ -98,7 +98,7 @@ export function Hero() {
 
           {/* Body copy */}
           <motion.p
-            className="font-sans font-light text-[#4a4a4a] max-w-[280px] md:max-w-[560px] leading-relaxed text-[0.875rem] md:text-[1.0625rem]"
+            className="font-sans font-light text-[#4a4a4a] max-w-[280px] md:max-w-[440px] leading-relaxed text-[0.875rem] md:text-[1.125rem]"
             style={{ lineHeight: 1.6 }}
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -110,7 +110,7 @@ export function Hero() {
 
           {/* CTAs */}
           <motion.div
-            className="flex items-center gap-3"
+            className="flex items-center gap-4 mt-2"
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
@@ -121,14 +121,14 @@ export function Hero() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center font-sans font-medium text-[#7b6bb2] shadow-sm"
               style={{
-                border: "1.5px solid rgba(123,107,178,0.35)",
+                border: "2px solid rgba(123,107,178,0.45)",
                 borderRadius: "9999px",
-                padding: "0.625rem 1.25rem",
-                fontSize: "0.75rem",
-                letterSpacing: "0.005em",
+                padding: "1rem 2.25rem",
+                fontSize: "0.9375rem",
+                letterSpacing: "0.01em",
                 background: "rgba(255,255,255,0.9)",
               }}
-              whileHover={{ borderColor: "#7b6bb2", scale: 1.03 }}
+              whileHover={{ borderColor: "#7b6bb2", scale: 1.03, backgroundColor: "#fff" }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
@@ -137,13 +137,13 @@ export function Hero() {
 
             <motion.a
               href="#contato"
-              className="inline-flex items-center justify-center font-sans font-medium text-white shadow-lg shadow-[#7b6bb2]/20"
+              className="inline-flex items-center justify-center font-sans font-medium text-white shadow-xl shadow-[#7b6bb2]/25"
               style={{
                 background: "#7b6bb2",
                 borderRadius: "9999px",
-                padding: "0.625rem 1.25rem",
-                fontSize: "0.75rem",
-                letterSpacing: "0.005em",
+                padding: "1rem 2.25rem",
+                fontSize: "0.9375rem",
+                letterSpacing: "0.01em",
               }}
               whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
@@ -151,29 +151,6 @@ export function Hero() {
             >
               Fazer orçamento
             </motion.a>
-          </motion.div>
-
-          {/* Social proof */}
-          <motion.div
-            className="flex flex-wrap items-center gap-3"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="flex items-center pl-1">
-              {SOCIAL_AVATARS.map((src, i) => (
-                <div
-                  key={src}
-                  className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-[0_1px_6px_rgba(0,0,0,0.08)] md:h-12 md:w-12"
-                  style={{ marginLeft: i === 0 ? 0 : -8 }}
-                >
-                  <Image src={src} alt="" fill className="object-cover" sizes="48px" />
-                </div>
-              ))}
-            </div>
-            <p className="font-sans text-[0.8125rem] font-normal leading-snug text-[#1a1a1a]">
-              <span className="font-semibold text-[#7b6bb2]">+2.500</span> famílias protegidas
-            </p>
           </motion.div>
 
         </div>

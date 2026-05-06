@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeUp, viewportConfig } from "@/lib/motion";
-import telemedicinaPhone from "@/assets/telemedicina-1.png";
+import telemedicinaPhone from "@/assets/telemedicina-1.webp";
 
 function Phone() {
   return (
