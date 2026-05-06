@@ -74,7 +74,7 @@ const ORBIT_LAYERS: { radiusPct: number; anglesDeg: number[] }[] = [
   { radiusPct: 24, anglesDeg: [-90, 30, 150] },
   { radiusPct: 33, anglesDeg: [-30, 90, 210] },
   { radiusPct: 42, anglesDeg: [0, 180] },
-  { radiusPct: 46, anglesDeg: [35, 165] },
+  { radiusPct: 46, anglesDeg: [45, 165] },
 ];
 
 type CityPlacement = {
@@ -96,7 +96,7 @@ const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
   { radiusPct: 29, anglesDeg: [-90, 146, 40] },
   { radiusPct: 36, anglesDeg: [-40, 93, -134] },
   { radiusPct: 44, anglesDeg: [6, 186] },
-  { radiusPct: 50, anglesDeg: [35, 165] },
+  { radiusPct: 50, anglesDeg: [45, 165] },
 ];
 
 function buildPlacements(
