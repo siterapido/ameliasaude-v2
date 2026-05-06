@@ -44,8 +44,7 @@ export function Network() {
                 className="mb-8 max-w-md font-sans font-light leading-relaxed text-white/80"
                 style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)" }}
               >
-                Rede eficiente, presente em mais de 8 municípios no Rio e Grande Rio com mais de
-                20 hospitais para lhe atender.
+                Rede eficiente, presente em mais de 10 municípios com diversos hospitais no Rio e Grande Rio.
               </motion.p>
               <motion.div variants={fadeUp}>
                 <motion.button
@@ -59,9 +58,9 @@ export function Network() {
                   whileHover={{ background: "#fff", color: "#7B6BB2", scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.2 }}
-                  aria-label="Conheça nossa rede hospitalar (em breve: lista de hospitais)"
+                  aria-label="Conheça nossa rede (em breve: lista de hospitais)"
                 >
-                  Conheça nossa rede hospitalar
+                  Conheça nossa rede
                 </motion.button>
               </motion.div>
             </motion.div>
