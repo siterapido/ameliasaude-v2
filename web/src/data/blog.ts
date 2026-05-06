@@ -12,51 +12,49 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "como-escolher-plano-de-saude-ideal",
-    category: "Bem-estar",
-    title: "Como escolher o plano de saúde ideal para sua família",
+    slug: "5-dicas-nutricao-dia-a-dia",
+    category: "Nutrição",
+    title: "5 dicas práticas de nutrição para o dia a dia",
     excerpt:
-      "Descubra os fatores essenciais na hora de contratar um plano que atenda às necessidades de todos.",
+      "Alimentar-se bem não precisa ser complicado. Veja como incluir hábitos saudáveis na sua rotina.",
     date: "15 Mar 2026",
     readTime: "5 min",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&h=600&fit=crop&q=80",
     content: [
-      "Escolher um plano de saúde é uma das decisões mais importantes para quem quer cuidar da família com responsabilidade e tranquilidade. Com tantas opções disponíveis no mercado, é fácil se sentir perdido entre coberturas, valores e redes credenciadas.",
-      "O primeiro passo é entender o perfil da sua família. Quantas pessoas precisam ser cobertas? Existem crianças, idosos ou pessoas com condições de saúde específicas? Essas perguntas ajudam a definir o nível de cobertura necessário.",
-      "A rede credenciada é um dos pontos mais importantes. Verifique se os hospitais, clínicas e laboratórios mais próximos da sua casa fazem parte do plano. Não adiant...",
+      "Ter uma alimentação balanceada é o pilar fundamental para uma vida longa e saudável...",
     ],
-    tags: ["plano de saúde", "família", "prevenção"],
+    tags: ["nutrição", "hábitos", "saúde"],
   },
   {
-    slug: "consultas-online-telemedicina",
-    category: "Telemedicina",
-    title: "Consultas online: praticidade sem perder a qualidade",
+    slug: "importancia-exercicio-fisico",
+    category: "Exercícios",
+    title: "A importância do exercício físico para a saúde mental",
     excerpt:
-      "Entenda como a telemedicina está transformando o acesso à saúde no Brasil.",
+      "Descubra como movimentar o corpo pode reduzir o estresse e melhorar sua qualidade de vida.",
     date: "12 Mar 2026",
     readTime: "4 min",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&h=600&fit=crop&q=80",
     content: [
-      "A telemedicina chegou para ficar. O que começou como uma alternativa emergencial se consolidou como um dos pilares do atendimento em saúde no Brasil. Hoje, milhões de brasileiros já...",
+      "A prática regular de exercícios vai muito além da estética. Ela é essencial para...",
     ],
-    tags: ["telemedicina", "consultas online", "tecnologia"],
+    tags: ["exercícios", "saúde mental", "bem-estar"],
   },
   {
-    slug: "checkup-anual-prevencao",
-    category: "Prevenção",
-    title: "Check-up anual: por que você não deve adiar",
+    slug: "sono-e-bem-estar",
+    category: "Bem-estar",
+    title: "Como uma boa noite de sono transforma o seu corpo",
     excerpt:
-      "A prevenção é o melhor caminho para uma vida saudável.Saiba quais exames são essenciais.",
+      "Dormir bem é tão importante quanto uma boa alimentação e a prática de exercícios físicos.",
     date: "08 Mar 2026",
     readTime: "6 min",
     image:
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1541480601022-2308c0f02487?w=1200&h=600&fit=crop&q=80",
     content: [
-      "Muitas pessoas só procuram um médico quando sentem algum sintoma. Essa abordagem reativa pode ser perigosa, pois diversas doenças graves se desenvolvem...",
+      "O sono de qualidade é essencial para a reparação celular e o equilíbrio hormonal...",
     ],
-    tags: ["prevenção", "check-up", "exames", "saúde"],
+    tags: ["sono", "bem-estar", "saúde"],
   },
 ];
 

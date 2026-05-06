@@ -56,14 +56,6 @@ const channels = [
     Icon: IconWhatsApp,
   },
   {
-    title: "SAC",
-    description: "Serviço de atendimento ao cliente para informações gerais.",
-    action: "0800 000 000",
-    href: "tel:08000000000",
-    external: false,
-    Icon: IconPhone,
-  },
-  {
     title: "Central de Atendimento",
     description: "Agendamentos, autorizações e suporte ao beneficiário.",
     action: "Ligar agora",
@@ -80,12 +72,20 @@ const channels = [
     Icon: IconMegaphone,
   },
   {
-    title: "Outros canais",
-    description: "Redes sociais, site institucional e parcerias.",
-    action: "Ver opções",
-    href: "#rodape",
+    title: "Prestador",
+    description: "Canal exclusivo para rede credenciada e prestadores de serviço.",
+    action: "Acessar portal",
+    href: "#prestador",
     external: false,
     Icon: IconLayers,
+  },
+  {
+    title: "Assessoria de Imprensa",
+    description: "Informações, press releases e contato para a mídia.",
+    action: "Falar com assessoria",
+    href: "mailto:imprensa@ameliasaude.com.br",
+    external: false,
+    Icon: IconPhone,
   },
 ] as const;
 

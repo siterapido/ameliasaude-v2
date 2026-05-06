@@ -23,17 +23,12 @@ export function Blog() {
           viewport={viewportConfig}
           className="mb-14 text-center"
         >
-          <motion.span
-            variants={fadeUp}
-            className="mb-5 block font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-[var(--amelia-purple)]"
-          >
-            Blog Amélia Saúde
-          </motion.span>
           <motion.h2
             variants={fadeUp}
-            className="mx-auto max-w-[700px] font-sans font-semibold text-[clamp(2.5rem, 6vw, 4.5rem)] tracking-[-0.02em] leading-[1.05] text-[var(--amelia-purple)]"
+            className="mx-auto max-w-[800px] font-sans font-semibold tracking-[-0.02em] leading-[1.05] text-[var(--amelia-purple)]"
+            style={{ fontSize: "clamp(2.8rem, 8vw, 4.2rem)" }}
           >
-            Conteúdos para cuidar de você
+            Tudo sobre saúde e bem estar
           </motion.h2>
           <motion.p
             variants={fadeUp}
