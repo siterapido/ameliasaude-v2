@@ -81,7 +81,9 @@ export function Navigation() {
               width={200}
               height={56}
               priority
-              className="h-14 w-auto object-contain transition-all duration-300"
+              className={`h-14 w-auto object-contain transition-transform duration-300 ${
+                menuOpen ? "scale-[1.15] origin-left" : "scale-100 origin-left"
+              }`}
             />
           </a>
 

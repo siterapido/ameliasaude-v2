@@ -87,7 +87,7 @@ export function Hero() {
               className="relative z-10 flex flex-1 flex-col w-full
                          justify-end items-start
                          md:justify-center md:items-start"
-              style={{ padding: "clamp(2rem, 10vh, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(6rem, 15vh, 10rem)" }}
+              style={{ padding: "clamp(1rem, 5vh, 4rem) clamp(1.5rem, 5vw, 2rem) clamp(6rem, 15vh, 10rem)" }}
             >
               <div className="flex flex-col gap-6 w-full max-w-[1200px] md:mx-auto md:items-start md:text-left">
                 {/* Headline */}
@@ -133,10 +133,10 @@ export function Hero() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center font-sans font-medium text-[#7b6bb2] shadow-sm"
                     style={{
-                      border: "2px solid rgba(123,107,178,0.45)",
+                      border: "1.5px solid rgba(123,107,178,0.45)",
                       borderRadius: "9999px",
-                      padding: "1.125rem 2.5rem",
-                      fontSize: "1.05rem",
+                      padding: "0.625rem 1.5rem",
+                      fontSize: "0.875rem",
                       letterSpacing: "0.01em",
                       background: "rgba(255,255,255,0.9)",
                     }}
@@ -153,8 +153,8 @@ export function Hero() {
                     style={{
                       background: "#7b6bb2",
                       borderRadius: "9999px",
-                      padding: "1.125rem 2.5rem",
-                      fontSize: "1.05rem",
+                      padding: "0.625rem 1.5rem",
+                      fontSize: "0.875rem",
                       letterSpacing: "0.01em",
                     }}
                     whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}

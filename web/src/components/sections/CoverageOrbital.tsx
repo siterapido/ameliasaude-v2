@@ -33,8 +33,8 @@ const cities: { name: string; src: string }[] = [
     src: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=160&h=160&fit=crop&q=80",
   },
   {
-    name: "Niterói",
-    src: "/niteroi.webp",
+    name: "Belford Roxo",
+    src: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=160&h=160&fit=crop&q=80",
   },
   {
     name: "Duque de Caxias",
@@ -49,20 +49,20 @@ const cities: { name: string; src: string }[] = [
     src: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=160&h=160&fit=crop&q=80",
   },
   {
-    name: "Belford Roxo",
-    src: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=160&h=160&fit=crop&q=80",
+    name: "Niterói",
+    src: "/niteroi.webp",
   },
   {
     name: "São João de Meriti",
     src: "/sao-joao-de-meriti.jpg",
   },
   {
-    name: "Magé",
-    src: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=160&h=160&fit=crop&q=80",
-  },
-  {
     name: "Nilópolis",
     src: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=160&h=160&fit=crop&q=80",
+  },
+  {
+    name: "Magé",
+    src: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=160&h=160&fit=crop&q=80",
   },
   {
     name: "Mesquita",
@@ -74,7 +74,7 @@ const ORBIT_LAYERS: { radiusPct: number; anglesDeg: number[] }[] = [
   { radiusPct: 24, anglesDeg: [-90, 30, 150] },
   { radiusPct: 33, anglesDeg: [-30, 90, 210] },
   { radiusPct: 42, anglesDeg: [0, 180] },
-  { radiusPct: 46, anglesDeg: [45, 165] },
+  { radiusPct: 46, anglesDeg: [45, 120] },
 ];
 
 type CityPlacement = {
@@ -96,7 +96,7 @@ const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
   { radiusPct: 29, anglesDeg: [-90, 146, 40] },
   { radiusPct: 36, anglesDeg: [-40, 93, -134] },
   { radiusPct: 44, anglesDeg: [6, 186] },
-  { radiusPct: 50, anglesDeg: [45, 165] },
+  { radiusPct: 50, anglesDeg: [45, 120] },
 ];
 
 function buildPlacements(

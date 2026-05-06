@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { staggerContainer, fadeUp, viewportConfig } from "@/lib/motion";
 import { Shield, Wallet, Zap, Users, Building, Landmark } from "lucide-react";
 
@@ -45,7 +46,15 @@ export function HealthExperience() {
       className="relative flex flex-col justify-center overflow-hidden"
       style={{ padding: "clamp(5.25rem, 11vh, 8.5rem) clamp(1.5rem, 5vw, 5rem)" }}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[#7B6BB1]" aria-hidden />
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/familia-bg.webp"
+          alt="Experiência em saúde"
+          fill
+          className="object-cover opacity-40 mix-blend-overlay"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#7B6BB1]/95 to-[#5e4985]/95" aria-hidden />
+      </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1140px]">
         <motion.div
