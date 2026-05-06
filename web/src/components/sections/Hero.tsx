@@ -52,7 +52,7 @@ export function Hero() {
                 style={{ y: imageY }}
               >
                 <Image
-                  src="/hero-nova.webp"
+                  src="/hero-nova-2.png"
                   alt="Família feliz à direita"
                   fill
                   priority
