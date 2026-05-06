@@ -65,7 +65,7 @@ export function HealthExperience() {
             variants={fadeUp}
             className="w-full font-display font-normal tracking-tight text-white whitespace-normal"
             style={{
-              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
+              fontSize: "clamp(2.5rem, 6vw, 4rem)",
               lineHeight: 1.05,
               letterSpacing: "-0.02em",
             }}
@@ -98,7 +98,7 @@ export function HealthExperience() {
                 <Icon className="relative z-10 h-8 w-8 stroke-[1.5]" />
               </div>
               <div className="flex flex-col flex-1 relative z-10">
-                <h3 className="font-display text-[1.2rem] font-medium tracking-[0.02em] text-[var(--amelia-deep)]">
+                <h3 className="font-display text-[1.35rem] font-bold tracking-[0.01em] text-[var(--amelia-deep)]">
                   {title}
                 </h3>
                 <p className="mt-3.5 font-sans text-[0.95rem] font-light leading-relaxed tracking-normal text-[#5c5470]">
