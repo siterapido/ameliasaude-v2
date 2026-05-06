@@ -30,7 +30,7 @@ export function Hero() {
       id="hero"
       ref={ref}
       className="relative flex flex-col overflow-hidden bg-white"
-      style={{ minHeight: "clamp(550px, 85svh, 85svh)" }}
+      style={{ minHeight: "clamp(750px, 125svh, 125svh)" }}
     >
       <AnimatePresence initial={false}>
         {currentSlide === 0 ? (
