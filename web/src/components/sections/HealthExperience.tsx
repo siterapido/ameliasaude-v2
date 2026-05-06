@@ -3,41 +3,36 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeUp, viewportConfig } from "@/lib/motion";
+import { Shield, Wallet, Zap, Users, Building, Landmark } from "lucide-react";
 
-import Image from "next/image";
-
-const items: {
-  image: string;
-  title: string;
-  body: string;
-}[] = [
+const items = [
   {
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=250&fit=crop&q=80",
+    icon: Shield,
     title: "Ampla cobertura",
     body: "Planos com cobertura total para consultas, exames, internações e cirurgias.",
   },
   {
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=250&fit=crop&q=80",
+    icon: Wallet,
     title: "Preços competitivos",
     body: "O melhor custo benefício do mercado, com preços que cabem no seu orçamento.",
   },
   {
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=250&fit=crop&q=80",
+    icon: Zap,
     title: "Atendimento ágil",
     body: "Eficiente, resolutivo e sem burocracias, com foco total na sua saúde.",
   },
   {
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop&q=80",
+    icon: Users,
     title: "Planos coletivo por adesão",
     body: "Planos para você e sua família através de sindicatos e entidades de classe com diversas categorias profissionais.",
   },
   {
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?w=400&h=250&fit=crop&q=80",
+    icon: Building,
     title: "Plano empresarial",
     body: "Planos para micro e pequenas empresas a partir de 2 beneficiários.",
   },
   {
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=250&fit=crop&q=80",
+    icon: Landmark,
     title: "Planos corporativos",
     body: "Planos para empresas de médio e grande porte em condições diferenciadas a partir de 100 beneficiários.",
   },
@@ -93,20 +88,20 @@ export function HealthExperience() {
           viewport={viewportConfig}
           className="mt-16 grid list-none grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7"
         >
-          {items.map(({ image, title, body }) => (
+          {items.map(({ icon: Icon, title, body }) => (
             <motion.li
               key={title}
               variants={fadeUp}
-              className="flex flex-col overflow-hidden rounded-[1.35rem] border border-[var(--amelia-line)] bg-white shadow-[0_14px_40px_-20px_rgba(36,24,53,0.18)] transition-[border-color,box-shadow] duration-300 hover:border-[rgba(94,73,133,0.22)] hover:shadow-[0_22px_48px_-18px_rgba(36,24,53,0.22)]"
+              className="group flex flex-col p-8 overflow-hidden rounded-[1.35rem] border border-[var(--amelia-line)] bg-white shadow-[0_14px_40px_-20px_rgba(36,24,53,0.12)] transition-all duration-400 hover:-translate-y-1.5 hover:border-[rgba(94,73,133,0.22)] hover:shadow-[0_22px_48px_-18px_rgba(36,24,53,0.22)]"
             >
-              <div className="relative h-44 w-full shrink-0 bg-gray-100">
-                <Image src={image} alt={title} fill className="object-cover transition-transform duration-500 hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+              <div className="relative mb-8 flex h-[4.5rem] w-[4.5rem] shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f5f2fb] to-[#e8e2f4] text-[#7b6bb2] transition-all duration-500 group-hover:scale-105 group-hover:text-white group-hover:from-[#7b6bb2] group-hover:to-[#5e4985] group-hover:shadow-[0_12px_24px_-8px_rgba(123,107,178,0.5)]">
+                <Icon className="relative z-10 h-8 w-8 stroke-[1.5]" />
               </div>
-              <div className="flex flex-col p-8 flex-1 bg-white relative z-10">
-                <h3 className="font-display text-[1.1rem] font-normal tracking-[0.02em] text-[var(--amelia-deep)]">
+              <div className="flex flex-col flex-1 relative z-10">
+                <h3 className="font-display text-[1.2rem] font-medium tracking-[0.02em] text-[var(--amelia-deep)]">
                   {title}
                 </h3>
-                <p className="mt-3 font-sans text-[0.95rem] font-light leading-relaxed tracking-normal text-[#5c5470]">
+                <p className="mt-3.5 font-sans text-[0.95rem] font-light leading-relaxed tracking-normal text-[#5c5470]">
                   {body}
                 </p>
               </div>
