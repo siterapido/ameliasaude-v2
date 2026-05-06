@@ -10,13 +10,6 @@ const HEADLINE_LINES: ReactNode[] = [
   <>nossos planos</>,
 ];
 
-const SOCIAL_AVATARS = [
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop&crop=faces",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=faces",
-  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&crop=faces",
-  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=96&h=96&fit=crop&crop=faces",
-] as const;
-
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -98,7 +91,7 @@ export function Hero() {
 
           {/* Body copy */}
           <motion.p
-            className="font-sans font-light text-[#4a4a4a] max-w-[280px] md:max-w-[440px] leading-relaxed text-[0.875rem] md:text-[1.125rem]"
+            className="font-sans font-light text-[#4a4a4a] max-w-[280px] md:max-w-[340px] leading-relaxed text-[0.875rem] md:text-[1.125rem]"
             style={{ lineHeight: 1.6 }}
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -123,8 +116,8 @@ export function Hero() {
               style={{
                 border: "2px solid rgba(123,107,178,0.45)",
                 borderRadius: "9999px",
-                padding: "1rem 2.25rem",
-                fontSize: "0.9375rem",
+                padding: "1.125rem 2.5rem",
+                fontSize: "1.05rem",
                 letterSpacing: "0.01em",
                 background: "rgba(255,255,255,0.9)",
               }}
@@ -141,8 +134,8 @@ export function Hero() {
               style={{
                 background: "#7b6bb2",
                 borderRadius: "9999px",
-                padding: "1rem 2.25rem",
-                fontSize: "0.9375rem",
+                padding: "1.125rem 2.5rem",
+                fontSize: "1.05rem",
                 letterSpacing: "0.01em",
               }}
               whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
