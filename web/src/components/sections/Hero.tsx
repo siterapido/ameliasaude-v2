@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const HEADLINE_LINES: ReactNode[] = [
   <>sua saúde em</>,
@@ -268,6 +269,27 @@ export function Hero() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={() => setCurrentSlide((prev) => (prev - 1 + 2) % 2)}
+        className={`absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
+          currentSlide === 0 ? "bg-[#7b6bb2]/10 text-[#7b6bb2] hover:bg-[#7b6bb2]/20" : "bg-white/10 text-white hover:bg-white/25"
+        }`}
+        aria-label="Slide anterior"
+      >
+        <ChevronLeft className="h-6 w-6" />
+      </button>
+
+      <button
+        onClick={() => setCurrentSlide((prev) => (prev + 1) % 2)}
+        className={`absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
+          currentSlide === 0 ? "bg-[#7b6bb2]/10 text-[#7b6bb2] hover:bg-[#7b6bb2]/20" : "bg-white/10 text-white hover:bg-white/25"
+        }`}
+        aria-label="Próximo slide"
+      >
+        <ChevronRight className="h-6 w-6" />
+      </button>
 
       {/* Slide indicators */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
