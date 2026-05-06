@@ -25,8 +25,8 @@ export function Blog() {
         >
           <motion.h2
             variants={fadeUp}
-            className="mx-auto max-w-[800px] font-sans font-semibold tracking-[-0.02em] leading-[1.05] text-[var(--amelia-purple)]"
-            style={{ fontSize: "clamp(2.8rem, 8vw, 4.2rem)" }}
+            className="mx-auto max-w-[800px] font-display font-normal text-[var(--amelia-purple)]"
+            style={{ fontSize: "clamp(2rem, 4.5vw, 3.25rem)", lineHeight: 1.05, letterSpacing: "-0.02em" }}
           >
             Tudo sobre saúde e bem estar
           </motion.h2>

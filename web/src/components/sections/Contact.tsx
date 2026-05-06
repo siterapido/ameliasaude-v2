@@ -123,9 +123,9 @@ export function Contact() {
             variants={fadeUp}
             className="mb-5 font-display font-normal uppercase text-[#1a1a1a]"
             style={{
-              fontSize: "clamp(1.65rem, 4.2vw, 3rem)",
-              lineHeight: 1.08,
-              letterSpacing: "0.02em",
+              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
             }}
           >
             Precisa falar com a Amélia?

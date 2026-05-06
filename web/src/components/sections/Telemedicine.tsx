@@ -69,7 +69,7 @@ export function Telemedicine() {
               </motion.p>
               <motion.h2 variants={fadeUp}
                 className="font-display font-normal text-[#1a1a1a] mb-4"
-                style={{ fontSize: "clamp(1.9rem, 4vw, 3.25rem)", lineHeight: 1.07, letterSpacing: "-0.02em" }}>
+                style={{ fontSize: "clamp(2rem, 4.5vw, 3.25rem)", lineHeight: 1.05, letterSpacing: "-0.02em" }}>
                 Tenha um especialista Amélia disponível{" "}
                 <em className="italic font-light text-[#7b6bb2]">a qualquer momento.</em>
               </motion.h2>

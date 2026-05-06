@@ -65,9 +65,9 @@ export function HealthExperience() {
             variants={fadeUp}
             className="w-full font-display font-normal tracking-tight text-white whitespace-normal"
             style={{
-              fontSize: "clamp(2.25rem, 5vw, 3.35rem)",
-              lineHeight: 1.06,
-              letterSpacing: "-0.025em",
+              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
             }}
           >
             Saúde de verdade, sem complicação

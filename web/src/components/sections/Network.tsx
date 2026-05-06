@@ -32,7 +32,7 @@ export function Network() {
                 variants={fadeUp}
                 className="mb-5 font-display font-normal text-white"
                 style={{
-                  fontSize: "clamp(2rem, 4.5vw, 3.75rem)",
+                  fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
                   lineHeight: 1.05,
                   letterSpacing: "-0.02em",
                 }}
