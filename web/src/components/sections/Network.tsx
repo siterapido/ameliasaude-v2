@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { staggerContainer, fadeUp, viewportConfig } from "@/lib/motion";
+import { staggerContainer, fadeUpFast } from "@/lib/motion";
 import { CoverageOrbital } from "@/components/sections/CoverageOrbital";
 
 export function Network() {
@@ -17,19 +17,19 @@ export function Network() {
           {/* Esquerda — título e subtítulo sempre legíveis (acima do CTA) */}
           <div className="relative z-10 flex min-h-0 flex-col justify-center lg:min-h-[min(72vh,900px)] lg:max-w-xl lg:py-4">
             <motion.div
-              variants={staggerContainer(0.1, 0)}
+              variants={staggerContainer(0.04, 0)}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "0px 0px -8% 0px", amount: 0.2 }}
+              viewport={{ once: true, margin: "-160px 0px -60px 0px" }}
             >
               <motion.p
-                variants={fadeUp}
+                variants={fadeUpFast}
                 className="mb-5 font-sans text-[11px] font-normal tracking-[0.1em] text-white/85"
               >
                 Cobertura
               </motion.p>
               <motion.h2
-                variants={fadeUp}
+                variants={fadeUpFast}
                 className="mb-5 font-display font-normal text-white"
                 style={{
                   fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
@@ -40,13 +40,13 @@ export function Network() {
                 Ampla rede credenciada pertinho de você
               </motion.h2>
               <motion.p
-                variants={fadeUp}
+                variants={fadeUpFast}
                 className="mb-8 max-w-md font-sans font-light leading-relaxed text-white/80"
                 style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)" }}
               >
                 Rede eficiente, presente em mais de 10 municípios com diversos hospitais no Rio e Grande Rio.
               </motion.p>
-              <motion.div variants={fadeUp}>
+              <motion.div variants={fadeUpFast}>
                 <motion.button
                   type="button"
                   className="inline-flex cursor-pointer items-center rounded-full font-sans text-sm font-normal tracking-wide"
@@ -70,8 +70,8 @@ export function Network() {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={viewportConfig}
-            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: "-120px 0px -60px 0px" }}
+            transition={{ duration: 0.4 }}
             className="relative flex min-h-[min(88vw,640px)] items-center justify-center lg:min-h-[min(62vh,680px)]"
           >
             <CoverageOrbital />

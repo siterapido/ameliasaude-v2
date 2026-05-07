@@ -5,35 +5,36 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { staggerContainer, fadeUp, viewportConfig } from "@/lib/motion";
 import { Shield, Wallet, Zap, Users, Building, Landmark } from "lucide-react";
+import Link from "next/link";
 
 const items = [
   {
-    icon: Shield,
+    image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=400&h=300&fit=crop",
     title: "Ampla cobertura",
     body: "Planos com cobertura total para consultas, exames, internações e cirurgias.",
   },
   {
-    icon: Wallet,
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
     title: "Preços competitivos",
     body: "O melhor custo benefício do mercado, com preços que cabem no seu orçamento.",
   },
   {
-    icon: Zap,
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop",
     title: "Atendimento ágil",
     body: "Eficiente, resolutivo e sem burocracias, com foco total na sua saúde.",
   },
   {
-    icon: Users,
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=300&fit=crop",
     title: "Planos coletivo por adesão",
     body: "Planos para você e sua família através de sindicatos e entidades de classe com diversas categorias profissionais.",
   },
   {
-    icon: Building,
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
     title: "Plano empresarial",
     body: "Planos para micro e pequenas empresas a partir de 2 beneficiários.",
   },
   {
-    icon: Landmark,
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop",
     title: "Planos corporativos",
     body: "Planos para empresas de médio e grande porte em condições diferenciadas a partir de 100 beneficiários.",
   },
@@ -97,16 +98,21 @@ export function HealthExperience() {
           viewport={viewportConfig}
           className="mt-16 grid list-none grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7"
         >
-          {items.map(({ icon: Icon, title, body }) => (
+          {items.map(({ image, title, body }) => (
             <motion.li
               key={title}
               variants={fadeUp}
-              className="group flex flex-col p-8 overflow-hidden rounded-[1.35rem] border border-[var(--amelia-line)] bg-white shadow-[0_14px_40px_-20px_rgba(36,24,53,0.12)] transition-all duration-400 hover:-translate-y-1.5 hover:border-[rgba(94,73,133,0.22)] hover:shadow-[0_22px_48px_-18px_rgba(36,24,53,0.22)]"
+              className="group flex flex-col overflow-hidden rounded-[1.35rem] border border-[var(--amelia-line)] bg-white shadow-[0_14px_40px_-20px_rgba(36,24,53,0.12)] transition-all duration-400 hover:-translate-y-1.5 hover:border-[rgba(94,73,133,0.22)] hover:shadow-[0_22px_48px_-18px_rgba(36,24,53,0.22)]"
             >
-              <div className="relative mb-8 flex h-[4.5rem] w-[4.5rem] shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f5f2fb] to-[#e8e2f4] text-[#7b6bb2] transition-all duration-500 group-hover:scale-105 group-hover:text-white group-hover:from-[#7b6bb2] group-hover:to-[#5e4985] group-hover:shadow-[0_12px_24px_-8px_rgba(123,107,178,0.5)]">
-                <Icon className="relative z-10 h-8 w-8 stroke-[1.5]" />
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image
+                  src={image}
+                  alt={title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
               </div>
-              <div className="flex flex-col flex-1 relative z-10">
+              <div className="flex flex-col flex-1 p-8">
                 <h3 className="font-display text-[1.35rem] font-bold tracking-[0.01em] text-[var(--amelia-deep)]">
                   {title}
                 </h3>

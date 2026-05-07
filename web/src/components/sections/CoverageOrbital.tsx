@@ -71,10 +71,17 @@ const cities: { name: string; src: string }[] = [
 ];
 
 const ORBIT_LAYERS: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 24, anglesDeg: [-90, 30, 150] },
-  { radiusPct: 33, anglesDeg: [-30, 90, 210] },
-  { radiusPct: 42, anglesDeg: [0, 180] },
-  { radiusPct: 46, anglesDeg: [45, 120] },
+  { radiusPct: 24, anglesDeg: [0, 144, 288] },
+  { radiusPct: 33, anglesDeg: [36, 180, 324] },
+  { radiusPct: 42, anglesDeg: [72, 216] },
+  { radiusPct: 48, anglesDeg: [108, 252] },
+];
+
+const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
+  { radiusPct: 28, anglesDeg: [0, 144, 288] },
+  { radiusPct: 36, anglesDeg: [36, 180, 324] },
+  { radiusPct: 44, anglesDeg: [72, 216] },
+  { radiusPct: 50, anglesDeg: [108, 252] },
 ];
 
 type CityPlacement = {
@@ -84,24 +91,8 @@ type CityPlacement = {
   layerIndex: number;
 };
 
-/** Entre o anel médio (33%) e o externo (42%) — posição de São João de Meriti. */
-const MERITI_RADIUS_PCT = 36;
-const MERITI_RADIUS_COMPACT_PCT = 40;
-
-/**
- * Mobile: arco superior mais uniforme (≈NW · topo · NE) e anéis um pouco mais abertos
- * para afastar “Rio de Janeiro” do hub.
- */
-const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 29, anglesDeg: [-90, 146, 40] },
-  { radiusPct: 36, anglesDeg: [-40, 93, -134] },
-  { radiusPct: 44, anglesDeg: [6, 186] },
-  { radiusPct: 50, anglesDeg: [45, 120] },
-];
-
 function buildPlacements(
-  layers: { radiusPct: number; anglesDeg: number[] }[],
-  meritiRadiusPct: number = MERITI_RADIUS_PCT
+  layers: { radiusPct: number; anglesDeg: number[] }[]
 ): CityPlacement[] {
   const out: CityPlacement[] = [];
   let idx = 0;
@@ -113,11 +104,7 @@ function buildPlacements(
       idx++;
     }
   }
-  return out.map((p) =>
-    p.city.name === "São João de Meriti"
-      ? { ...p, radiusPct: meritiRadiusPct }
-      : p
-  );
+  return out;
 }
 
 function polarToPercent(angleDeg: number, radiusPct: number) {
@@ -147,12 +134,8 @@ export function CoverageOrbital() {
 
   const layers = compactOrbit ? ORBIT_LAYERS_COMPACT : ORBIT_LAYERS;
   const placements = useMemo(
-    () =>
-      buildPlacements(
-        layers,
-        compactOrbit ? MERITI_RADIUS_COMPACT_PCT : MERITI_RADIUS_PCT
-      ),
-    [layers, compactOrbit]
+    () => buildPlacements(layers),
+    [layers]
   );
   const spiralD = useMemo(
     () => archimedeanSpiralD({ turns: SPIRAL_TURNS, maxR: SPIRAL_MAX_R }),
@@ -164,16 +147,36 @@ export function CoverageOrbital() {
       className="relative mx-auto w-full max-w-[min(100%,min(96vw,920px))] aspect-square select-none overflow-visible"
       aria-hidden
     >
-      {/* Anéis — rotação lenta */}
+      {/* Anéis — rotação lenta + pulso sutil */}
       <motion.div
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
-        animate={{ rotate: reduceMotion ? 0 : 360 }}
+        animate={reduceMotion ? { rotate: 0 } : { rotate: 360, scale: [1, 1.015, 1] }}
         transition={
           reduceMotion
             ? { duration: 0 }
-            : { duration: 100, repeat: Infinity, ease: "linear" }
+            : {
+                rotate: { duration: 100, repeat: Infinity, ease: "linear" },
+                scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+              }
         }
       >
+        {/* Glow pulsante sutil atrás dos anéis */}
+        <motion.div
+          className="absolute rounded-full"
+          style={{
+            width: "52%",
+            height: "52%",
+            boxShadow: "0 0 60px 20px rgba(255,255,255,0.04), 0 0 120px 40px rgba(255,255,255,0.02)",
+          }}
+          animate={
+            reduceMotion ? {} : { opacity: [0.3, 0.7, 0.3] }
+          }
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : { duration: 5, repeat: Infinity, ease: "easeInOut" }
+          }
+        />
         {[0.52, 0.68, 0.84, 0.98].map((scale, i) => (
           <div
             key={i}
