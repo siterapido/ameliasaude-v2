@@ -131,10 +131,15 @@ export function CoverageOrbital() {
   }, []);
 
   const layers = compactOrbit ? ORBIT_LAYERS_COMPACT : ORBIT_LAYERS;
-  const placements = useMemo(
-    () => buildPlacements(layers),
-    [layers]
-  );
+  const placements = useMemo(() => {
+    const base = buildPlacements(layers);
+    const betweenRadius = compactOrbit ? 35 : 30;
+    return base.map((p) =>
+      p.city.name === "Duque de Caxias" || p.city.name === "São João de Meriti"
+        ? { ...p, radiusPct: betweenRadius }
+        : p
+    );
+  }, [layers, compactOrbit]);
   const spiralD = useMemo(
     () => archimedeanSpiralD({ turns: SPIRAL_TURNS, maxR: SPIRAL_MAX_R }),
     []
