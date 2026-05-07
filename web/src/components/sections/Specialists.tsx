@@ -32,14 +32,12 @@ const specialties: {
   {
     name: "Clínico geral",
     variant: "compact",
-    photo:
-      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=400&h=480&fit=crop&crop=faces",
+    photo: "/clinico geral.jpg",
   },
   {
     name: "Dermatologista",
     variant: "compact",
-    photo:
-      "https://images.unsplash.com/photo-1576765974930-2ebbfbd6dd20?w=400&h=480&fit=crop&crop=faces",
+    photo: "/dermatologista.jpg",
   },
   {
     name: "Ortopedista",
@@ -56,8 +54,7 @@ const specialties: {
   {
     name: "Oftalmologista",
     variant: "hero",
-    photo:
-      "https://images.unsplash.com/photo-1582895361887-24daa40c8667?w=800&h=560&fit=crop&crop=faces",
+    photo: "/oftamologista.webp",
   },
 ];
 
