@@ -71,15 +71,15 @@ const cities: { name: string; src: string }[] = [
 ];
 
 const ORBIT_LAYERS: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 24, anglesDeg: [0, 108, 216] },
-  { radiusPct: 36, anglesDeg: [36, 144, 252] },
-  { radiusPct: 48, anglesDeg: [72, 180, 288, 324] },
+  { radiusPct: 20, anglesDeg: [0, 108, 216] },
+  { radiusPct: 31, anglesDeg: [36, 144, 252] },
+  { radiusPct: 41, anglesDeg: [72, 180, 288, 324] },
 ];
 
 const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 30, anglesDeg: [0, 108, 216] },
-  { radiusPct: 40, anglesDeg: [36, 144, 252] },
-  { radiusPct: 50, anglesDeg: [72, 180, 288, 324] },
+  { radiusPct: 26, anglesDeg: [0, 108, 216] },
+  { radiusPct: 34, anglesDeg: [36, 144, 252] },
+  { radiusPct: 43, anglesDeg: [72, 180, 288, 324] },
 ];
 
 type CityPlacement = {
@@ -116,7 +116,7 @@ function polarToPercent(angleDeg: number, radiusPct: number) {
 const SONAR_WAVES = 3;
 const SONAR_DURATION = 3.2;
 const SPIRAL_TURNS = 2.35;
-const SPIRAL_MAX_R = 47;
+const SPIRAL_MAX_R = 40;
 
 export function CoverageOrbital() {
   const reduceMotion = useReducedMotion();
@@ -175,7 +175,7 @@ export function CoverageOrbital() {
               : { duration: 5, repeat: Infinity, ease: "easeInOut" }
           }
         />
-        {[0.48, 0.72, 0.96].map((scale, i) => (
+        {[0.41, 0.61, 0.82].map((scale, i) => (
           <div
             key={i}
             className="absolute rounded-full"
