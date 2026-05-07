@@ -15,48 +15,49 @@ const specialties: {
     name: "Cardiologista",
     variant: "hero",
     photo:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=560&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1460672985063-6764ac8b9c74?w=800&h=560&fit=crop&crop=faces",
   },
   {
     name: "Ginecologista",
     variant: "compact",
     photo:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=480&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1637059824899-a441006a6875?w=400&h=480&fit=crop&crop=faces",
   },
   {
     name: "Pediatra",
     variant: "compact",
     photo:
-      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=480&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1632052999447-e542d08d4f7d?w=400&h=480&fit=crop&crop=faces",
   },
   {
     name: "Clínico geral",
     variant: "compact",
-    photo: "/clinico geral.jpg",
+    photo:
+      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=400&h=480&fit=crop&crop=faces",
   },
   {
     name: "Dermatologista",
     variant: "compact",
     photo:
-      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=480&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1576765974930-2ebbfbd6dd20?w=400&h=480&fit=crop&crop=faces",
   },
   {
     name: "Ortopedista",
     variant: "hero",
     photo:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=560&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1597764690472-ec054f1c8637?w=800&h=560&fit=crop&crop=faces",
   },
   {
     name: "Psiquiatra",
     variant: "hero",
     photo:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=800&h=560&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1592947945242-69312358628b?w=800&h=560&fit=crop&crop=faces",
   },
   {
     name: "Oftalmologista",
     variant: "hero",
     photo:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=560&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1582895361887-24daa40c8667?w=800&h=560&fit=crop&crop=faces",
   },
 ];
 
@@ -145,7 +146,7 @@ export function Specialists() {
                         ? "(max-width: 1024px) 100vw, 50vw"
                         : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     }
-                    className={`object-cover ${sp.name === "Clínico geral" ? "object-center" : "object-top"} transition-transform duration-500 ease-out group-hover:scale-[1.03]`}
+                    className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
                   <div
                     className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(26,26,26,0.35)] via-transparent to-transparent opacity-80 lg:opacity-100 lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[rgba(255,255,255,0.08)]"
