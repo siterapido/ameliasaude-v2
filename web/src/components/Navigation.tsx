@@ -76,7 +76,7 @@ export function Navigation() {
             className="relative z-[60] flex items-center"
           >
             <Image
-              src={menuOpen ? "/logo-amelia-site-branca.png" : "/logo-amelia-site.png"}
+              src={menuOpen || !scrolled ? "/logo-amelia-site-branca.png" : "/logo-amelia-site.png"}
               alt="Amélia Saúde"
               width={200}
               height={56}
@@ -96,7 +96,7 @@ export function Navigation() {
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
                   scrolled
                     ? "text-gray-700 hover:text-[#7b6bb2]"
-                    : "text-black hover:text-[#7b6bb2]"
+                    : "text-white hover:text-[#7b6bb2]"
                 }`}
               >
                 {link.label}

@@ -179,8 +179,8 @@ export function Hero() {
             {/* Background image — optimized with next/image */}
             <div className="absolute inset-0 z-0" style={{ transform: "translateZ(0)" }}>
               <Image
-                src="/familia-bg.webp"
-                alt="Família feliz"
+                src="/rio-de-janeiro-hero.jpeg"
+                alt="Rio de Janeiro"
                 fill
                 priority
                 quality={100}
@@ -195,7 +195,7 @@ export function Hero() {
 
             {/* Gradient overlay */}
             <div
-              className="absolute inset-0 z-0 bg-[linear-gradient(to_top,rgba(123,107,178,0.7)_0%,rgba(123,107,178,0.55)_50%,rgba(0,0,0,0.15)_100%)] md:bg-[linear-gradient(to_top,rgba(123,107,178,0.6)_0%,rgba(123,107,178,0.4)_50%,rgba(0,0,0,0.12)_100%)]"
+              className="absolute inset-0 z-0 bg-[linear-gradient(to_top,rgba(123,107,178,0.85)_0%,rgba(123,107,178,0.7)_50%,rgba(0,0,0,0.25)_100%)] md:bg-[linear-gradient(to_top,rgba(123,107,178,0.75)_0%,rgba(123,107,178,0.55)_50%,rgba(0,0,0,0.18)_100%)]"
               aria-hidden
             />
 
