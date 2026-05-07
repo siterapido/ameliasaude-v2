@@ -71,17 +71,15 @@ const cities: { name: string; src: string }[] = [
 ];
 
 const ORBIT_LAYERS: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 24, anglesDeg: [0, 144, 288] },
-  { radiusPct: 33, anglesDeg: [36, 180, 324] },
-  { radiusPct: 42, anglesDeg: [72, 216] },
-  { radiusPct: 48, anglesDeg: [108, 252] },
+  { radiusPct: 24, anglesDeg: [0, 108, 216] },
+  { radiusPct: 36, anglesDeg: [36, 144, 252] },
+  { radiusPct: 48, anglesDeg: [72, 180, 288, 324] },
 ];
 
 const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 28, anglesDeg: [0, 144, 288] },
-  { radiusPct: 36, anglesDeg: [36, 180, 324] },
-  { radiusPct: 44, anglesDeg: [72, 216] },
-  { radiusPct: 50, anglesDeg: [108, 252] },
+  { radiusPct: 30, anglesDeg: [0, 108, 216] },
+  { radiusPct: 40, anglesDeg: [36, 144, 252] },
+  { radiusPct: 50, anglesDeg: [72, 180, 288, 324] },
 ];
 
 type CityPlacement = {
@@ -177,7 +175,7 @@ export function CoverageOrbital() {
               : { duration: 5, repeat: Infinity, ease: "easeInOut" }
           }
         />
-        {[0.52, 0.68, 0.84, 0.98].map((scale, i) => (
+        {[0.48, 0.72, 0.96].map((scale, i) => (
           <div
             key={i}
             className="absolute rounded-full"
