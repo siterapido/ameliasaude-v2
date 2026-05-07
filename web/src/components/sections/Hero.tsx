@@ -195,7 +195,7 @@ export function Hero() {
 
             {/* Gradient overlay */}
             <div
-              className="absolute inset-0 z-0 bg-[linear-gradient(to_top,rgba(123,107,178,0.85)_0%,rgba(123,107,178,0.7)_50%,rgba(0,0,0,0.25)_100%)] md:bg-[linear-gradient(to_top,rgba(123,107,178,0.75)_0%,rgba(123,107,178,0.55)_50%,rgba(0,0,0,0.18)_100%)]"
+              className="absolute inset-0 z-0 bg-[linear-gradient(to_top,rgba(123,107,178,0.95)_0%,rgba(123,107,178,0.85)_50%,rgba(0,0,0,0.35)_100%)] md:bg-[linear-gradient(to_top,rgba(123,107,178,0.88)_0%,rgba(123,107,178,0.7)_50%,rgba(0,0,0,0.25)_100%)]"
               aria-hidden
             />
 
