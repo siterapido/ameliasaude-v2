@@ -1,14 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  animate,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+} from "framer-motion";
 
 const PURPLE = "#7b6bb2";
-/** Traços e ondas sobre fundo #7B6BB2 */
 const ON_PURPLE_STROKE = "#ffffff";
 
-/** Espiral arquimediana centrada em (0,0), para ondas tipo sonar. */
 function archimedeanSpiralD(opts: {
   turns: number;
   maxR: number;
@@ -70,16 +74,16 @@ const cities: { name: string; src: string }[] = [
   },
 ];
 
-const ORBIT_LAYERS: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 18, anglesDeg: [0, 120, 240] },
-  { radiusPct: 31, anglesDeg: [60, 180, 300] },
-  { radiusPct: 43, anglesDeg: [15, 105, 195, 285] },
+const ORBIT_LAYERS: { radiusPct: number; anglesDeg: number[]; periodSec: number }[] = [
+  { radiusPct: 18, anglesDeg: [0, 120, 240], periodSec: 22 },
+  { radiusPct: 31, anglesDeg: [60, 180, 300], periodSec: 36 },
+  { radiusPct: 43, anglesDeg: [15, 105, 195, 285], periodSec: 50 },
 ];
 
-const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 24, anglesDeg: [0, 120, 240] },
-  { radiusPct: 34, anglesDeg: [60, 180, 300] },
-  { radiusPct: 44, anglesDeg: [15, 105, 195, 285] },
+const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[]; periodSec: number }[] = [
+  { radiusPct: 24, anglesDeg: [0, 120, 240], periodSec: 22 },
+  { radiusPct: 34, anglesDeg: [60, 180, 300], periodSec: 36 },
+  { radiusPct: 44, anglesDeg: [15, 105, 195, 285], periodSec: 50 },
 ];
 
 type CityPlacement = {
@@ -87,36 +91,117 @@ type CityPlacement = {
   angleDeg: number;
   radiusPct: number;
   layerIndex: number;
+  periodSec: number;
 };
 
 function buildPlacements(
-  layers: { radiusPct: number; anglesDeg: number[] }[]
+  layers: (typeof ORBIT_LAYERS)[number][]
 ): CityPlacement[] {
   const out: CityPlacement[] = [];
   let idx = 0;
   for (let layerIndex = 0; layerIndex < layers.length; layerIndex++) {
-    const { radiusPct, anglesDeg } = layers[layerIndex];
+    const { radiusPct, anglesDeg, periodSec } = layers[layerIndex];
     for (const angleDeg of anglesDeg) {
       if (idx >= cities.length) break;
-      out.push({ city: cities[idx], angleDeg, radiusPct, layerIndex });
+      out.push({ city: cities[idx], angleDeg, radiusPct, layerIndex, periodSec });
       idx++;
     }
   }
   return out;
 }
 
-function polarToPercent(angleDeg: number, radiusPct: number) {
-  const rad = (angleDeg * Math.PI) / 180;
-  return {
-    left: 50 + radiusPct * Math.cos(rad),
-    top: 50 + radiusPct * Math.sin(rad),
-  };
-}
-
 const SONAR_WAVES = 3;
 const SONAR_DURATION = 3.2;
 const SPIRAL_TURNS = 2.35;
 const SPIRAL_MAX_R = 40;
+
+/* ─── Nó orbital — planeta girando ao redor do centro ─── */
+
+function OrbitNode({
+  city,
+  radiusPct,
+  startAngleDeg,
+  periodSec,
+  index,
+  layerIndex,
+  reduced,
+}: {
+  city: (typeof cities)[number];
+  radiusPct: number;
+  startAngleDeg: number;
+  periodSec: number;
+  index: number;
+  layerIndex: number;
+  reduced: boolean | null;
+}) {
+  const angle = useMotionValue(startAngleDeg);
+  const didStart = useRef(false);
+
+  useEffect(() => {
+    if (reduced || didStart.current) return;
+    didStart.current = true;
+    const controls = animate(angle, startAngleDeg + 360, {
+      duration: periodSec,
+      repeat: Infinity,
+      ease: "linear",
+    });
+    return controls.stop;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reduced]);
+
+  const baseLeft = useMotionValue(50);
+  const baseTop = useMotionValue(50);
+
+  const left = useTransform([baseLeft, angle] as const, ([, a]) => {
+    const rad = ((a as number) * Math.PI) / 180;
+    return `calc(50% + ${(radiusPct * Math.cos(rad)).toFixed(2)}%)`;
+  });
+  const top = useTransform([baseTop, angle] as const, ([, a]) => {
+    const rad = ((a as number) * Math.PI) / 180;
+    return `calc(50% + ${(radiusPct * Math.sin(rad)).toFixed(2)}%)`;
+  });
+  const negAngle = useTransform(angle, (a) => -a);
+
+  return (
+    <motion.div
+      className="absolute"
+      style={{
+        left,
+        top,
+        zIndex: 5 + layerIndex,
+      }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{
+        delay: 0.08 + index * 0.09,
+        type: "spring",
+        stiffness: 200,
+        damping: 22,
+      }}
+    >
+      <motion.div
+        className="flex flex-col items-center gap-1.5"
+        style={{ rotate: negAngle }}
+      >
+        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)] sm:h-[3.75rem] sm:w-[3.75rem] md:h-[4.25rem] md:w-[4.25rem]">
+          <Image
+            src={city.src}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 40px, 68px"
+          />
+        </div>
+        <span className="max-w-[4.25rem] text-center font-sans text-[9px] font-normal leading-tight tracking-wide text-white/90 sm:max-w-none sm:text-[11px] sm:leading-none md:text-xs whitespace-normal sm:whitespace-nowrap">
+          {city.name}
+        </span>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+/* ─── Componente principal ─── */
 
 export function CoverageOrbital() {
   const reduceMotion = useReducedMotion();
@@ -142,7 +227,7 @@ export function CoverageOrbital() {
       className="relative mx-auto w-full max-w-[min(100%,min(96vw,920px))] aspect-square select-none overflow-visible"
       aria-hidden
     >
-      {/* Anéis — rotação lenta + pulso sutil */}
+      {/* Anéis de fundo — rotação lenta */}
       <motion.div
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
         animate={reduceMotion ? { rotate: 0 } : { rotate: 360, scale: [1, 1.015, 1] }}
@@ -150,22 +235,20 @@ export function CoverageOrbital() {
           reduceMotion
             ? { duration: 0 }
             : {
-                rotate: { duration: 100, repeat: Infinity, ease: "linear" },
+                rotate: { duration: 120, repeat: Infinity, ease: "linear" },
                 scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
               }
         }
       >
-        {/* Glow pulsante sutil atrás dos anéis */}
         <motion.div
           className="absolute rounded-full"
           style={{
             width: "52%",
             height: "52%",
-            boxShadow: "0 0 60px 20px rgba(255,255,255,0.04), 0 0 120px 40px rgba(255,255,255,0.02)",
+            boxShadow:
+              "0 0 60px 20px rgba(255,255,255,0.04), 0 0 120px 40px rgba(255,255,255,0.02)",
           }}
-          animate={
-            reduceMotion ? {} : { opacity: [0.3, 0.7, 0.3] }
-          }
+          animate={reduceMotion ? {} : { opacity: [0.3, 0.7, 0.3] }}
           transition={
             reduceMotion
               ? { duration: 0 }
@@ -185,7 +268,7 @@ export function CoverageOrbital() {
         ))}
       </motion.div>
 
-      {/* Ondas em espiral — pulso sonar minimalista no centro */}
+      {/* Ondas sonar */}
       <div className="pointer-events-none absolute inset-0 z-[12] flex items-center justify-center">
         <svg
           className="h-[92%] w-[92%] max-h-[min(92vw,820px)] max-w-[min(92vw,820px)] overflow-visible"
@@ -248,61 +331,19 @@ export function CoverageOrbital() {
         </div>
       </div>
 
-      {placements.map(({ city, angleDeg, radiusPct, layerIndex }, i) => {
-        const { left, top } = polarToPercent(angleDeg, radiusPct);
-        const z = 5 + layerIndex;
-        return (
-          <motion.div
-            key={city.name}
-            className="absolute"
-            style={{
-              left: `${left}%`,
-              top: `${top}%`,
-              transform: "translate(-50%, -50%)",
-              zIndex: z,
-            }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: 0.08 + i * 0.09,
-              type: "spring",
-              stiffness: 200,
-              damping: 22,
-            }}
-          >
-            <motion.div
-              animate={
-                reduceMotion ? { y: 0 } : { y: [0, -3, 0] }
-              }
-              transition={
-                reduceMotion
-                  ? { duration: 0 }
-                  : {
-                      duration: 6 + i * 0.08,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i * 0.12,
-                    }
-              }
-              className="flex flex-col items-center gap-1.5"
-            >
-              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)] sm:h-[3.75rem] sm:w-[3.75rem] md:h-[4.25rem] md:w-[4.25rem]">
-                <Image
-                  src={city.src}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 40px, 68px"
-                />
-              </div>
-              <span className="max-w-[4.25rem] text-center font-sans text-[9px] font-normal leading-tight tracking-wide text-white/90 sm:max-w-none sm:text-[11px] sm:leading-none md:text-xs whitespace-normal sm:whitespace-nowrap">
-                {city.name}
-              </span>
-            </motion.div>
-          </motion.div>
-        );
-      })}
+      {/* Planetas orbitais */}
+      {placements.map(({ city, angleDeg, radiusPct, layerIndex, periodSec }, i) => (
+        <OrbitNode
+          key={city.name}
+          city={city}
+          radiusPct={radiusPct}
+          startAngleDeg={angleDeg}
+          periodSec={periodSec}
+          index={i}
+          layerIndex={layerIndex}
+          reduced={reduceMotion}
+        />
+      ))}
     </div>
   );
 }
