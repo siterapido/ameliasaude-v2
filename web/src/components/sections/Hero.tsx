@@ -227,7 +227,7 @@ export function Hero() {
                   Cuidado de verdade
                   <br />
                   <em className="font-light italic text-white/85">
-                    para os cariocas.
+                    para os cariocas
                   </em>
                 </motion.h2>
 
@@ -242,29 +242,8 @@ export function Hero() {
                     marginTop: "0.5rem"
                   }}
                 >
-                  Para o carioca que cuida de si e de quem ama — com a mesma leveza de
-                  uma tarde na orla.
+                  Acreditamos que cuidar vai além de tratar: é acompanhar, orientar e estar presente em cada momento da vida dos nossos clientes.
                 </motion.p>
-
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                >
-                  <a
-                    href="#contato"
-                    className="inline-flex items-center justify-center font-sans font-medium transition-colors"
-                    style={{
-                      border: "1px solid white",
-                      color: "white",
-                      borderRadius: "9999px",
-                      padding: "1rem 2rem",
-                      fontSize: "1.05rem",
-                    }}
-                  >
-                    Saiba mais
-                  </a>
-                </motion.div>
               </div>
             </div>
           </motion.div>

@@ -74,7 +74,7 @@ export function FamilyPlan() {
             Cuidado de verdade
             <br />
             <em className="font-light italic text-white/85">
-              para os cariocas.
+              para os cariocas
             </em>
           </motion.h2>
 
@@ -87,19 +87,8 @@ export function FamilyPlan() {
               marginTop: "0.5rem"
             }}
           >
-            Para o carioca que cuida de si e de quem ama — com a mesma leveza de
-            uma tarde na orla.
+            Acreditamos que cuidar vai além de tratar: é acompanhar, orientar e estar presente em cada momento da vida dos nossos clientes.
           </motion.p>
-
-          <motion.div variants={fadeUp}>
-            <Button
-              variant="outline"
-              href="#contato"
-              className="border-white text-white hover:bg-white hover:text-[var(--amelia-deep)]"
-            >
-              Saiba mais
-            </Button>
-          </motion.div>
         </motion.div>
       </div>
     </section>
