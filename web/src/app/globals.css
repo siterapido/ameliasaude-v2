@@ -59,3 +59,61 @@ footer {
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(123,107,178,0.25); border-radius: 2px; }
+
+/* ─── Legal pages typography ─── */
+.prose-legal h2 {
+  font-family: var(--font-dm-sans, "DM Sans", sans-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--amelia-ink);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.35;
+}
+
+.prose-legal h3 {
+  font-family: var(--font-dm-sans, "DM Sans", sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--amelia-ink);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.prose-legal p {
+  font-family: var(--font-dm-sans, "DM Sans", sans-serif);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #3a3a3a;
+  margin-bottom: 1rem;
+}
+
+.prose-legal ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.prose-legal ul li {
+  font-family: var(--font-dm-sans, "DM Sans", sans-serif);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #3a3a3a;
+  margin-bottom: 0.35rem;
+}
+
+.prose-legal a {
+  color: #7b6bb2;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-legal a:hover {
+  color: #5e4985;
+}
+
+.prose-legal strong {
+  font-weight: 600;
+  color: var(--amelia-ink);
+}
