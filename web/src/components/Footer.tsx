@@ -10,10 +10,10 @@ import {
 
 /** Atualize números/e-mail quando a operação confirmar os canais oficiais (espelhar Contact.tsx). */
 const CONTACT = {
-  whatsappDisplay: "(21) 99999-9999",
-  whatsappHref: "https://wa.me/5521999999999",
-  phoneDisplay: "(21) 99999-9999",
-  phoneHref: "tel:+5521999999999",
+  whatsappDisplay: "(21) 97172-4757",
+  whatsappHref: "https://wa.me/5521971724757",
+  phoneDisplay: "(21) 97172-4757",
+  phoneHref: "tel:+5521971724757",
   sacDisplay: "0800 000 000",
   sacHref: "tel:08000000000",
   email: "ouvidoria@ameliasaude.com.br",
@@ -29,12 +29,12 @@ const navLinks = [
   { label: "Contato", href: "#contato" },
 ] as const;
 
-/** Destinos legais: substituir por URLs definitivas quando existirem páginas institucionais. */
+/** Destinos legais: rotas internas do site. */
 const legalLinks = [
-  { label: "Política de Privacidade", href: CONTACT.site },
-  { label: "Termos de Uso", href: CONTACT.site },
-  { label: "Política de Cookies", href: CONTACT.site },
-  { label: "LGPD", href: `mailto:${CONTACT.email}?subject=Dúvidas%20sobre%20LGPD` },
+  { label: "Política de Privacidade", href: "/privacidade" },
+  { label: "Termos de Uso", href: "/termos" },
+  { label: "Política de Cookies", href: "/cookies" },
+  { label: "LGPD", href: "/lgpd" },
 ] as const;
 
 const accent = "text-[#c9bcf0]";
