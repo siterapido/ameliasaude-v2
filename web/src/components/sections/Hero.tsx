@@ -58,7 +58,7 @@ export function Hero() {
                   fill
                   priority
                   quality={100}
-                  className="object-cover object-[85%_25%] md:object-[right_20%]"
+                  className="object-cover object-[85%_60%] md:object-[right_55%]"
                   style={{ 
                     imageRendering: "auto",
                     filter: "contrast(1.02) brightness(1.03)"
