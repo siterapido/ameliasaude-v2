@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { useHero } from "@/components/HeroContext";
 
 const navLinks = [
   { label: "Planos", href: "#beneficiarios" },
@@ -15,6 +16,7 @@ const navLinks = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { currentSlide } = useHero();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 48);
@@ -76,7 +78,11 @@ export function Navigation() {
             className="relative z-[60] flex items-center"
           >
             <Image
-              src={menuOpen || !scrolled ? "/logo-amelia-site-branca.png" : "/logo-amelia-site.png"}
+              src={
+                menuOpen || (!scrolled && currentSlide === 1)
+                  ? "/logo-amelia-site-branca.png"
+                  : "/logo-amelia-site.png"
+              }
               alt="Amélia Saúde"
               width={200}
               height={56}
@@ -94,7 +100,7 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
-                  scrolled
+                  scrolled || (!scrolled && currentSlide === 0)
                     ? "text-gray-700 hover:text-[#7b6bb2]"
                     : "text-white hover:text-[#7b6bb2]"
                 }`}

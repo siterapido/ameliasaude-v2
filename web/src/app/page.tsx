@@ -7,21 +7,24 @@ import { HealthExperience } from "@/components/sections/HealthExperience";
 import { Blog } from "@/components/sections/Blog";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
+import { HomeWrapper } from "./HomeWrapper";
 
 export default function Home() {
   return (
-    <div className="flex min-h-0 flex-1 flex-col bg-white">
-      <Navigation />
-      <main id="main-content" className="min-h-0 flex-1">
-        <Hero />
-        <Network />
-        <Telemedicine />
-        <Specialists />
-        <HealthExperience />
-        <Blog />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <HomeWrapper>
+      <div className="flex min-h-0 flex-1 flex-col bg-white">
+        <Navigation />
+        <main id="main-content" className="min-h-0 flex-1">
+          <Hero />
+          <Network />
+          <Telemedicine />
+          <Specialists />
+          <HealthExperience />
+          <Blog />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </HomeWrapper>
   );
 }

@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import type { ReactNode } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useHero } from "@/components/HeroContext";
 
 const HEADLINE_LINES: ReactNode[] = [
   <>sua saúde em</>,
@@ -16,14 +17,14 @@ export function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const { currentSlide, setCurrentSlide } = useHero();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % 2);
     }, 10000);
     return () => clearInterval(interval);
-  }, []);
+  }, [setCurrentSlide]);
 
   return (
     <section
