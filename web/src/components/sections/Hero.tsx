@@ -45,7 +45,7 @@ export function Hero() {
           >
             {/* ── Background Image Container ── */}
             <div
-              className="absolute inset-x-0 top-0 z-0 overflow-hidden h-[48%] md:h-full"
+              className="absolute inset-0 z-0 overflow-hidden"
               style={{ transform: "translateZ(0)" }}
             >
               <motion.div
@@ -70,9 +70,9 @@ export function Hero() {
 
             {/* ── Mobile Overlay Gradient ── */}
             <div
-              className="pointer-events-none absolute inset-x-0 top-0 z-1 h-[48%] md:hidden"
+              className="pointer-events-none absolute inset-0 z-1 md:hidden"
               style={{
-                background: "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%)"
+                background: "linear-gradient(to bottom, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.4) 35%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.85) 100%)"
               }}
               aria-hidden
             />
