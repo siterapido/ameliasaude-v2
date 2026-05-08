@@ -71,15 +71,15 @@ const cities: { name: string; src: string }[] = [
 ];
 
 const ORBIT_LAYERS: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 20, anglesDeg: [0, 108, 216] },
-  { radiusPct: 31, anglesDeg: [36, 144, 252] },
-  { radiusPct: 41, anglesDeg: [72, 180, 288, 324] },
+  { radiusPct: 18, anglesDeg: [0, 120, 240] },
+  { radiusPct: 31, anglesDeg: [60, 180, 300] },
+  { radiusPct: 43, anglesDeg: [15, 105, 195, 285] },
 ];
 
 const ORBIT_LAYERS_COMPACT: { radiusPct: number; anglesDeg: number[] }[] = [
-  { radiusPct: 26, anglesDeg: [0, 108, 216] },
-  { radiusPct: 34, anglesDeg: [36, 144, 252] },
-  { radiusPct: 43, anglesDeg: [72, 180, 288, 324] },
+  { radiusPct: 24, anglesDeg: [0, 120, 240] },
+  { radiusPct: 34, anglesDeg: [60, 180, 300] },
+  { radiusPct: 44, anglesDeg: [15, 105, 195, 285] },
 ];
 
 type CityPlacement = {
@@ -131,15 +131,7 @@ export function CoverageOrbital() {
   }, []);
 
   const layers = compactOrbit ? ORBIT_LAYERS_COMPACT : ORBIT_LAYERS;
-  const placements = useMemo(() => {
-    const base = buildPlacements(layers);
-    const betweenRadius = compactOrbit ? 35 : 30;
-    return base.map((p) =>
-      p.city.name === "Duque de Caxias" || p.city.name === "São João de Meriti"
-        ? { ...p, radiusPct: betweenRadius }
-        : p
-    );
-  }, [layers, compactOrbit]);
+  const placements = useMemo(() => buildPlacements(layers), [layers]);
   const spiralD = useMemo(
     () => archimedeanSpiralD({ turns: SPIRAL_TURNS, maxR: SPIRAL_MAX_R }),
     []
@@ -281,16 +273,16 @@ export function CoverageOrbital() {
           >
             <motion.div
               animate={
-                reduceMotion ? { y: 0 } : { y: [0, i % 2 === 0 ? -4 : 4, 0] }
+                reduceMotion ? { y: 0 } : { y: [0, -3, 0] }
               }
               transition={
                 reduceMotion
                   ? { duration: 0 }
                   : {
-                      duration: 4 + i * 0.3,
+                      duration: 6 + i * 0.08,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: i * 0.2,
+                      delay: i * 0.12,
                     }
               }
               className="flex flex-col items-center gap-1.5"

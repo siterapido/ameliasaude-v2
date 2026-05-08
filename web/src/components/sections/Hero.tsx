@@ -58,7 +58,7 @@ export function Hero() {
                   fill
                   priority
                   quality={100}
-                  className="object-cover object-[85%_10%] md:object-right"
+                  className="object-cover object-[85%_25%] md:object-[right_20%]"
                   style={{ 
                     imageRendering: "auto",
                     filter: "contrast(1.02) brightness(1.03)"
@@ -94,7 +94,7 @@ export function Hero() {
                 {/* Headline */}
                 <h1
                   className="font-display font-normal lowercase italic text-[#7b6bb2]"
-                  style={{ fontSize: "clamp(3.2rem, 12vw, 8rem)", lineHeight: 0.82, letterSpacing: "-0.03em" }}
+                  style={{ fontSize: "clamp(2.6rem, 9vw, 6rem)", lineHeight: 0.85, letterSpacing: "-0.03em" }}
                 >
                   {HEADLINE_LINES.map((line, i) => (
                     <motion.div
