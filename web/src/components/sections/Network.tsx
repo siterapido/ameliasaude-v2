@@ -11,11 +11,11 @@ export function Network() {
       <div className="max-w-[min(100%,1400px)] mx-auto w-full">
         <div
           className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] gap-16 lg:gap-6 xl:gap-10 items-start lg:items-center"
-          style={{ minHeight: "min(72vh,900px)" }}
+          style={{ minHeight: "min(61.2vh,765px)" }}
         >
 
           {/* Esquerda — título e subtítulo sempre legíveis (acima do CTA) */}
-          <div className="relative z-10 flex min-h-0 flex-col justify-center lg:min-h-[min(72vh,900px)] lg:max-w-xl lg:py-4">
+          <div className="relative z-10 flex min-h-0 flex-col justify-center lg:min-h-[min(61.2vh,765px)] lg:max-w-xl lg:py-4">
             <motion.div
               variants={staggerContainer(0.04, 0)}
               initial="hidden"
