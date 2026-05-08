@@ -31,7 +31,7 @@ export function Hero() {
       id="hero"
       ref={ref}
       className="relative flex flex-col overflow-hidden bg-white"
-      style={{ minHeight: "clamp(600px, 53.5vw, 100svh)" }}
+      style={{ minHeight: "clamp(600px, 45.5vw, 100svh)" }}
     >
       <AnimatePresence initial={false}>
         {currentSlide === 0 ? (
@@ -58,7 +58,7 @@ export function Hero() {
                   fill
                   priority
                   quality={100}
-                  className="object-cover object-[85%_0%] md:object-[right_0%]"
+                  className="object-cover"
                   style={{ 
                     imageRendering: "auto",
                     filter: "contrast(1.02) brightness(1.03)"
