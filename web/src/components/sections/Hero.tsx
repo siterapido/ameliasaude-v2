@@ -31,7 +31,7 @@ export function Hero() {
       id="hero"
       ref={ref}
       className="relative flex flex-col overflow-hidden bg-white"
-      style={{ minHeight: "clamp(600px, 49.1vw, 100svh)" }}
+      style={{ minHeight: "100svh" }}
     >
       <AnimatePresence initial={false}>
         {currentSlide === 0 ? (
@@ -253,7 +253,7 @@ export function Hero() {
       {/* Navigation Arrows */}
       <button
         onClick={() => setCurrentSlide((prev) => (prev - 1 + 2) % 2)}
-        className={`absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
+        className={`absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 hidden md:flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
           currentSlide === 0 ? "bg-[#7b6bb2]/10 text-[#7b6bb2] hover:bg-[#7b6bb2]/20" : "bg-white/10 text-white hover:bg-white/25"
         }`}
         aria-label="Slide anterior"
@@ -263,7 +263,7 @@ export function Hero() {
 
       <button
         onClick={() => setCurrentSlide((prev) => (prev + 1) % 2)}
-        className={`absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
+        className={`absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 hidden md:flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
           currentSlide === 0 ? "bg-[#7b6bb2]/10 text-[#7b6bb2] hover:bg-[#7b6bb2]/20" : "bg-white/10 text-white hover:bg-white/25"
         }`}
         aria-label="Próximo slide"
