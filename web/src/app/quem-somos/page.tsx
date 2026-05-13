@@ -132,7 +132,7 @@ export default function QuemSomosPage() {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/familia-bg.webp"
+              src="/familia-pexels.jpg"
               alt=""
               fill
               className="object-cover object-center opacity-20"
@@ -382,7 +382,7 @@ export default function QuemSomosPage() {
                 {/* Main Image */}
                 <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-[var(--amelia-purple)]/10">
                   <Image
-                    src="/familia-bg.webp"
+                    src="/familia-pexels.jpg"
                     alt="Família feliz com plano de saúde Amélia"
                     fill
                     className="object-cover"
