@@ -132,7 +132,7 @@ export default function QuemSomosPage() {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/hero-nova-2.png"
+              src="/familia-bg.webp"
               alt=""
               fill
               className="object-cover object-center opacity-20"
@@ -382,8 +382,8 @@ export default function QuemSomosPage() {
                 {/* Main Image */}
                 <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-[var(--amelia-purple)]/10">
                   <Image
-                    src="/hero-nova-2.png"
-                    alt="Equipe Amélia Saúde"
+                    src="/familia-bg.webp"
+                    alt="Família feliz com plano de saúde Amélia"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
