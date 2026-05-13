@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { useHero } from "@/components/HeroContext";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Quem Somos", href: "/quem-somos" },
@@ -18,6 +19,18 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { currentSlide } = useHero();
+  const pathname = usePathname();
+
+  const isHomePage = pathname === "/";
+
+  const visibleLinks = isHomePage
+    ? navLinks
+    : navLinks.filter(
+        (link) =>
+          link.href !== "#beneficiarios" &&
+          link.href !== "#rede" &&
+          link.href !== "#telemedicina"
+      );
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 48);
@@ -73,7 +86,7 @@ export function Navigation() {
         >
           {/* Logo — maior */}
           <a
-            href="#hero"
+            href="/"
             aria-label="Amélia Saúde — início"
             onClick={closeMenu}
             className="relative z-[60] flex items-center"
@@ -96,7 +109,7 @@ export function Navigation() {
 
           {/* Desktop nav links */}
           <nav className="hidden lg:flex items-center gap-8" aria-label="Menu principal">
-            {navLinks.map((link) => (
+            {visibleLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -209,7 +222,7 @@ export function Navigation() {
               className="flex flex-col justify-center items-center flex-1 gap-2"
               aria-label="Menu fullscreen"
             >
-              {navLinks.map((link, i) => (
+              {visibleLinks.map((link, i) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
@@ -235,7 +248,7 @@ export function Navigation() {
                 exit={{ opacity: 0, y: 12 }}
                 transition={{
                   duration: 0.5,
-                  delay: 0.1 + navLinks.length * 0.07,
+                  delay: 0.1 + visibleLinks.length * 0.07,
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className="mt-10"
