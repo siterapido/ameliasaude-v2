@@ -16,7 +16,9 @@ export function BlogSidebar({ activeCategory, onSearch, searchQuery }: BlogSideb
   return (
     <aside className="space-y-8">
       <SearchBar onSearch={onSearch} initialValue={searchQuery} />
+      <div className="h-px bg-[#e4dcf5]" />
       <CategoryList categories={categories} activeCategory={activeCategory} />
+      <div className="h-px bg-[#e4dcf5]" />
       <TagCloud tags={tags} />
     </aside>
   );

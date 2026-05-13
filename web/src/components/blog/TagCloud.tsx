@@ -8,7 +8,7 @@ interface TagCloudProps {
 
 export function TagCloud({ tags }: TagCloudProps) {
   return (
-    <div className="mb-8">
+    <div>
       <h3 className="mb-4 font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-[#7b6bb2]">
         Tags
       </h3>
@@ -17,7 +17,7 @@ export function TagCloud({ tags }: TagCloudProps) {
           <Link
             key={tag}
             href={`/blog?tag=${encodeURIComponent(tag)}`}
-            className="rounded-full border border-[#e4dcf5] px-3 py-1.5 font-sans text-xs text-[#5c5470] transition-colors duration-200 hover:border-[#7b6bb2] hover:bg-[#7b6bb2]/5 hover:text-[#7b6bb2]"
+            className="rounded-full border border-[#e4dcf5] px-3.5 py-1.5 font-sans text-xs text-[#5c5470] transition-all duration-200 hover:border-[#7b6bb2] hover:bg-[#7b6bb2] hover:text-white"
           >
             {tag}
           </Link>
