@@ -5,20 +5,17 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { blogPosts, BlogPost } from "@/data/blog";
-import { SearchBar } from "@/components/blog/SearchBar";
-import { BlogCard } from "@/components/blog/BlogCard";
+import { PostCard } from "@/components/blog/PostCard";
 import { BlogSidebar } from "@/components/blog/BlogSidebar";
 import { Pagination } from "@/components/blog/Pagination";
-import { LatestNewsSlider } from "@/components/blog/LatestNewsSlider";
 
-const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 6;
 
-function BlogContent() {
+function BlogPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
-
   const page = parseInt(searchParams.get("page") || "1", 10);
   const categoryParam = searchParams.get("category");
   const tagParam = searchParams.get("tag");
@@ -27,12 +24,12 @@ function BlogContent() {
     let posts: BlogPost[] = [...blogPosts];
 
     if (searchQuery) {
-      const lowerQuery = searchQuery.toLowerCase();
+      const q = searchQuery.toLowerCase();
       posts = posts.filter(
         (post) =>
-          post.title.toLowerCase().includes(lowerQuery) ||
-          post.excerpt.toLowerCase().includes(lowerQuery) ||
-          post.content.some((p) => p.toLowerCase().includes(lowerQuery))
+          post.title.toLowerCase().includes(q) ||
+          post.excerpt.toLowerCase().includes(q) ||
+          post.content.some((p) => p.toLowerCase().includes(q))
       );
     }
 
@@ -53,13 +50,7 @@ function BlogContent() {
     page * POSTS_PER_PAGE
   );
 
-  // Latest news: 3 most recent posts (only when no filters active and page 1)
-  const hasActiveFilter = searchQuery || categoryParam || tagParam || page > 1;
-  const latestPosts = !hasActiveFilter ? blogPosts.slice(0, 3) : [];
-  // Posts for grid exclude the ones shown in slider
-  const postsForGrid = hasActiveFilter
-    ? paginatedPosts
-    : paginatedPosts.filter((p) => !latestPosts.find((lp) => lp.slug === p.slug));
+  const listPosts = paginatedPosts;
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
@@ -80,78 +71,40 @@ function BlogContent() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <Navigation />
+
       <main className="flex-1">
-        {/* Header estilo Amélia */}
-        <section className="border-b border-[var(--amelia-line)]">
-          <div
-            style={{ padding: "clamp(4rem, 10vh, 6rem) clamp(1.5rem, 5vw, 5rem)" }}
-          >
-            <div className="mx-auto max-w-[1400px] text-center">
-              <span className="inline-flex items-center gap-3 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--amelia-purple)]">
-                <span className="h-px w-8 bg-[var(--amelia-purple)]" />
-                Nosso Blog
-                <span className="h-px w-8 bg-[var(--amelia-purple)]" />
-              </span>
-
-              <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-wide text-[var(--amelia-ink)]">
-                Conteúdos para cuidar
-                <br />
-                <span className="text-[var(--amelia-purple)]">de você</span>
-              </h1>
-
-              <p className="mx-auto mt-6 max-w-[560px] font-sans font-light leading-relaxed text-gray-600 text-[clamp(1rem,1.5vw,1.15rem)]">
-                Dicas, novidades e orientações para você fazer as melhores escolhas em saúde.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Slider de Últimas Notícias — integrado ao conteúdo */}
-        {!hasActiveFilter && latestPosts.length > 0 && (
-          <section className="bg-white border-b border-[var(--amelia-line)]">
-            <div
-              className="mx-auto max-w-[1400px]"
-              style={{ padding: "clamp(2rem, 4vh, 2.5rem) clamp(1.5rem, 5vw, 5rem)" }}
-            >
-              <LatestNewsSlider posts={latestPosts} />
-            </div>
-          </section>
-        )}
-
-        {/* Conteúdo principal — Grid + Sidebar */}
-        <section
-          className="bg-white"
-          style={{ padding: "clamp(2.5rem, 5vh, 3.5rem) clamp(1.5rem, 5vw, 5rem) clamp(3rem, 8vh, 5rem)" }}
-        >
-          <div className="mx-auto max-w-[1400px]">
+        <section className="pt-16 pb-10">
+          <div className="mx-auto max-w-6xl px-6">
             <div className="flex flex-col lg:flex-row gap-12">
-              <div className="flex-1 lg:max-w-[70%]">
+              {/* Main content */}
+              <div className="flex-1 lg:max-w-[68%]">
                 {paginatedPosts.length === 0 ? (
                   <div className="py-16 text-center">
-                    <p className="font-sans text-lg text-gray-600">
+                    <p className="text-gray-600">
                       Nenhum resultado encontrado para &quot;{searchQuery || categoryParam || tagParam}&quot;.
                     </p>
                     <button
                       onClick={() => handleSearch("")}
-                      className="mt-4 font-sans text-[var(--amelia-purple)] hover:underline"
+                      className="mt-4 text-[#7b6bb2] hover:underline text-sm"
                     >
                       Limpar filtros
                     </button>
                   </div>
                 ) : (
                   <>
-                    {/* Grid de cards */}
-                    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                      {postsForGrid.map((post) => (
-                        <BlogCard key={post.slug} post={post} />
+                    <div>
+                      {listPosts.map((post) => (
+                        <PostCard key={post.slug} post={post} />
                       ))}
                     </div>
+
                     <Pagination currentPage={page} totalPages={totalPages} />
                   </>
                 )}
               </div>
 
-              <div className="hidden lg:block lg:w-[30%]">
+              {/* Sidebar */}
+              <div className="hidden lg:block lg:w-[32%]">
                 <div className="sticky top-24">
                   <BlogSidebar
                     activeCategory={categoryParam || undefined}
@@ -164,6 +117,7 @@ function BlogContent() {
           </div>
         </section>
       </main>
+
       <Footer />
     </div>
   );
@@ -171,8 +125,8 @@ function BlogContent() {
 
 export default function BlogPage() {
   return (
-    <Suspense fallback={<div>Carregando...</div>}>
-      <BlogContent />
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
+      <BlogPageContent />
     </Suspense>
   );
 }

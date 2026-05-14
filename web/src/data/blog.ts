@@ -56,6 +56,96 @@ export const blogPosts: BlogPost[] = [
     ],
     tags: ["sono", "bem-estar", "saúde"],
   },
+  {
+    slug: "hidratação-corporal",
+    category: "Bem-estar",
+    title: "A importância da hidratação para o organismo",
+    excerpt:
+      "A água é essencial para o funcionamento de todas as células do nosso corpo. Descubra os benefícios de se manter hidratado.",
+    date: "05 Mar 2026",
+    readTime: "3 min",
+    image:
+      "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1200&h=600&fit=crop&q=80",
+    content: [
+      "A hidratação adequada é fundamental para a manutenção da saúde. A água participa de inúmeras funções no organismo...",
+    ],
+    tags: ["hidratação", "bem-estar", "saúde"],
+  },
+  {
+    slug: "meditação-reduzir-ansiedade",
+    category: "Bem-estar",
+    title: "Meditação: uma aliada contra a ansiedade",
+    excerpt:
+      "Práticas de mindfulness e meditação podem ajudar significativamente a reduzir os níveis de ansiedade no dia a dia.",
+    date: "01 Mar 2026",
+    readTime: "5 min",
+    image:
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&h=600&fit=crop&q=80",
+    content: [
+      "A meditação é uma prática milenar que tem ganhado cada vez mais espaço na rotina das pessoas...",
+    ],
+    tags: ["meditação", "saúde mental", "ansiedade"],
+  },
+  {
+    slug: "alimentos-anti-inflamatorios",
+    category: "Nutrição",
+    title: "Alimentos anti-inflamatórios que devem estar no seu prato",
+    excerpt:
+      "Conheça os principais alimentos que ajudam a combater a inflamação no organismo e prevenir doenças.",
+    date: "25 Fev 2026",
+    readTime: "6 min",
+    image:
+      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&h=600&fit=crop&q=80",
+    content: [
+      "A inflamação crônica está associada a diversas doenças. A boa notícia é que podemos combatê-la através da alimentação...",
+    ],
+    tags: ["nutrição", "anti-inflamatório", "saúde"],
+  },
+  {
+    slug: "yoga-iniciantes",
+    category: "Exercícios",
+    title: "Yoga para iniciantes: por onde começar",
+    excerpt:
+      "Se você quer começar a praticar yoga mas não sabe por onde começar, este guia é para você.",
+    date: "20 Fev 2026",
+    readTime: "5 min",
+    image:
+      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&h=600&fit=crop&q=80",
+    content: [
+      "A yoga é uma prática que une corpo e mente, trazendo inúmeros benefícios para a saúde física e mental...",
+    ],
+    tags: ["yoga", "exercícios", "bem-estar"],
+  },
+  {
+    slug: "saúde-mental-trabalho",
+    category: "Bem-estar",
+    title: "Como cuidar da saúde mental no ambiente de trabalho",
+    excerpt:
+      "Dicas práticas para manter o equilíbrio emocional e evitar o burnout durante a jornada de trabalho.",
+    date: "15 Fev 2026",
+    readTime: "4 min",
+    image:
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=600&fit=crop&q=80",
+    content: [
+      "O ambiente de trabalho pode ser uma fonte de estresse significativa. Aprender a gerenciar essa pressão é essencial...",
+    ],
+    tags: ["saúde mental", "trabalho", "bem-estar"],
+  },
+  {
+    slug: "benefícios-caminhada",
+    category: "Exercícios",
+    title: "Os benefícios da caminhada para a saúde",
+    excerpt:
+      "A caminhada é um dos exercícios mais simples e eficientes. Descubra como ela pode transformar sua qualidade de vida.",
+    date: "10 Fev 2026",
+    readTime: "4 min",
+    image:
+      "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=1200&h=600&fit=crop&q=80",
+    content: [
+      "A caminhada é uma atividade física acessível a todas as pessoas e traz inúmeros benefícios para a saúde...",
+    ],
+    tags: ["caminhada", "exercícios", "saúde"],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

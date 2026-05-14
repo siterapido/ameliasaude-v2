@@ -1,7 +1,7 @@
 import { getCategories, getAllTags } from "@/data/blog";
-import { CategoryList } from "./CategoryList";
-import { TagCloud } from "./TagCloud";
-import { SearchBar } from "./SearchBar";
+import { SearchInput } from "./SearchInput";
+import { CategoryFilter } from "./CategoryFilter";
+import { TagList } from "./TagList";
 
 interface BlogSidebarProps {
   activeCategory?: string;
@@ -15,11 +15,11 @@ export function BlogSidebar({ activeCategory, onSearch, searchQuery }: BlogSideb
 
   return (
     <aside className="space-y-8">
-      <SearchBar onSearch={onSearch} initialValue={searchQuery} />
+      <SearchInput onSearch={onSearch} initialValue={searchQuery} />
       <div className="h-px bg-[#e4dcf5]" />
-      <CategoryList categories={categories} activeCategory={activeCategory} />
+      <CategoryFilter categories={categories} activeCategory={activeCategory} />
       <div className="h-px bg-[#e4dcf5]" />
-      <TagCloud tags={tags} />
+      <TagList tags={tags} />
     </aside>
   );
 }

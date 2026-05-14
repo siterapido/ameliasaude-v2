@@ -8,7 +8,7 @@ import { useHero } from "@/components/HeroContext";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Quem Somos", href: "/quem-somos" },
+  { label: "Sobre Nós", href: "/quem-somos" },
   { label: "Planos", href: "#beneficiarios" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },

@@ -121,7 +121,7 @@ const SPIRAL_MAX_R = 40;
 export function CoverageOrbital() {
   const reduceMotion = useReducedMotion();
 
-  const nodes = useMemo(() => buildDoubleOrbit(24, 42), []);
+  const nodes = useMemo(() => buildDoubleOrbit(28, 43), []);
 
   const spiralD = useMemo(
     () => archimedeanSpiralD({ turns: SPIRAL_TURNS, maxR: SPIRAL_MAX_R }),
@@ -165,14 +165,15 @@ export function CoverageOrbital() {
               : { duration: 5, repeat: Infinity, ease: "easeInOut" }
           }
         />
-        {[0.41, 0.61, 0.82].map((scale, i) => (
+        {/* Órbitas onde as cidades ficam posicionadas */}
+        {[0.56, 0.86].map((scale, i) => (
           <div
             key={i}
             className="absolute rounded-full"
             style={{
               width: `${scale * 100}%`,
               height: `${scale * 100}%`,
-              border: `1px solid rgba(255,255,255,${i === 0 ? 0.22 : 0.1})`,
+              border: `1.5px solid rgba(255,255,255,${i === 0 ? 0.35 : 0.2})`,
             }}
           />
         ))}
@@ -241,7 +242,7 @@ export function CoverageOrbital() {
         </div>
       </div>
 
-      {/* Nós da espiral áurea */}
+      {/* Cidades posicionadas nas órbitas */}
       {nodes.map(({ city, left, top, zIndex }, i) => (
         <motion.div
           key={city.name}

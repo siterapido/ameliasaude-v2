@@ -24,12 +24,12 @@ const items = [
     body: "Eficiente, resolutivo e sem burocracias, com foco total na sua saúde.",
   },
   {
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop",
     title: "Planos coletivo por adesão",
     body: "Planos para você e sua família através de entidades de classe com diversas categorias profissionais.",
   },
   {
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=300&fit=crop",
     title: "Planos empresariais",
     body: "Planos para micro e pequenas empresas a partir de 2 beneficiários.",
   },
@@ -44,19 +44,9 @@ export function HealthExperience() {
   return (
     <section
       id="experiencia-planos"
-      className="relative flex flex-col justify-center overflow-hidden"
+      className="relative flex flex-col justify-center overflow-hidden bg-white"
       style={{ padding: "clamp(5.25rem, 11vh, 8.5rem) clamp(1.5rem, 5vw, 5rem)" }}
     >
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/familia-bg.webp"
-          alt="Experiência em saúde"
-          fill
-          className="object-cover opacity-40 mix-blend-overlay"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#7B6BB1]/95 to-[#5e4985]/95" aria-hidden />
-      </div>
-
       <div className="relative z-10 mx-auto w-full max-w-[1140px]">
         <motion.div
           variants={staggerContainer(0.08, 0)}
@@ -67,25 +57,25 @@ export function HealthExperience() {
         >
           <motion.span
             variants={fadeUp}
-            className="mb-6 inline-flex rounded-full border border-white/18 bg-white/[0.07] px-5 py-2.5 font-sans text-[11px] font-normal tracking-[0.1em] text-white/92 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl"
+            className="mb-6 inline-flex rounded-full border border-[var(--amelia-line)] bg-[var(--amelia-soft)] px-5 py-2.5 font-sans text-[11px] font-normal tracking-[0.1em] text-[var(--amelia-deep)] shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur-xl"
           >
             Planos de saúde feitos para você
           </motion.span>
           <motion.h2
             variants={fadeUp}
-            className="w-full font-display font-normal tracking-tight text-white whitespace-normal"
+            className="w-full font-display font-normal tracking-tight text-[var(--amelia-deep)] whitespace-normal"
             style={{
               fontSize: "clamp(2.5rem, 6vw, 4rem)",
               lineHeight: 1.05,
               letterSpacing: "-0.02em",
             }}
           >
-            Saúde de verdade, sem complicação
+            Saúde de verdade sem burocracia
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mt-8 max-w-2xl font-sans font-light leading-relaxed tracking-[0.06em] text-[#e4dcf5]"
-            style={{ fontSize: "clamp(0.8rem, 1.2vw, 0.9375rem)" }}
+            className="mt-8 max-w-2xl font-sans font-light leading-relaxed tracking-[0.06em] text-[#5c5470]"
+            style={{ fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}
           >
             A melhor experiência em planos de saúde.
           </motion.p>
@@ -96,7 +86,7 @@ export function HealthExperience() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="mt-16 grid list-none grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7"
+          className="mt-16 grid list-none grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10"
         >
           {items.map(({ image, title, body }) => (
             <motion.li
@@ -133,7 +123,7 @@ export function HealthExperience() {
         >
           <motion.a
             href="#contato"
-            className="inline-flex items-center justify-center rounded-2xl border border-white/[0.22] bg-white px-11 py-4 font-sans text-sm font-medium tracking-[0.05em] text-[var(--amelia-deep)] shadow-[0_12px_40px_-12px_rgba(0,0,0,0.35)] transition-[background-color,box-shadow,color] hover:bg-[#f7f5fc] hover:shadow-[0_16px_48px_-12px_rgba(0,0,0,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="inline-flex items-center justify-center rounded-2xl border border-[var(--amelia-line)] bg-[var(--amelia-deep)] px-11 py-4 font-sans text-sm font-medium tracking-[0.05em] text-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.25)] transition-[background-color,box-shadow,color] hover:bg-[#4a3a6b] hover:shadow-[0_16px_48px_-12px_rgba(0,0,0,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--amelia-deep)]"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
