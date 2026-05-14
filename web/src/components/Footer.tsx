@@ -21,11 +21,10 @@ const CONTACT = {
 } as const;
 
 const navLinks = [
-  { label: "Planos", href: "#beneficiarios" },
+  { label: "Planos", href: "#experiencia-planos" },
   { label: "Rede credenciada", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
   { label: "Especialistas 24h", href: "#especialistas-grid" },
-  { label: "Experiência em planos", href: "#experiencia-planos" },
   { label: "Contato", href: "#contato" },
 ] as const;
 

@@ -24,7 +24,8 @@ const items = [
     body: "Eficiente, resolutivo e sem burocracias, com foco total na sua saúde.",
   },
   {
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop",
+    image:
+      "https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
     title: "Planos coletivo por adesão",
     body: "Planos para você e sua família através de entidades de classe com diversas categorias profissionais.",
   },

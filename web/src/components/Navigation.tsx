@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Sobre Nós", href: "/quem-somos" },
-  { label: "Planos", href: "#beneficiarios" },
+  { label: "Planos", href: "#experiencia-planos" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
   { label: "Blog", href: "/blog" },
@@ -28,7 +28,7 @@ export function Navigation() {
     ? navLinks
     : navLinks.filter(
         (link) =>
-          link.href !== "#beneficiarios" &&
+          link.href !== "#experiencia-planos" &&
           link.href !== "#rede" &&
           link.href !== "#telemedicina"
       );

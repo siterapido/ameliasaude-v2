@@ -77,6 +77,35 @@ type OrbitNode = {
   zIndex: number;
 };
 
+/**
+ * Ajustes em coordenadas polares (mesmo espaço que left/top %: centro em 50,50).
+ * - dRadius: positivo = para fora, encostando na linha do anel externo.
+ * - dAngleDeg: rotação em torno do centro (afasta aproxima vizinhos no arco).
+ * - dz: empilhamento quando dois marcadores se cruzam.
+ */
+const ORBIT_POLAR_TWEAKS: Record<
+  string,
+  { dAngleDeg?: number; dRadius?: number; dz?: number }
+> = {
+  // Magé / Mesquita: leve afino no anel; posição de Nilópolis é recalculada depois entre os dois
+  "Magé": { dAngleDeg: -5, dRadius: 0.85 },
+  "Mesquita": { dAngleDeg: 4, dRadius: 0.4 },
+};
+
+/** Micro-ajustes finos na âncora (cqw/cqh). */
+const MARKER_ANCHOR_NUDGE_CQ: Record<string, { x: number; y: number }> = {};
+
+/** Ancoragem no traço do anel: ponto (left,top) no centro do avatar, não no meio da coluna (avatar+label). */
+const MARKER_ANCHOR_ON_ORBIT_LINE = new Set(["São João de Meriti"]);
+
+function orbitLineAnchorTransform(): string {
+  // Sobe o ancoramento ~metade do bloco abaixo do centro do avatar (label + gap), em escala do quadrado orbital
+  return "translate(-50%, calc(-50% - clamp(1.05rem, 3.4cqmin, 2.15rem)))";
+}
+
+/** Pilha avatar+texto mais estreita e centrada (evita “faixa” larga no anel interno). */
+const MARKER_COMPACT = new Set(["São Gonçalo"]);
+
 function buildDoubleOrbit(
   innerRadius: number,
   outerRadius: number
@@ -113,6 +142,56 @@ function buildDoubleOrbit(
   return nodes.sort((a, b) => b.zIndex - a.zIndex);
 }
 
+function applyOrbitPolarTweaks(nodes: OrbitNode[]): OrbitNode[] {
+  return nodes.map((node) => {
+    const tw = ORBIT_POLAR_TWEAKS[node.city.name];
+    if (!tw) return node;
+
+    const dx = node.left - 50;
+    const dy = node.top - 50;
+    let r = Math.hypot(dx, dy);
+    let ang = Math.atan2(dy, dx);
+    ang += ((tw.dAngleDeg ?? 0) * Math.PI) / 180;
+    r += tw.dRadius ?? 0;
+
+    return {
+      ...node,
+      left: 50 + r * Math.cos(ang),
+      top: 50 + r * Math.sin(ang),
+      zIndex: node.zIndex + (tw.dz ?? 0),
+    };
+  });
+}
+
+/** Nilópolis no arco curto entre Magé e Mesquita (referência: posições já com polar tweaks). */
+function placeNilopolisBetweenMageAndMesquita(nodes: OrbitNode[]): OrbitNode[] {
+  const mage = nodes.find((n) => n.city.name === "Magé");
+  const mes = nodes.find((n) => n.city.name === "Mesquita");
+  if (!mage || !mes) return nodes;
+
+  const angM = Math.atan2(mage.top - 50, mage.left - 50);
+  const angS = Math.atan2(mes.top - 50, mes.left - 50);
+  let delta = angS - angM;
+  while (delta > Math.PI) delta -= 2 * Math.PI;
+  while (delta < -Math.PI) delta += 2 * Math.PI;
+  const mid = angM + delta / 2;
+
+  const rM = Math.hypot(mage.left - 50, mage.top - 50);
+  const rS = Math.hypot(mes.left - 50, mes.top - 50);
+  const r = (rM + rS) / 2;
+
+  return nodes.map((node) =>
+    node.city.name === "Nilópolis"
+      ? {
+          ...node,
+          left: 50 + r * Math.cos(mid),
+          top: 50 + r * Math.sin(mid),
+          zIndex: node.zIndex + 2,
+        }
+      : node
+  );
+}
+
 const SONAR_WAVES = 3;
 const SONAR_DURATION = 3.2;
 const SPIRAL_TURNS = 2.35;
@@ -121,7 +200,13 @@ const SPIRAL_MAX_R = 40;
 export function CoverageOrbital() {
   const reduceMotion = useReducedMotion();
 
-  const nodes = useMemo(() => buildDoubleOrbit(28, 43), []);
+  const nodes = useMemo(
+    () =>
+      placeNilopolisBetweenMageAndMesquita(
+        applyOrbitPolarTweaks(buildDoubleOrbit(28, 43))
+      ),
+    []
+  );
 
   const spiralD = useMemo(
     () => archimedeanSpiralD({ turns: SPIRAL_TURNS, maxR: SPIRAL_MAX_R }),
@@ -130,7 +215,7 @@ export function CoverageOrbital() {
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[min(100%,min(96vw,920px))] aspect-square select-none overflow-visible"
+      className="relative mx-auto w-full max-w-[min(100%,min(96vw,920px))] aspect-square select-none overflow-visible [container-type:size]"
       aria-hidden
     >
       {/* Anéis de fundo — rotação lenta */}
@@ -243,42 +328,18 @@ export function CoverageOrbital() {
       </div>
 
       {/* Cidades posicionadas nas órbitas */}
-      {nodes.map(({ city, left, top, zIndex }, i) => (
-        <motion.div
-          key={city.name}
-          className="absolute"
-          style={{
-            left: `${left}%`,
-            top: `${top}%`,
-            transform: "translate(-50%, -50%)",
-            zIndex: 5 + zIndex,
-          }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            delay: 0.04 + i * 0.07,
-            type: "spring",
-            stiffness: 200,
-            damping: 22,
-          }}
-        >
-          <motion.div
-            animate={
-              reduceMotion ? { y: 0 } : { y: [0, -3, 0] }
-            }
-            transition={
-              reduceMotion
-                ? { duration: 0 }
-                : {
-                    duration: 5 + i * 0.1,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.14,
-                  }
-            }
-            className="flex flex-col items-center gap-1.5"
-          >
+      {nodes.map(({ city, left, top, zIndex }, i) => {
+        const nudge = MARKER_ANCHOR_NUDGE_CQ[city.name];
+        const compact = MARKER_COMPACT.has(city.name);
+        const anchorOnRing = MARKER_ANCHOR_ON_ORBIT_LINE.has(city.name);
+        const anchorTransform = anchorOnRing
+          ? orbitLineAnchorTransform()
+          : nudge
+            ? `translate(calc(-50% + ${nudge.x}cqw), calc(-50% + ${nudge.y}cqh))`
+            : "translate(-50%, -50%)";
+
+        const orbitMarker = (
+          <>
             <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)] sm:h-[3.75rem] sm:w-[3.75rem] md:h-[4.25rem] md:w-[4.25rem]">
               <Image
                 src={city.src}
@@ -288,12 +349,74 @@ export function CoverageOrbital() {
                 sizes="(max-width: 640px) 40px, 68px"
               />
             </div>
-            <span className="max-w-[4.25rem] text-center font-sans text-[9px] font-normal leading-tight tracking-wide text-white/90 sm:max-w-none sm:text-[11px] sm:leading-none md:text-xs whitespace-normal sm:whitespace-nowrap">
+            <span
+              className={[
+                "text-center font-sans text-[9px] font-normal leading-tight tracking-wide text-white/90 sm:text-[11px] sm:leading-none md:text-xs whitespace-normal sm:whitespace-nowrap",
+                compact
+                  ? "max-w-[min(11cqi,3.25rem)] text-balance sm:max-w-[min(13cqi,4.25rem)]"
+                  : "max-w-[4.25rem] sm:max-w-none",
+              ].join(" ")}
+            >
               {city.name}
             </span>
-          </motion.div>
-        </motion.div>
-      ))}
+          </>
+        );
+
+        return (
+          <div
+            key={city.name}
+            className="pointer-events-none absolute overflow-visible"
+            style={{
+              left: `${left}%`,
+              top: `${top}%`,
+              zIndex: 5 + zIndex,
+              width: 0,
+              height: 0,
+            }}
+          >
+            {/* translate fica fora do motion: scale/opacity do Framer sobrescrevem transform no motion.div */}
+            <div style={{ transform: anchorTransform }}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.88 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: 0.04 + i * 0.07,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 22,
+                }}
+                className="origin-center"
+              >
+                <motion.div
+                  animate={
+                    reduceMotion ? { y: 0 } : { y: [0, -3, 0] }
+                  }
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : {
+                          duration: 5 + i * 0.1,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: i * 0.14,
+                        }
+                  }
+                  className={[
+                    "flex flex-col items-center gap-1.5",
+                    compact &&
+                      "min-h-0 justify-center w-[min(13cqi,3.1rem)] sm:w-auto",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                >
+                  {orbitMarker}
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

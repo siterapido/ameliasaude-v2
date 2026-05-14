@@ -206,27 +206,8 @@ export default function QuemSomosPage() {
                 propósito de criar uma operadora moderna, transparente e centrada nas pessoas.
               </motion.p>
 
-              {/* CTA Buttons */}
-              <motion.div
-                variants={fadeUp}
-                className="mt-10 flex flex-wrap items-center justify-center gap-4"
-              >
-                <a
-                  href="#quem-somos"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-sans text-sm font-medium text-[var(--amelia-deep)] transition-all duration-300 hover:bg-[#c9bcf0] hover:scale-105 hover:shadow-lg hover:shadow-white/10"
-                >
-                  Conheça nossa história
-                </a>
-                <a
-                  href="/"
-                  className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/5 px-8 py-3.5 font-sans text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/50"
-                >
-                  Voltar ao início
-                </a>
-              </motion.div>
-
               {/* ANS Badge */}
-              <motion.div variants={fadeUp} className="mt-12">
+              <motion.div variants={fadeUp} className="mt-10">
                 <div className="inline-flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-5 py-3 backdrop-blur-sm">
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[rgba(123,107,178,0.3)]">
                     <IconShield className="h-4 w-4 text-[#c9bcf0]" />
