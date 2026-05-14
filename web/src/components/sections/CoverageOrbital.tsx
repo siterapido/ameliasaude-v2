@@ -70,29 +70,47 @@ const cities: { name: string; src: string }[] = [
   },
 ];
 
-type SpiralNode = {
+type OrbitNode = {
   city: (typeof cities)[number];
   left: number;
   top: number;
   zIndex: number;
 };
 
-function buildSpiral(minRadius: number, maxRadius: number): SpiralNode[] {
+function buildDoubleOrbit(
+  innerRadius: number,
+  outerRadius: number
+): OrbitNode[] {
   const n = cities.length;
-  return cities
-    .map((city, i) => {
-      const angleDeg = (i * GOLDEN_ANGLE) % 360;
-      const radiusPct =
-        n <= 1 ? minRadius : minRadius + (i / (n - 1)) * (maxRadius - minRadius);
-      const rad = (angleDeg * Math.PI) / 180;
-      return {
-        city,
-        left: 50 + radiusPct * Math.cos(rad),
-        top: 50 + radiusPct * Math.sin(rad),
-        zIndex: Math.round(50 - radiusPct),
-      };
-    })
-    .sort((a, b) => b.zIndex - a.zIndex);
+  const perOrbit = Math.ceil(n / 2);
+  const innerCities = cities.slice(0, perOrbit);
+  const outerCities = cities.slice(perOrbit);
+
+  const nodes: OrbitNode[] = [];
+
+  innerCities.forEach((city, i) => {
+    const angleDeg = (i * (360 / innerCities.length)) - 90; // start from top
+    const rad = (angleDeg * Math.PI) / 180;
+    nodes.push({
+      city,
+      left: 50 + innerRadius * Math.cos(rad),
+      top: 50 + innerRadius * Math.sin(rad),
+      zIndex: Math.round(50 - innerRadius),
+    });
+  });
+
+  outerCities.forEach((city, i) => {
+    const angleDeg = (i * (360 / outerCities.length)) - 90 + 36; // offset by 36deg for visual balance
+    const rad = (angleDeg * Math.PI) / 180;
+    nodes.push({
+      city,
+      left: 50 + outerRadius * Math.cos(rad),
+      top: 50 + outerRadius * Math.sin(rad),
+      zIndex: Math.round(50 - outerRadius),
+    });
+  });
+
+  return nodes.sort((a, b) => b.zIndex - a.zIndex);
 }
 
 const SONAR_WAVES = 3;
@@ -103,7 +121,7 @@ const SPIRAL_MAX_R = 40;
 export function CoverageOrbital() {
   const reduceMotion = useReducedMotion();
 
-  const nodes = useMemo(() => buildSpiral(14, 42), []);
+  const nodes = useMemo(() => buildDoubleOrbit(24, 42), []);
 
   const spiralD = useMemo(
     () => archimedeanSpiralD({ turns: SPIRAL_TURNS, maxR: SPIRAL_MAX_R }),

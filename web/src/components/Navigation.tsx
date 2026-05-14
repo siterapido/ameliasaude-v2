@@ -22,6 +22,7 @@ export function Navigation() {
   const pathname = usePathname();
 
   const isHomePage = pathname === "/";
+  const isQuemSomos = pathname === "/quem-somos";
 
   const visibleLinks = isHomePage
     ? navLinks
@@ -31,6 +32,8 @@ export function Navigation() {
           link.href !== "#rede" &&
           link.href !== "#telemedicina"
       );
+
+  const isWhiteText = !scrolled && (currentSlide === 1 || isQuemSomos);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 48);
@@ -93,7 +96,7 @@ export function Navigation() {
           >
             <Image
               src={
-                menuOpen || (!scrolled && currentSlide === 1)
+                menuOpen || isWhiteText
                   ? "/logo-amelia-site-branca.png"
                   : "/logo-amelia-site.png"
               }
@@ -114,9 +117,9 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
-                  scrolled || (!scrolled && currentSlide === 0)
-                    ? "text-gray-700 hover:text-[#7b6bb2]"
-                    : "text-white hover:text-[#7b6bb2]"
+                  isWhiteText
+                    ? "text-white hover:text-[#7b6bb2]"
+                    : "text-gray-700 hover:text-[#7b6bb2]"
                 }`}
               >
                 {link.label}
