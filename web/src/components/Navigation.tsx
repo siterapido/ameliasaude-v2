@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Planos", href: "#experiencia-planos" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
-  { label: "Blog", href: "/blog" },
+  { label: "Saúde e bem estar", href: "/blog" },
 ];
 
 export function Navigation() {

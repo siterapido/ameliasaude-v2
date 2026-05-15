@@ -3,12 +3,23 @@
 /* ─── Amélia Saúde — Design Tokens ─── */
 :root {
   --amelia-white: #ffffff;
-  --amelia-surface: #fafafa;
-  --amelia-purple: #7b6bb2;
+  /* DESIGN-GUIDE: fundos alternados / lilás bem claro */
+  --amelia-surface: #f8f7ff;
+  --amelia-purple: #7b6db2;
   --amelia-deep: #5e4985;
   --amelia-ink: #1a1a1a;
   --amelia-muted: #8a8a8a;
-  --amelia-line: rgba(123, 107, 178, 0.12);
+  /* DESIGN-GUIDE: divisores e bordas sutis */
+  --amelia-line: rgba(123, 109, 178, 0.15);
+  /* Corpo em cards / lilás (alinhado a .prose-legal) */
+  --amelia-body: #3a3a3a;
+
+  /* Derivados da marca — UI (chips, cards roxo claro) */
+  --amelia-soft: color-mix(in srgb, var(--amelia-purple) 11%, var(--amelia-white));
+  --amelia-purple-faint: color-mix(in srgb, var(--amelia-purple) 19%, var(--amelia-white));
+  --amelia-purple-mist: color-mix(in srgb, var(--amelia-purple) 27%, var(--amelia-white));
+  --amelia-purple-wash: color-mix(in srgb, var(--amelia-purple) 36%, var(--amelia-white));
+  --amelia-lilac: color-mix(in srgb, var(--amelia-purple) 52%, var(--amelia-white));
 
   --background: #ffffff;
   --foreground: #1a1a1a;
@@ -58,7 +69,7 @@ footer {
 
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(123,107,178,0.25); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: rgba(123,109,178,0.25); border-radius: 2px; }
 
 /* ─── Legal pages typography ─── */
 .prose-legal h2 {
@@ -104,7 +115,7 @@ footer {
 }
 
 .prose-legal a {
-  color: #7b6bb2;
+  color: var(--amelia-purple);
   text-decoration: underline;
   text-underline-offset: 2px;
 }

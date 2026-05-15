@@ -100,7 +100,7 @@ export function Contact() {
         className="pointer-events-none absolute inset-x-0 top-0 h-[min(52vh,520px)]"
         style={{
           background:
-            "linear-gradient(180deg, var(--amelia-surface) 0%, rgba(250,250,250,0.65) 45%, transparent 100%)",
+            "linear-gradient(180deg, var(--amelia-surface) 0%, color-mix(in srgb, var(--amelia-surface) 65%, transparent) 45%, transparent 100%)",
         }}
         aria-hidden
       />
@@ -152,11 +152,11 @@ export function Contact() {
               <a
                 href={href}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="group flex h-full flex-col rounded-2xl border border-[var(--amelia-line)] bg-white/80 px-5 py-6 shadow-[0_1px_0_rgba(26,26,26,0.04)] backdrop-blur-[2px] transition-[border-color,box-shadow,transform] duration-200 hover:border-[rgba(123,107,178,0.35)] hover:shadow-[0_18px_40px_rgba(94,73,133,0.08)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--amelia-purple)]"
+                className="group flex h-full flex-col rounded-2xl border border-[var(--amelia-line)] bg-white/80 px-5 py-6 shadow-[0_1px_0_rgba(26,26,26,0.04)] backdrop-blur-[2px] transition-[border-color,box-shadow,transform] duration-200 hover:border-[rgba(123,109,178,0.35)] hover:shadow-[0_18px_40px_rgba(94,73,133,0.08)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--amelia-purple)]"
               >
                 <span
-                  className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--amelia-deep)] transition-colors duration-200 group-hover:bg-[rgba(123,107,178,0.12)]"
-                  style={{ background: "rgba(123,107,178,0.08)" }}
+                  className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--amelia-deep)] transition-colors duration-200 group-hover:bg-[rgba(123,109,178,0.12)]"
+                  style={{ background: "rgba(123,109,178,0.08)" }}
                 >
                   <Icon className="h-[22px] w-[22px]" />
                 </span>

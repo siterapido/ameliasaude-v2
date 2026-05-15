@@ -100,7 +100,7 @@ export function Footer() {
       className="relative mt-auto overflow-hidden bg-[var(--amelia-deep)]"
       style={{
         backgroundImage:
-          "linear-gradient(165deg, rgba(74, 54, 118, 0.95) 0%, var(--amelia-deep) 42%, rgba(123, 107, 178, 0.88) 100%), radial-gradient(ellipse 90% 55% at 50% -15%, rgba(255, 255, 255, 0.14), transparent 55%), radial-gradient(ellipse 65% 45% at 100% 110%, rgba(45, 34, 85, 0.45), transparent 50%)",
+          "linear-gradient(165deg, rgba(74, 54, 118, 0.95) 0%, var(--amelia-deep) 42%, rgba(123, 109, 178, 0.88) 100%), radial-gradient(ellipse 90% 55% at 50% -15%, rgba(255, 255, 255, 0.14), transparent 55%), radial-gradient(ellipse 65% 45% at 100% 110%, rgba(45, 34, 85, 0.45), transparent 50%)",
       }}
       aria-labelledby="footer-heading"
     >
@@ -120,16 +120,16 @@ export function Footer() {
           <motion.div variants={fadeUp} className="flex flex-col gap-5 sm:col-span-2 lg:col-span-1">
             <a
               href="#hero"
-              className={`inline-block w-[min(200px,55vw)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.5)] ${ringFooter} rounded-sm`}
+              className={`inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,188,240,0.5)] ${ringFooter} rounded-sm`}
               aria-label="Amélia Saúde — voltar ao início"
             >
               <Image
                 src="/logo-amelia-site-branca.png"
                 alt=""
-                width={1840}
-                height={515}
-                sizes="(max-width: 640px) 55vw, 200px"
-                className="h-auto w-full object-contain mix-blend-screen contrast-[1.05]"
+                width={200}
+                height={56}
+                sizes="200px"
+                className="h-14 w-auto object-contain mix-blend-screen contrast-[1.05]"
               />
             </a>
             <p className="max-w-[280px] font-sans text-sm leading-relaxed tracking-wide text-white/65">

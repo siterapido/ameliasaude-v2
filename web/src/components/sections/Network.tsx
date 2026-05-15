@@ -42,7 +42,7 @@ export function Network() {
               <motion.p
                 variants={fadeUpFast}
                 className="mb-8 max-w-md font-sans font-light leading-relaxed text-white/80"
-                style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)" }}
+                style={{ fontSize: "clamp(1.1rem, 1.9vw, 1.35rem)" }}
               >
                 Rede eficiente, presente em mais de 10 municípios com diversos hospitais no Rio e Grande Rio.
               </motion.p>

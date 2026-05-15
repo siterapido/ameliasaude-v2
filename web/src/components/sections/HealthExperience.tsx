@@ -25,7 +25,7 @@ const items = [
   },
   {
     image:
-      "https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=300&fit=crop",
     title: "Planos coletivo por adesão",
     body: "Planos para você e sua família através de entidades de classe com diversas categorias profissionais.",
   },

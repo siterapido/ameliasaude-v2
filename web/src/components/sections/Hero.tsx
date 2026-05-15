@@ -204,15 +204,6 @@ export function Hero() {
               className="relative z-10 w-full max-w-[1200px] mx-auto px-[clamp(1.5rem,5vw,2rem)] pb-[clamp(2.5rem,5vh,5rem)] pt-[clamp(3rem,10vh,6rem)]"
             >
               <div className="flex max-w-3xl flex-col items-start text-left md:items-center md:text-center md:mx-auto">
-                <motion.span
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="mb-3 block font-sans text-[12px] font-medium tracking-[0.15em] uppercase text-white/70"
-                >
-                  Plano Carioca 10
-                </motion.span>
-
                 <motion.h2
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
