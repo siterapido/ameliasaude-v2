@@ -10,8 +10,8 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { label: "Sobre Nós", href: "/#sobre" },
   { label: "Rede", href: "#rede" },
-  { label: "Planos", href: "#experiencia-planos" },
   { label: "Telemedicina", href: "#telemedicina" },
+  { label: "Planos", href: "#experiencia-planos" },
   { label: "Saúde e bem estar", href: "/blog" },
 ];
 
@@ -35,7 +35,7 @@ export function Navigation() {
         );
 
     if (isBlogPage) {
-      links = links.filter((link) => link.href !== "/blog");
+      links = links.filter((link) => link.href !== "/blog" && link.label !== "Sobre Nós");
       links = [{ label: "Início", href: "/" }, ...links];
     }
 
