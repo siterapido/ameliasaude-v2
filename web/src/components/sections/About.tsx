@@ -114,7 +114,7 @@ export function About() {
           <motion.h2
             id="sobre-heading"
             variants={fadeUp}
-            className="font-display font-normal text-[var(--amelia-ink)]"
+            className="font-display font-normal text-[var(--amelia-deep)]"
             style={{
               fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
               lineHeight: 1.05,

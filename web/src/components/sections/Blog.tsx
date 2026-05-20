@@ -25,7 +25,7 @@ export function Blog() {
         >
           <motion.h2
             variants={fadeUp}
-            className="mx-auto max-w-[800px] font-display font-normal text-[var(--amelia-purple)]"
+            className="mx-auto max-w-[800px] font-display font-normal text-[var(--amelia-deep)]"
             style={{ fontSize: "clamp(2rem, 4.5vw, 3.25rem)", lineHeight: 1.05, letterSpacing: "-0.02em" }}
           >
             Tudo sobre saúde e bem estar
@@ -68,7 +68,7 @@ export function Blog() {
                   <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--amelia-purple)]">
                     {post.category}
                   </span>
-                  <h3 className="mt-3 font-sans font-medium text-[clamp(1.5rem, 2vw, 1.75rem)] leading-[1.25] tracking-[-0.01em] text-[#1a1a1a] group-hover:text-[var(--amelia-purple)] transition-colors duration-200">
+                  <h3 className="mt-3 font-sans font-medium text-[clamp(1.5rem, 2vw, 1.75rem)] leading-[1.25] tracking-[-0.01em] text-[var(--amelia-deep)] transition-colors duration-200">
                     {post.title}
                   </h3>
                   <p className="mt-4 font-sans font-light leading-relaxed text-[#5c5470] text-[0.95rem] line-clamp-3">

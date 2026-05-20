@@ -159,7 +159,7 @@ export function Specialists() {
                   <p className="font-sans text-[10px] font-medium tracking-[0.06em] text-[var(--amelia-purple)]/90">
                     Especialidade
                   </p>
-                  <h3 className="font-display mt-1 text-xl font-normal tracking-tight text-[var(--amelia-ink)] sm:text-[1.35rem]">
+                  <h3 className="font-display mt-1 text-xl font-normal tracking-tight text-[var(--amelia-deep)] sm:text-[1.35rem]">
                     {sp.name}
                   </h3>
                   <div

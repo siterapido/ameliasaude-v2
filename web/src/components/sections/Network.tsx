@@ -30,7 +30,7 @@ export function Network() {
               </motion.p>
               <motion.h2
                 variants={fadeUpFast}
-                className="mb-5 font-display font-normal text-[var(--amelia-ink)]"
+                className="mb-5 font-display font-normal text-[var(--amelia-deep)]"
                 style={{
                   fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
                   lineHeight: 1.05,

@@ -121,7 +121,7 @@ export function Contact() {
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="mb-5 font-display font-normal uppercase text-[#1a1a1a]"
+            className="mb-5 font-display font-normal uppercase text-[var(--amelia-deep)]"
             style={{
               fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
               lineHeight: 1.05,
