@@ -5,7 +5,8 @@ import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const PURPLE = "#7b6bb2";
-const ON_PURPLE_STROKE = "#ffffff";
+const ORBIT_RING_STROKE = "rgba(123,107,178,0.32)";
+const ORBIT_RING_STROKE_OUTER = "rgba(123,107,178,0.18)";
 
 const GOLDEN_ANGLE = 137.508; // 360 / φ²
 
@@ -87,9 +88,9 @@ const ORBIT_POLAR_TWEAKS: Record<
   string,
   { dAngleDeg?: number; dRadius?: number; dz?: number }
 > = {
-  // Magé / Mesquita: leve afino no anel; posição de Nilópolis é recalculada depois entre os dois
+  // Magé: leve afino no anel; Niterói / Nilópolis / Mesquita são recalculadas depois
   "Magé": { dAngleDeg: -5, dRadius: 0.85 },
-  "Mesquita": { dAngleDeg: 4, dRadius: 0.4 },
+  "Mesquita": { dRadius: 0.4 },
 };
 
 /** Micro-ajustes finos na âncora (cqw/cqh). */
@@ -163,8 +164,8 @@ function applyOrbitPolarTweaks(nodes: OrbitNode[]): OrbitNode[] {
   });
 }
 
-/** Nilópolis no arco curto entre Magé e Mesquita (referência: posições já com polar tweaks). */
-function placeNilopolisBetweenMageAndMesquita(nodes: OrbitNode[]): OrbitNode[] {
+/** Niterói no arco curto entre Magé e Mesquita (referência: posições já com polar tweaks). */
+function placeNiteroiBetweenMageAndMesquita(nodes: OrbitNode[]): OrbitNode[] {
   const mage = nodes.find((n) => n.city.name === "Magé");
   const mes = nodes.find((n) => n.city.name === "Mesquita");
   if (!mage || !mes) return nodes;
@@ -181,12 +182,74 @@ function placeNilopolisBetweenMageAndMesquita(nodes: OrbitNode[]): OrbitNode[] {
   const r = (rM + rS) / 2;
 
   return nodes.map((node) =>
-    node.city.name === "Nilópolis"
+    node.city.name === "Niterói"
       ? {
           ...node,
           left: 50 + r * Math.cos(mid),
           top: 50 + r * Math.sin(mid),
           zIndex: node.zIndex + 2,
+        }
+      : node
+  );
+}
+
+/** Nilópolis no anel externo, alinhada ao ângulo de Belford Roxo (anel interno). */
+function placeNilopolisBesideBelfordRoxo(nodes: OrbitNode[]): OrbitNode[] {
+  const belford = nodes.find((n) => n.city.name === "Belford Roxo");
+  const nilo = nodes.find((n) => n.city.name === "Nilópolis");
+  if (!belford || !nilo) return nodes;
+
+  const angB = Math.atan2(belford.top - 50, belford.left - 50);
+  const r = Math.hypot(nilo.left - 50, nilo.top - 50);
+  const offsetRad = (7 * Math.PI) / 180;
+
+  return nodes.map((node) =>
+    node.city.name === "Nilópolis"
+      ? {
+          ...node,
+          left: 50 + r * Math.cos(angB + offsetRad),
+          top: 50 + r * Math.sin(angB + offsetRad),
+          zIndex: node.zIndex + 2,
+        }
+      : node
+  );
+}
+
+const MESQUITA_NUDGE_DEG = 2.5;
+
+/** Mesquita: micro-deslocamento em direção ao arco Duque de Caxias ↔ Nova Iguaçu. */
+function placeMesquitaTowardCaxiasAndNovaIguacu(nodes: OrbitNode[]): OrbitNode[] {
+  const caxias = nodes.find((n) => n.city.name === "Duque de Caxias");
+  const nova = nodes.find((n) => n.city.name === "Nova Iguaçu");
+  const mes = nodes.find((n) => n.city.name === "Mesquita");
+  if (!caxias || !nova || !mes) return nodes;
+
+  const angC = Math.atan2(caxias.top - 50, caxias.left - 50);
+  const angN = Math.atan2(nova.top - 50, nova.left - 50);
+  let delta = angN - angC;
+  while (delta > Math.PI) delta -= 2 * Math.PI;
+  while (delta < -Math.PI) delta += 2 * Math.PI;
+  const targetAng = angC + delta / 2;
+
+  const angM = Math.atan2(mes.top - 50, mes.left - 50);
+  let diff = targetAng - angM;
+  while (diff > Math.PI) diff -= 2 * Math.PI;
+  while (diff < -Math.PI) diff += 2 * Math.PI;
+
+  const maxRad = (MESQUITA_NUDGE_DEG * Math.PI) / 180;
+  const move =
+    Math.abs(diff) <= maxRad
+      ? diff
+      : Math.sign(diff) * maxRad;
+  const newAng = angM + move;
+  const r = Math.hypot(mes.left - 50, mes.top - 50);
+
+  return nodes.map((node) =>
+    node.city.name === "Mesquita"
+      ? {
+          ...node,
+          left: 50 + r * Math.cos(newAng),
+          top: 50 + r * Math.sin(newAng),
         }
       : node
   );
@@ -200,13 +263,14 @@ const SPIRAL_MAX_R = 40;
 export function CoverageOrbital() {
   const reduceMotion = useReducedMotion();
 
-  const nodes = useMemo(
-    () =>
-      placeNilopolisBetweenMageAndMesquita(
-        applyOrbitPolarTweaks(buildDoubleOrbit(28, 43))
-      ),
-    []
-  );
+  const nodes = useMemo(() => {
+    const base = applyOrbitPolarTweaks(buildDoubleOrbit(28, 43));
+    return placeMesquitaTowardCaxiasAndNovaIguacu(
+      placeNilopolisBesideBelfordRoxo(
+        placeNiteroiBetweenMageAndMesquita(base)
+      )
+    );
+  }, []);
 
   const spiralD = useMemo(
     () => archimedeanSpiralD({ turns: SPIRAL_TURNS, maxR: SPIRAL_MAX_R }),
@@ -241,7 +305,7 @@ export function CoverageOrbital() {
             width: "52%",
             height: "52%",
             boxShadow:
-              "0 0 60px 20px rgba(255,255,255,0.04), 0 0 120px 40px rgba(255,255,255,0.02)",
+              "0 0 60px 20px rgba(123,107,178,0.06), 0 0 120px 40px rgba(123,107,178,0.03)",
           }}
           animate={reduceMotion ? {} : { opacity: [0.3, 0.7, 0.3] }}
           transition={
@@ -258,7 +322,7 @@ export function CoverageOrbital() {
             style={{
               width: `${scale * 100}%`,
               height: `${scale * 100}%`,
-              border: `1.5px solid rgba(255,255,255,${i === 0 ? 0.35 : 0.2})`,
+              border: `1.5px solid ${i === 0 ? ORBIT_RING_STROKE : ORBIT_RING_STROKE_OUTER}`,
             }}
           />
         ))}
@@ -299,8 +363,8 @@ export function CoverageOrbital() {
                 <path
                   d={spiralD}
                   fill="none"
-                  stroke={ON_PURPLE_STROKE}
-                  strokeOpacity={0.45}
+                  stroke={PURPLE}
+                  strokeOpacity={0.48}
                   strokeWidth={0.45}
                   strokeLinecap="round"
                   vectorEffect="non-scaling-stroke"
@@ -340,7 +404,7 @@ export function CoverageOrbital() {
 
         const orbitMarker = (
           <>
-            <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-[0_4px_14px_rgba(94,73,133,0.16)] sm:h-[3.75rem] sm:w-[3.75rem] md:h-[4.25rem] md:w-[4.25rem]">
+            <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-[rgba(123,107,178,0.28)] shadow-[0_4px_16px_rgba(94,73,133,0.2)] sm:h-[3.75rem] sm:w-[3.75rem] md:h-[4.25rem] md:w-[4.25rem]">
               <Image
                 src={city.src}
                 alt=""
@@ -351,7 +415,7 @@ export function CoverageOrbital() {
             </div>
             <span
               className={[
-                "text-center font-sans text-[9px] font-normal leading-tight tracking-wide text-white/90 sm:text-[11px] sm:leading-none md:text-xs whitespace-normal sm:whitespace-nowrap",
+                "text-center font-sans text-[9px] font-normal leading-tight tracking-wide text-[var(--amelia-deep)] sm:text-[11px] sm:leading-none md:text-xs whitespace-normal sm:whitespace-nowrap",
                 compact
                   ? "max-w-[min(11cqi,3.25rem)] text-balance sm:max-w-[min(13cqi,4.25rem)]"
                   : "max-w-[4.25rem] sm:max-w-none",

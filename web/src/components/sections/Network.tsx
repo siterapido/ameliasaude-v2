@@ -6,7 +6,7 @@ import { CoverageOrbital } from "@/components/sections/CoverageOrbital";
 
 export function Network() {
   return (
-    <section id="rede" className="flex flex-col justify-center overflow-x-clip overflow-y-visible bg-[#7B6BB2]"
+    <section id="rede" className="flex flex-col justify-center overflow-x-clip overflow-y-visible bg-white"
       style={{ padding: "clamp(5rem,10vh,7rem) clamp(1.5rem,5vw,5rem)" }}>
       <div className="max-w-[min(100%,1400px)] mx-auto w-full">
         <div
@@ -24,13 +24,13 @@ export function Network() {
             >
               <motion.p
                 variants={fadeUpFast}
-                className="mb-5 font-sans text-[11px] font-normal tracking-[0.1em] text-white/85"
+                className="mb-5 font-sans text-[11px] font-normal tracking-[0.1em] text-[var(--amelia-purple)]"
               >
                 Cobertura
               </motion.p>
               <motion.h2
                 variants={fadeUpFast}
-                className="mb-5 font-display font-normal text-white"
+                className="mb-5 font-display font-normal text-[var(--amelia-ink)]"
                 style={{
                   fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
                   lineHeight: 1.05,
@@ -41,7 +41,7 @@ export function Network() {
               </motion.h2>
               <motion.p
                 variants={fadeUpFast}
-                className="mb-8 max-w-md font-sans font-light leading-relaxed text-white/80"
+                className="mb-8 max-w-md font-sans font-light leading-relaxed text-[var(--amelia-body)]"
                 style={{ fontSize: "clamp(1.1rem, 1.9vw, 1.35rem)" }}
               >
                 Rede eficiente, presente em mais de 10 municípios com diversos hospitais no Rio e Grande Rio.
@@ -49,13 +49,12 @@ export function Network() {
               <motion.div variants={fadeUpFast}>
                 <motion.button
                   type="button"
-                  className="inline-flex cursor-pointer items-center rounded-full font-sans text-sm font-normal tracking-wide"
-                  style={{
-                    border: "1.5px solid rgba(255,255,255,0.85)",
+                  className="inline-flex cursor-pointer items-center rounded-full border border-[var(--amelia-purple)] px-7 py-3 font-sans text-sm font-normal tracking-wide text-[var(--amelia-purple)] transition-colors duration-200"
+                  whileHover={{
+                    background: "var(--amelia-purple)",
                     color: "#fff",
-                    padding: "0.75rem 1.75rem",
+                    scale: 1.02,
                   }}
-                  whileHover={{ background: "#fff", color: "#7B6BB2", scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.2 }}
                   aria-label="Conheça nossa rede (em breve: lista de hospitais)"

@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
 import { Network } from "@/components/sections/Network";
 import { Telemedicine } from "@/components/sections/Telemedicine";
 import { Specialists } from "@/components/sections/Specialists";
@@ -16,6 +17,7 @@ export default function Home() {
         <Navigation />
         <main id="main-content" className="min-h-0 flex-1">
           <Hero />
+          <About />
           <Network />
           <Telemedicine />
           <Specialists />

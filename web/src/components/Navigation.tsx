@@ -8,7 +8,7 @@ import { useHero } from "@/components/HeroContext";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Sobre Nós", href: "/quem-somos" },
+  { label: "Sobre Nós", href: "/#sobre" },
   { label: "Planos", href: "#experiencia-planos" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
@@ -22,7 +22,6 @@ export function Navigation() {
   const pathname = usePathname();
 
   const isHomePage = pathname === "/";
-  const isQuemSomos = pathname === "/quem-somos";
   const isBlogPage = pathname?.startsWith("/blog") ?? false;
 
   const visibleLinks = (() => {
@@ -43,7 +42,7 @@ export function Navigation() {
     return links;
   })();
 
-  const isWhiteText = !scrolled && (currentSlide === 1 || isQuemSomos);
+  const isWhiteText = !scrolled && currentSlide === 1;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 48);
