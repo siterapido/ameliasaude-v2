@@ -9,8 +9,8 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Sobre Nós", href: "/#sobre" },
-  { label: "Planos", href: "#experiencia-planos" },
   { label: "Rede", href: "#rede" },
+  { label: "Planos", href: "#experiencia-planos" },
   { label: "Telemedicina", href: "#telemedicina" },
   { label: "Saúde e bem estar", href: "/blog" },
 ];
