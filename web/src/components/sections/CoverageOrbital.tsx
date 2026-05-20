@@ -90,7 +90,6 @@ const ORBIT_POLAR_TWEAKS: Record<
 > = {
   // Magé: leve afino no anel; Niterói / Nilópolis / Mesquita são recalculadas depois
   "Magé": { dAngleDeg: -5, dRadius: 0.85 },
-  "Mesquita": { dRadius: 0.4 },
 };
 
 /** Micro-ajustes finos na âncora (cqw/cqh). */
@@ -215,41 +214,20 @@ function placeNilopolisBesideBelfordRoxo(nodes: OrbitNode[]): OrbitNode[] {
   );
 }
 
-const MESQUITA_NUDGE_DEG = 2.5;
-
-/** Mesquita: micro-deslocamento em direção ao arco Duque de Caxias ↔ Nova Iguaçu. */
-function placeMesquitaTowardCaxiasAndNovaIguacu(nodes: OrbitNode[]): OrbitNode[] {
-  const caxias = nodes.find((n) => n.city.name === "Duque de Caxias");
-  const nova = nodes.find((n) => n.city.name === "Nova Iguaçu");
+/** Mesquita no centro inferior do anel externo (90°). */
+function placeMesquitaOnOuterRingBottom(nodes: OrbitNode[]): OrbitNode[] {
   const mes = nodes.find((n) => n.city.name === "Mesquita");
-  if (!caxias || !nova || !mes) return nodes;
+  if (!mes) return nodes;
 
-  const angC = Math.atan2(caxias.top - 50, caxias.left - 50);
-  const angN = Math.atan2(nova.top - 50, nova.left - 50);
-  let delta = angN - angC;
-  while (delta > Math.PI) delta -= 2 * Math.PI;
-  while (delta < -Math.PI) delta += 2 * Math.PI;
-  const targetAng = angC + delta / 2;
-
-  const angM = Math.atan2(mes.top - 50, mes.left - 50);
-  let diff = targetAng - angM;
-  while (diff > Math.PI) diff -= 2 * Math.PI;
-  while (diff < -Math.PI) diff += 2 * Math.PI;
-
-  const maxRad = (MESQUITA_NUDGE_DEG * Math.PI) / 180;
-  const move =
-    Math.abs(diff) <= maxRad
-      ? diff
-      : Math.sign(diff) * maxRad;
-  const newAng = angM + move;
   const r = Math.hypot(mes.left - 50, mes.top - 50);
+  const ang = Math.PI / 2;
 
   return nodes.map((node) =>
     node.city.name === "Mesquita"
       ? {
           ...node,
-          left: 50 + r * Math.cos(newAng),
-          top: 50 + r * Math.sin(newAng),
+          left: 50 + r * Math.cos(ang),
+          top: 50 + r * Math.sin(ang),
         }
       : node
   );
@@ -265,10 +243,8 @@ export function CoverageOrbital() {
 
   const nodes = useMemo(() => {
     const base = applyOrbitPolarTweaks(buildDoubleOrbit(28, 43));
-    return placeMesquitaTowardCaxiasAndNovaIguacu(
-      placeNilopolisBesideBelfordRoxo(
-        placeNiteroiBetweenMageAndMesquita(base)
-      )
+    return placeNiteroiBetweenMageAndMesquita(
+      placeNilopolisBesideBelfordRoxo(placeMesquitaOnOuterRingBottom(base))
     );
   }, []);
 
