@@ -23,15 +23,25 @@ export function Navigation() {
 
   const isHomePage = pathname === "/";
   const isQuemSomos = pathname === "/quem-somos";
+  const isBlogPage = pathname?.startsWith("/blog") ?? false;
 
-  const visibleLinks = isHomePage
-    ? navLinks
-    : navLinks.filter(
-        (link) =>
-          link.href !== "#experiencia-planos" &&
-          link.href !== "#rede" &&
-          link.href !== "#telemedicina"
-      );
+  const visibleLinks = (() => {
+    let links = isHomePage
+      ? navLinks
+      : navLinks.filter(
+          (link) =>
+            link.href !== "#experiencia-planos" &&
+            link.href !== "#rede" &&
+            link.href !== "#telemedicina"
+        );
+
+    if (isBlogPage) {
+      links = links.filter((link) => link.href !== "/blog");
+      links = [{ label: "Início", href: "/" }, ...links];
+    }
+
+    return links;
+  })();
 
   const isWhiteText = !scrolled && (currentSlide === 1 || isQuemSomos);
 
