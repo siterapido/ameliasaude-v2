@@ -67,24 +67,28 @@ const pillars: Array<{
   num: string;
   title: string;
   hook: string;
+  body: string;
 }> = [
   {
     Icon: IconMissao,
     num: "01",
     title: "Missão",
     hook: "Cuidado com propósito, gestão responsável.",
+    body: "Oferecer assistência médico-hospitalar de excelência, combinando inovação tecnológica, atendimento humanizado e gestão responsável para promover saúde e qualidade de vida a cada beneficiário.",
   },
   {
     Icon: IconVisao,
     num: "02",
     title: "Visão",
     hook: "Referência no RJ até 2030.",
+    body: "Ser referência em saúde suplementar no Rio de Janeiro até 2030, reconhecida pela eficiência operacional, cuidado humanizado e uso inteligente de dados para transformar o modo como as pessoas cuidam da própria saúde.",
   },
   {
     Icon: IconValores,
     num: "03",
     title: "Valores",
     hook: "O que norteia cada decisão.",
+    body: "A Amélia Saúde é guiada pela empatia, pela inovação com propósito e pela transparência em cada relação. Valorizamos o cuidado humano aliado à tecnologia, a excelência em cada atendimento e a sustentabilidade como compromisso com o futuro da saúde.",
   },
 ];
 
@@ -143,7 +147,7 @@ export function About() {
           className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:mt-14 lg:grid-cols-3 lg:gap-6"
           role="list"
         >
-          {pillars.map(({ Icon, num, title, hook }) => (
+          {pillars.map(({ Icon, num, title, hook, body }) => (
             <motion.li key={title} variants={fadeUp} className="relative min-h-0">
               <article className="group flex h-full flex-col rounded-2xl border border-[var(--amelia-line)] bg-[var(--amelia-surface)] p-6 transition-colors duration-300 motion-safe:md:hover:border-[var(--amelia-purple)]/25 motion-safe:md:hover:bg-[var(--amelia-purple-faint)] lg:p-7">
                 <div className="mb-5 flex items-center justify-between gap-3">
@@ -164,8 +168,12 @@ export function About() {
                 <h3 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal tracking-wide text-[var(--amelia-deep)]">
                   {title}
                 </h3>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-[var(--amelia-muted)]">
+                <p className="mt-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-[var(--amelia-purple)]">
                   {hook}
+                </p>
+                <div className="my-4 h-px w-full bg-[var(--amelia-line)]/50" aria-hidden />
+                <p className="font-sans text-sm leading-relaxed text-[var(--amelia-muted)]">
+                  {body}
                 </p>
               </article>
             </motion.li>
