@@ -3,15 +3,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Button } from "@/components/ui/Button";
 import { useHero } from "@/components/HeroContext";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Sobre Nós", href: "/#sobre" },
+  { label: "Sobre nós", href: "#sobre" },
+  { label: "Planos", href: "#experiencia-planos" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
-  { label: "Planos", href: "#experiencia-planos" },
+  { label: "Fale conosco", href: "#contato" },
   { label: "Saúde e bem estar", href: "/blog" },
 ];
 
@@ -25,17 +25,14 @@ export function Navigation() {
   const isBlogPage = pathname?.startsWith("/blog") ?? false;
 
   const visibleLinks = (() => {
-    let links = isHomePage
-      ? navLinks
-      : navLinks.filter(
-          (link) =>
-            link.href !== "#experiencia-planos" &&
-            link.href !== "#rede" &&
-            link.href !== "#telemedicina"
-        );
+    let links = navLinks.map((link) =>
+      !isHomePage && link.href.startsWith("#")
+        ? { ...link, href: `/${link.href}` }
+        : link
+    );
 
     if (isBlogPage) {
-      links = links.filter((link) => link.href !== "/blog" && link.label !== "Sobre Nós");
+      links = links.filter((link) => link.href !== "/blog");
       links = [{ label: "Início", href: "/" }, ...links];
     }
 
@@ -134,13 +131,6 @@ export function Navigation() {
                 {link.label}
               </a>
             ))}
-            <Button
-              variant="purple"
-              href="#contato"
-              className="ml-2"
-            >
-              Fale conosco
-            </Button>
           </nav>
 
           {/* Mobile toggle — hidden on desktop */}
@@ -252,27 +242,6 @@ export function Navigation() {
                   {link.label}
                 </motion.a>
               ))}
-
-              {/* CTA in menu */}
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 12 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.1 + visibleLinks.length * 0.07,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="mt-10"
-              >
-                <Button
-                  variant="ghost-white"
-                  href="#contato"
-                  onClick={closeMenu}
-                >
-                  Fale conosco
-                </Button>
-              </motion.div>
             </nav>
 
             {/* Footer line */}

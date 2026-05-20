@@ -18,12 +18,12 @@ export default function Home() {
         <main id="main-content" className="min-h-0 flex-1">
           <Hero />
           <About />
+          <HealthExperience />
           <Network />
           <Telemedicine />
           <Specialists />
-          <HealthExperience />
-          <Blog />
           <Contact />
+          <Blog />
         </main>
         <Footer />
       </div>

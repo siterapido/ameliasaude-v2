@@ -21,11 +21,12 @@ const CONTACT = {
 } as const;
 
 const navLinks = [
+  { label: "Sobre nós", href: "#sobre" },
   { label: "Planos", href: "#experiencia-planos" },
-  { label: "Rede credenciada", href: "#rede" },
+  { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
-  { label: "Especialistas 24h", href: "#especialistas-grid" },
-  { label: "Contato", href: "#contato" },
+  { label: "Fale conosco", href: "#contato" },
+  { label: "Saúde e bem estar", href: "/blog" },
 ] as const;
 
 /** Destinos legais: rotas internas do site. */
