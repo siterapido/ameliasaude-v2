@@ -207,7 +207,7 @@ function placeNilopolisBesideBelfordRoxo(nodes: OrbitNode[]): OrbitNode[] {
   );
 }
 
-/** Mesquita no raio médio entre anel interno e externo (mesmo ângulo da órbita base). */
+/** Mesquita na base (90°), no raio médio entre anel interno e externo. */
 function placeMesquitaBetweenOrbits(
   nodes: OrbitNode[],
   innerRadius: number,
@@ -216,7 +216,7 @@ function placeMesquitaBetweenOrbits(
   const mes = nodes.find((n) => n.city.name === "Mesquita");
   if (!mes) return nodes;
 
-  const ang = Math.atan2(mes.top - 50, mes.left - 50);
+  const ang = Math.PI / 2;
   const r = (innerRadius + outerRadius) / 2;
 
   return nodes.map((node) =>
