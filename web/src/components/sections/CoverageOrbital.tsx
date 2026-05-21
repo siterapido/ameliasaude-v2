@@ -88,7 +88,7 @@ const ORBIT_POLAR_TWEAKS: Record<
   string,
   { dAngleDeg?: number; dRadius?: number; dz?: number }
 > = {
-  // Magé: leve afino no anel; Niterói / Nilópolis / Mesquita são recalculadas depois
+  // Magé: leve afino no anel; Niterói / Nilópolis / Mesquita são reposicionadas depois
   "Magé": { dAngleDeg: -5, dRadius: 0.85 },
 };
 
@@ -163,29 +163,22 @@ function applyOrbitPolarTweaks(nodes: OrbitNode[]): OrbitNode[] {
   });
 }
 
-/** Niterói no arco curto entre Magé e Mesquita (referência: posições já com polar tweaks). */
-function placeNiteroiBetweenMageAndMesquita(nodes: OrbitNode[]): OrbitNode[] {
-  const mage = nodes.find((n) => n.city.name === "Magé");
-  const mes = nodes.find((n) => n.city.name === "Mesquita");
-  if (!mage || !mes) return nodes;
+/** Niterói no anel externo, alinhada ao ângulo de São Gonçalo (anel interno). */
+function placeNiteroiBesideSaoGoncalo(nodes: OrbitNode[]): OrbitNode[] {
+  const sg = nodes.find((n) => n.city.name === "São Gonçalo");
+  const niteroi = nodes.find((n) => n.city.name === "Niterói");
+  if (!sg || !niteroi) return nodes;
 
-  const angM = Math.atan2(mage.top - 50, mage.left - 50);
-  const angS = Math.atan2(mes.top - 50, mes.left - 50);
-  let delta = angS - angM;
-  while (delta > Math.PI) delta -= 2 * Math.PI;
-  while (delta < -Math.PI) delta += 2 * Math.PI;
-  const mid = angM + delta / 2;
-
-  const rM = Math.hypot(mage.left - 50, mage.top - 50);
-  const rS = Math.hypot(mes.left - 50, mes.top - 50);
-  const r = (rM + rS) / 2;
+  const angSG = Math.atan2(sg.top - 50, sg.left - 50);
+  const r = Math.hypot(niteroi.left - 50, niteroi.top - 50);
+  const offsetRad = (8 * Math.PI) / 180;
 
   return nodes.map((node) =>
     node.city.name === "Niterói"
       ? {
           ...node,
-          left: 50 + r * Math.cos(mid),
-          top: 50 + r * Math.sin(mid),
+          left: 50 + r * Math.cos(angSG + offsetRad),
+          top: 50 + r * Math.sin(angSG + offsetRad),
           zIndex: node.zIndex + 2,
         }
       : node
@@ -214,13 +207,17 @@ function placeNilopolisBesideBelfordRoxo(nodes: OrbitNode[]): OrbitNode[] {
   );
 }
 
-/** Mesquita no centro inferior do anel externo (90°). */
-function placeMesquitaOnOuterRingBottom(nodes: OrbitNode[]): OrbitNode[] {
+/** Mesquita no raio médio entre anel interno e externo (mesmo ângulo da órbita base). */
+function placeMesquitaBetweenOrbits(
+  nodes: OrbitNode[],
+  innerRadius: number,
+  outerRadius: number
+): OrbitNode[] {
   const mes = nodes.find((n) => n.city.name === "Mesquita");
   if (!mes) return nodes;
 
-  const r = Math.hypot(mes.left - 50, mes.top - 50);
-  const ang = Math.PI / 2;
+  const ang = Math.atan2(mes.top - 50, mes.left - 50);
+  const r = (innerRadius + outerRadius) / 2;
 
   return nodes.map((node) =>
     node.city.name === "Mesquita"
@@ -238,13 +235,20 @@ const SONAR_DURATION = 3.2;
 const SPIRAL_TURNS = 2.35;
 const SPIRAL_MAX_R = 40;
 
+const ORBIT_INNER_RADIUS = 28;
+const ORBIT_OUTER_RADIUS = 43;
+
 export function CoverageOrbital() {
   const reduceMotion = useReducedMotion();
 
   const nodes = useMemo(() => {
-    const base = applyOrbitPolarTweaks(buildDoubleOrbit(28, 43));
-    return placeNiteroiBetweenMageAndMesquita(
-      placeNilopolisBesideBelfordRoxo(placeMesquitaOnOuterRingBottom(base))
+    const base = applyOrbitPolarTweaks(
+      buildDoubleOrbit(ORBIT_INNER_RADIUS, ORBIT_OUTER_RADIUS)
+    );
+    return placeNiteroiBesideSaoGoncalo(
+      placeNilopolisBesideBelfordRoxo(
+        placeMesquitaBetweenOrbits(base, ORBIT_INNER_RADIUS, ORBIT_OUTER_RADIUS)
+      )
     );
   }, []);
 
