@@ -39,7 +39,7 @@ export function Navigation() {
     return links;
   })();
 
-  const isWhiteText = !scrolled && currentSlide === 1;
+  const isWhiteText = !scrolled && currentSlide !== 0;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 48);

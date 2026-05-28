@@ -12,6 +12,8 @@ const HEADLINE_LINES: ReactNode[] = [
   <>nossos planos</>,
 ];
 
+const SLIDE_COUNT = 3;
+
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -21,7 +23,7 @@ export function Hero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 2);
+      setCurrentSlide((prev) => (prev + 1) % SLIDE_COUNT);
     }, 10000);
     return () => clearInterval(interval);
   }, [setCurrentSlide]);
@@ -168,7 +170,7 @@ export function Hero() {
               </div>
             </div>
           </motion.div>
-        ) : (
+        ) : currentSlide === 1 ? (
           <motion.div
             key="slide2"
             className="absolute inset-0 z-0 flex flex-col justify-end items-start md:justify-center md:items-center bg-white"
@@ -238,12 +240,31 @@ export function Hero() {
               </div>
             </div>
           </motion.div>
+        ) : (
+          <motion.div
+            key="slide3"
+            className="absolute inset-0 z-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Image
+              src="/hero-banner-roteiro-03-06.png"
+              alt="Amélia Saúde"
+              fill
+              priority
+              quality={100}
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+          </motion.div>
         )}
       </AnimatePresence>
 
       {/* Navigation Arrows */}
       <button
-        onClick={() => setCurrentSlide((prev) => (prev - 1 + 2) % 2)}
+        onClick={() => setCurrentSlide((prev) => (prev - 1 + SLIDE_COUNT) % SLIDE_COUNT)}
         className={`absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 hidden md:flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
           currentSlide === 0 ? "bg-[#7b6bb2]/10 text-[#7b6bb2] hover:bg-[#7b6bb2]/20" : "bg-white/10 text-white hover:bg-white/25"
         }`}
@@ -253,7 +274,7 @@ export function Hero() {
       </button>
 
       <button
-        onClick={() => setCurrentSlide((prev) => (prev + 1) % 2)}
+        onClick={() => setCurrentSlide((prev) => (prev + 1) % SLIDE_COUNT)}
         className={`absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 hidden md:flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
           currentSlide === 0 ? "bg-[#7b6bb2]/10 text-[#7b6bb2] hover:bg-[#7b6bb2]/20" : "bg-white/10 text-white hover:bg-white/25"
         }`}
@@ -273,6 +294,11 @@ export function Hero() {
           onClick={() => setCurrentSlide(1)}
           className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === 1 ? "w-6 bg-white" : "w-2 bg-white/40"}`}
           aria-label="Slide 2"
+        />
+        <button 
+          onClick={() => setCurrentSlide(2)}
+          className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === 2 ? "w-6 bg-white" : "w-2 bg-white/40"}`}
+          aria-label="Slide 3"
         />
       </div>
     </section>
