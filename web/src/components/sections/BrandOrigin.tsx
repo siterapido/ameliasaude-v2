@@ -8,29 +8,22 @@ export function BrandOrigin() {
     <section
       id="origem"
       aria-labelledby="origem-heading"
-      className="overflow-x-clip bg-[var(--amelia-surface)]"
-      style={{
-        minHeight: "auto",
-        padding: "clamp(3.5rem, 7vh, 5.5rem) clamp(1.5rem, 5vw, 5rem)",
-      }}
+      className="flex min-h-[max(800px,100svh)] items-center justify-center overflow-x-clip bg-[var(--amelia-surface)] px-[clamp(1.5rem,5vw,5rem)] py-12 md:py-16"
     >
-      <div className="mx-auto w-full max-w-[1140px]">
+      <div className="mx-auto flex w-full max-w-[1240px] items-center justify-center">
         <motion.div
-          className="grid grid-cols-1 items-center gap-10 md:gap-12 lg:grid-cols-[minmax(0,17.5rem)_minmax(0,1fr)] lg:gap-14 xl:gap-16"
+          className="grid w-full max-w-5xl grid-cols-1 place-items-center items-center justify-items-center gap-14 md:gap-20 lg:max-w-none lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)] lg:justify-items-center lg:gap-24 xl:gap-28"
           variants={staggerContainer(0.12, 0.06)}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
         >
-          <motion.div
-            variants={fadeUp}
-            className="flex min-w-0 justify-center lg:justify-start"
-          >
+          <motion.div variants={fadeUp} className="flex min-w-0 justify-center">
             <div
-              className="relative aspect-[9/16] h-[min(62svh,30rem)] w-auto max-w-[min(100%,17.5rem)] shrink-0 overflow-hidden rounded-[1.35rem] bg-[var(--amelia-purple-faint)]"
+              className="relative aspect-[9/16] h-[min(72svh,42rem)] w-auto max-w-[min(100%,24rem)] shrink-0 overflow-hidden rounded-[1.5rem] bg-[var(--amelia-purple-faint)] md:h-[min(78svh,46rem)] md:max-w-[min(100%,26rem)]"
               style={{
                 boxShadow:
-                  "0 28px 72px -36px color-mix(in srgb, var(--amelia-deep) 42%, transparent)",
+                  "0 32px 88px -40px color-mix(in srgb, var(--amelia-deep) 44%, transparent)",
               }}
             >
               <video
@@ -46,26 +39,26 @@ export function BrandOrigin() {
 
           <motion.div
             variants={fadeUp}
-            className="flex min-w-0 flex-col justify-center lg:py-2"
+            className="flex min-w-0 flex-col items-center justify-center text-center lg:items-center lg:py-4 xl:py-6"
           >
-            <p className="mb-4 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--amelia-purple)]">
+            <p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-[var(--amelia-purple)] md:mb-6">
               Nossa história
             </p>
             <h2
               id="origem-heading"
-              className="max-w-xl font-display font-normal text-[var(--amelia-deep)]"
+              className="max-w-2xl font-display font-normal text-[var(--amelia-deep)] lg:mx-auto"
               style={{
-                fontSize: "clamp(2rem, 3.8vw, 3.25rem)",
-                lineHeight: 1.08,
-                letterSpacing: "-0.025em",
+                fontSize: "clamp(2.5rem, 5.2vw, 4.25rem)",
+                lineHeight: 1.06,
+                letterSpacing: "-0.028em",
               }}
             >
               A Amélia Saúde nasceu para transformar o cuidado com a saúde no{" "}
               <em className="font-light italic text-[var(--amelia-purple)]">Rio de Janeiro</em>
             </h2>
             <p
-              className="mt-6 max-w-lg font-sans font-light leading-relaxed text-[var(--amelia-body)]"
-              style={{ fontSize: "clamp(1rem, 1.35vw, 1.125rem)", lineHeight: 1.65 }}
+              className="mx-auto mt-7 max-w-xl font-sans font-light leading-relaxed text-[var(--amelia-body)] md:mt-8"
+              style={{ fontSize: "clamp(1.0625rem, 1.5vw, 1.25rem)", lineHeight: 1.7 }}
             >
               Operadora carioca com gestão moderna, rede perto de você e um time dedicado a cuidar de
               pessoas, não de processos.
