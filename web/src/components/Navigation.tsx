@@ -39,7 +39,9 @@ export function Navigation() {
     return links;
   })();
 
-  const isWhiteText = !scrolled && currentSlide !== 0;
+  const isRioSlide = !scrolled && currentSlide === 2;
+  const isBannerSlide = !scrolled && currentSlide === 0;
+  const isWhiteText = isRioSlide;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 48);
@@ -125,7 +127,9 @@ export function Navigation() {
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
                   isWhiteText
                     ? "text-white hover:text-[#7b6bb2]"
-                    : "text-gray-700 hover:text-[#7b6bb2]"
+                    : isBannerSlide
+                      ? "text-black hover:text-[#7b6bb2]"
+                      : "text-gray-700 hover:text-[#7b6bb2]"
                 }`}
               >
                 {link.label}
