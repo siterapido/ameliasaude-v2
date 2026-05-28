@@ -1,28 +1,11 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewportConfig } from "@/lib/motion";
 
 export function BrandOrigin() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-20% 0px" });
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (isInView) {
-      void video.play().catch(() => {});
-    } else {
-      video.pause();
-    }
-  }, [isInView]);
-
   return (
     <section
-      ref={sectionRef}
       id="origem"
       aria-labelledby="origem-heading"
       className="flex flex-col justify-center bg-[var(--amelia-surface)]"
@@ -30,27 +13,28 @@ export function BrandOrigin() {
     >
       <div className="mx-auto w-full max-w-[1200px]">
         <motion.div
-          className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 xl:gap-20"
+          className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,auto)_minmax(0,1fr)] lg:gap-16 xl:gap-20"
           variants={staggerContainer(0.12, 0.06)}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
         >
-          <motion.div variants={fadeUp} className="relative w-full">
+          <motion.div
+            variants={fadeUp}
+            className="flex w-full justify-center lg:justify-start"
+          >
             <div
-              className="relative overflow-hidden rounded-[1.35rem] bg-[var(--amelia-purple-faint)]"
+              className="relative w-full max-w-[min(100%,22.5rem)] overflow-hidden rounded-[1.35rem] bg-[var(--amelia-purple-faint)]"
               style={{
-                aspectRatio: "16 / 10",
-                boxShadow: "0 28px 72px -36px color-mix(in srgb, var(--amelia-deep) 42%, transparent)",
+                aspectRatio: "9 / 16",
+                boxShadow:
+                  "0 28px 72px -36px color-mix(in srgb, var(--amelia-deep) 42%, transparent)",
               }}
             >
               <video
-                ref={videoRef}
                 className="h-full w-full object-cover"
                 src="/video1.mp4"
-                muted
                 playsInline
-                loop
                 preload="metadata"
                 controls
                 aria-label="Vídeo institucional da Amélia Saúde"
