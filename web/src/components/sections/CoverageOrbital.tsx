@@ -185,26 +185,33 @@ function placeNiteroiBesideSaoGoncalo(nodes: OrbitNode[]): OrbitNode[] {
   );
 }
 
-/** Nilópolis no anel externo, alinhada ao ângulo de Belford Roxo (anel interno). */
-function placeNilopolisBesideBelfordRoxo(nodes: OrbitNode[]): OrbitNode[] {
-  const belford = nodes.find((n) => n.city.name === "Belford Roxo");
-  const nilo = nodes.find((n) => n.city.name === "Nilópolis");
-  if (!belford || !nilo) return nodes;
+/** Par (direita, esquerda): a cidade da direita espelha a âncora da esquerda no eixo vertical. */
+const ORBIT_MIRROR_PAIRS: [string, string][] = [
+  ["Belford Roxo", "São Gonçalo"],
+  ["Duque de Caxias", "Nova Iguaçu"],
+  ["Nilópolis", "Niterói"],
+  ["São João de Meriti", "Magé"],
+];
 
-  const angB = Math.atan2(belford.top - 50, belford.left - 50);
-  const r = Math.hypot(nilo.left - 50, nilo.top - 50);
-  const offsetRad = (7 * Math.PI) / 180;
+/** Espelha o lado direito com base nas posições finais do lado esquerdo (mesmo raio do anel). */
+function applyOrbitVerticalMirror(nodes: OrbitNode[]): OrbitNode[] {
+  return nodes.map((node) => {
+    const pair = ORBIT_MIRROR_PAIRS.find(([right]) => right === node.city.name);
+    if (!pair) return node;
 
-  return nodes.map((node) =>
-    node.city.name === "Nilópolis"
-      ? {
-          ...node,
-          left: 50 + r * Math.cos(angB + offsetRad),
-          top: 50 + r * Math.sin(angB + offsetRad),
-          zIndex: node.zIndex + 2,
-        }
-      : node
-  );
+    const anchor = nodes.find((n) => n.city.name === pair[1]);
+    if (!anchor) return node;
+
+    const r = Math.hypot(anchor.left - 50, anchor.top - 50);
+    const ang = Math.atan2(anchor.top - 50, anchor.left - 50);
+    const mirroredAng = Math.PI - ang;
+
+    return {
+      ...node,
+      left: 50 + r * Math.cos(mirroredAng),
+      top: 50 + r * Math.sin(mirroredAng),
+    };
+  });
 }
 
 /** Mesquita na base (90°), no raio médio entre anel interno e externo. */
@@ -245,8 +252,8 @@ export function CoverageOrbital() {
     const base = applyOrbitPolarTweaks(
       buildDoubleOrbit(ORBIT_INNER_RADIUS, ORBIT_OUTER_RADIUS)
     );
-    return placeNiteroiBesideSaoGoncalo(
-      placeNilopolisBesideBelfordRoxo(
+    return applyOrbitVerticalMirror(
+      placeNiteroiBesideSaoGoncalo(
         placeMesquitaBetweenOrbits(base, ORBIT_INNER_RADIUS, ORBIT_OUTER_RADIUS)
       )
     );
