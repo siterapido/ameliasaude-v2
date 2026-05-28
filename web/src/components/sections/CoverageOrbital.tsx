@@ -214,24 +214,17 @@ function applyOrbitVerticalMirror(nodes: OrbitNode[]): OrbitNode[] {
   });
 }
 
-/** Mesquita na base (90°), no raio médio entre anel interno e externo. */
-function placeMesquitaBetweenOrbits(
-  nodes: OrbitNode[],
-  innerRadius: number,
-  outerRadius: number
-): OrbitNode[] {
-  const mes = nodes.find((n) => n.city.name === "Mesquita");
-  if (!mes) return nodes;
-
-  const ang = Math.PI / 2;
-  const r = (innerRadius + outerRadius) / 2;
+/** Mesquita espelha Rio no eixo vertical: mesmo raio/anel, 6h alinhado a 12h. */
+function placeMesquitaMirrorOfRio(nodes: OrbitNode[]): OrbitNode[] {
+  const rio = nodes.find((n) => n.city.name === "Rio de Janeiro");
+  if (!rio) return nodes;
 
   return nodes.map((node) =>
     node.city.name === "Mesquita"
       ? {
           ...node,
-          left: 50 + r * Math.cos(ang),
-          top: 50 + r * Math.sin(ang),
+          left: rio.left,
+          top: 100 - rio.top,
         }
       : node
   );
@@ -253,9 +246,7 @@ export function CoverageOrbital() {
       buildDoubleOrbit(ORBIT_INNER_RADIUS, ORBIT_OUTER_RADIUS)
     );
     return applyOrbitVerticalMirror(
-      placeNiteroiBesideSaoGoncalo(
-        placeMesquitaBetweenOrbits(base, ORBIT_INNER_RADIUS, ORBIT_OUTER_RADIUS)
-      )
+      placeNiteroiBesideSaoGoncalo(placeMesquitaMirrorOfRio(base))
     );
   }, []);
 
