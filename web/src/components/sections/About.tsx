@@ -133,8 +133,7 @@ export function About() {
             className="mx-auto mt-6 max-w-2xl font-sans font-light leading-relaxed text-[var(--amelia-muted)]"
             style={{ fontSize: "clamp(1rem, 1.4vw, 1.15rem)" }}
           >
-            A Amélia Saúde nasce para transformar o cuidado com a saúde no Rio de Janeiro. Um
-            projeto construído por profissionais com anos de experiência, unidos pelo propósito de
+            Um projeto construído por profissionais com anos de experiência, unidos pelo propósito de
             criar uma operadora moderna, transparente e centrada nas pessoas.
           </motion.p>
         </motion.div>
