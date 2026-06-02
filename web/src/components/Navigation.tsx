@@ -3,11 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useHero } from "@/components/HeroContext";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Sobre nós", href: "#sobre" },
+  { label: "Sobre nós", href: "#origem" },
   { label: "Planos", href: "#experiencia-planos" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
@@ -18,7 +17,6 @@ const navLinks = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { currentSlide } = useHero();
   const pathname = usePathname();
 
   const isHomePage = pathname === "/";
@@ -39,9 +37,7 @@ export function Navigation() {
     return links;
   })();
 
-  const isRioSlide = !scrolled && currentSlide === 2;
-  const isBannerSlide = !scrolled && currentSlide === 0;
-  const isWhiteText = isRioSlide;
+  const isBannerHero = isHomePage && !scrolled;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 48);
@@ -103,11 +99,7 @@ export function Navigation() {
             className="relative z-[60] flex items-center"
           >
             <Image
-              src={
-                menuOpen || isWhiteText
-                  ? "/logo-amelia-site-branca.png"
-                  : "/logo-amelia-site.png"
-              }
+              src={menuOpen ? "/logo-amelia-site-branca.png" : "/logo-amelia-site.png"}
               alt="Amélia Saúde"
               width={200}
               height={56}
@@ -125,11 +117,9 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
-                  isWhiteText
-                    ? "text-white hover:text-[#7b6bb2]"
-                    : isBannerSlide
-                      ? "text-black hover:text-[#7b6bb2]"
-                      : "text-gray-700 hover:text-[#7b6bb2]"
+                  isBannerHero
+                    ? "text-black hover:text-[#7b6bb2]"
+                    : "text-gray-700 hover:text-[#7b6bb2]"
                 }`}
               >
                 {link.label}

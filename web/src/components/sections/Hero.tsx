@@ -1,305 +1,293 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import type { ReactNode } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useHero } from "@/components/HeroContext";
-
-const HEADLINE_LINES: ReactNode[] = [
-  <>sua saúde em</>,
-  <>nossos planos</>,
-];
-
-const SLIDE_COUNT = 3;
+import { motion } from "framer-motion";
+import { Smartphone, Handshake, Heart, ArrowRight } from "lucide-react";
+import {
+  staggerContainer,
+  fadeUp,
+  fadeUpFast,
+  revealLine,
+  viewportConfig,
+} from "@/lib/motion";
 
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const containerRef = useRef<HTMLElement>(null);
 
-  const { currentSlide, setCurrentSlide } = useHero();
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDE_COUNT);
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [setCurrentSlide]);
+  const features = [
+    {
+      icon: <Smartphone className="w-3.5 h-3.5 stroke-[1.5]" />,
+      text: "Tecnologia inteligente",
+    },
+    {
+      icon: <Handshake className="w-3.5 h-3.5 stroke-[1.5]" />,
+      text: "Cuidado humanizado",
+    },
+    {
+      icon: <Heart className="w-3.5 h-3.5 stroke-[1.5]" />,
+      text: "Planos completos",
+    },
+  ];
 
   return (
     <section
       id="hero"
-      ref={ref}
-      className="relative flex flex-col overflow-hidden bg-white"
-      style={{ minHeight: "100svh" }}
+      ref={containerRef}
+      className="relative min-h-screen flex flex-col overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(152deg, var(--amelia-white) 0%, var(--amelia-surface) 38%, var(--amelia-purple-mist) 100%)",
+      }}
     >
-      <AnimatePresence initial={false}>
-        {currentSlide === 0 ? (
-          <motion.div
-            key="slide-banner"
-            className="absolute inset-0 z-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Image
-              src="/hero-banner-roteiro-03-06.png"
-              alt="Amélia Saúde"
-              fill
-              priority
-              quality={100}
-              className="object-cover object-center"
-              sizes="100vw"
-            />
-          </motion.div>
-        ) : currentSlide === 1 ? (
-          <motion.div
-            key="slide1"
-            className="absolute inset-0 z-0 flex flex-col"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* ── Background Image Container ── */}
-            <div
-              className="absolute inset-x-0 top-0 z-0 overflow-hidden h-[48%] md:h-full"
-              style={{ transform: "translateZ(0)" }}
+      {/* Ambient glow — top-right */}
+      <div
+        className="absolute top-0 right-0 w-[58%] h-[70%] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at 78% 12%, color-mix(in srgb, var(--amelia-purple) 22%, transparent) 0%, transparent 65%)",
+        }}
+        aria-hidden
+      />
+
+      {/* Textura premium — trama + grain */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[1]"
+        aria-hidden
+      >
+        {/* Trama linho — tecido sutil */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 5px,
+                color-mix(in srgb, var(--amelia-purple) 6%, transparent) 5px,
+                color-mix(in srgb, var(--amelia-purple) 6%, transparent) 6px
+              ),
+              repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 5px,
+                color-mix(in srgb, var(--amelia-purple) 6%, transparent) 5px,
+                color-mix(in srgb, var(--amelia-purple) 6%, transparent) 6px
+              )
+            `,
+            opacity: 0.45,
+            mixBlendMode: "multiply",
+          }}
+        />
+
+        {/* Grain orgânico */}
+        <svg
+          className="absolute inset-0 w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <filter
+              id="hero-grain"
+              x="0%"
+              y="0%"
+              width="100%"
+              height="100%"
+              colorInterpolationFilters="sRGB"
             >
-              <motion.div
-                className="relative w-full h-[120%] md:h-full will-change-transform"
-                style={{ y: imageY }}
-              >
-                <Image
-                  src="/hero-3.png"
-                  alt="Sua saúde em nossos planos"
-                  fill
-                  priority
-                  quality={100}
-                  className="object-cover object-[85%_60%] md:object-[right_55%]"
-                  style={{
-                    imageRendering: "auto",
-                    filter: "contrast(1.02) brightness(1.03)"
-                  }}
-                  sizes="(max-width: 768px) 100vw, 100vw"
-                />
-              </motion.div>
-            </div>
-
-            {/* ── Mobile Overlay Gradient ── */}
-            <div
-              className="pointer-events-none absolute inset-x-0 top-0 z-1 h-[48%] md:hidden"
-              style={{
-                background: "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%)"
-              }}
-              aria-hidden
-            />
-
-            {/* ── Desktop Gradient ── */}
-            <div
-              className="pointer-events-none absolute inset-0 hidden md:block md:bg-gradient-to-r md:from-white md:from-20% md:via-white/60 md:via-45% md:to-transparent md:to-65%"
-              aria-hidden
-            />
-
-            {/* ── Content ── */}
-            <div
-              className="relative z-10 flex flex-1 flex-col w-full
-                         justify-end items-start
-                         md:justify-center md:items-start"
-              style={{ padding: "clamp(1rem, 5vh, 4rem) clamp(1.5rem, 5vw, 2rem) clamp(6rem, 15vh, 10rem)" }}
-            >
-              <div className="flex flex-col gap-6 w-full max-w-[1200px] md:mx-auto md:items-start md:text-left">
-                {/* Headline */}
-                <h1
-                  className="font-display font-normal lowercase italic text-[#7b6bb2]"
-                  style={{ fontSize: "clamp(2.6rem, 9vw, 6rem)", lineHeight: 0.85, letterSpacing: "-0.03em" }}
-                >
-                  {HEADLINE_LINES.map((line, i) => (
-                    <motion.div
-                      key={i}
-                      className="block"
-                      initial={{ y: 48, filter: "blur(8px)" }}
-                      animate={{ y: 0, filter: "blur(0px)" }}
-                      transition={{ duration: 1.0, delay: 0.35 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      {line}
-                    </motion.div>
-                  ))}
-                </h1>
-
-                {/* Body copy */}
-                <motion.p
-                  className="font-sans font-light text-[#4a4a4a] max-w-[320px] md:max-w-[480px] leading-relaxed text-[0.875rem] md:text-[1.125rem]"
-                  style={{ lineHeight: 1.6 }}
-                  initial={{ y: 16, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  Melhor plano de saúde para você, sua família e sua empresa, com um time sempre pronto para lhe
-                  atender com agilidade, transparência e segurança.
-                </motion.p>
-
-                {/* CTAs */}
-                <motion.div
-                  className="flex items-center gap-4 mt-2"
-                  initial={{ y: 16, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <motion.a
-                    href="https://ameliasaude.com.br/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center font-sans font-medium text-[#7b6bb2] shadow-sm"
-                    style={{
-                      border: "1.5px solid rgba(123,107,178,0.45)",
-                      borderRadius: "9999px",
-                      padding: "0.625rem 1.5rem",
-                      fontSize: "0.875rem",
-                      letterSpacing: "0.01em",
-                      background: "rgba(255,255,255,0.9)",
-                    }}
-                    whileHover={{ borderColor: "#7b6bb2", scale: 1.03, backgroundColor: "#fff" }}
-                    whileTap={{ scale: 0.97 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  >
-                    Já sou cliente
-                  </motion.a>
-
-                  <motion.a
-                    href="#contato"
-                    className="inline-flex items-center justify-center font-sans font-medium text-white shadow-xl shadow-[#7b6bb2]/25"
-                    style={{
-                      background: "#7b6bb2",
-                      borderRadius: "9999px",
-                      padding: "0.625rem 1.5rem",
-                      fontSize: "0.875rem",
-                      letterSpacing: "0.01em",
-                    }}
-                    whileHover={{ backgroundColor: "#5e4985", scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  >
-                    Fazer orçamento
-                  </motion.a>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="slide2"
-            className="absolute inset-0 z-0 flex flex-col justify-end items-start md:justify-center md:items-center bg-white"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Background image — optimized with next/image */}
-            <div className="absolute inset-0 z-0" style={{ transform: "translateZ(0)" }}>
-              <Image
-                src="/rio-de-janeiro-hero.jpeg"
-                alt="Rio de Janeiro"
-                fill
-                priority
-                quality={100}
-                className="object-cover object-[32%_20%] md:scale-x-100 md:object-[center_20%]"
-                style={{ 
-                  imageRendering: "auto",
-                  filter: "contrast(1.04) brightness(1.02)"
-                }}
-                sizes="(max-width: 768px) 100vw, 100vw"
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.72"
+                numOctaves="4"
+                stitchTiles="stitch"
+                result="noise"
               />
-            </div>
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0.482
+                        0 0 0 0 0.427
+                        0 0 0 0 0.698
+                        0 0 0 0.12 0"
+                in="noise"
+              />
+            </filter>
+          </defs>
+          <rect width="100%" height="100%" filter="url(#hero-grain)" />
+        </svg>
 
-            {/* Gradient overlay */}
-            <div
-              className="absolute inset-0 z-0 bg-[linear-gradient(to_top,rgba(123,107,178,0.95)_0%,rgba(123,107,178,0.85)_50%,rgba(0,0,0,0.35)_100%)] md:bg-[linear-gradient(to_top,rgba(123,107,178,0.88)_0%,rgba(123,107,178,0.7)_50%,rgba(0,0,0,0.25)_100%)]"
-              aria-hidden
-            />
+        {/* Fade — textura mais presente à esquerda, suave à direita */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(105deg, transparent 0%, transparent 42%, color-mix(in srgb, var(--amelia-white) 55%, transparent) 100%)",
+          }}
+        />
+      </div>
 
-            <div
-              className="relative z-10 w-full max-w-[1200px] mx-auto px-[clamp(1.5rem,5vw,2rem)] pb-[clamp(2.5rem,5vh,5rem)] pt-[clamp(3rem,10vh,6rem)]"
-            >
-              <div className="flex max-w-3xl flex-col items-start text-left md:items-center md:text-center md:mx-auto">
-                <motion.h2
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="mb-4 font-display font-normal text-white"
-                  style={{
-                    fontSize: "clamp(2.8rem, 8vw, 4.2rem)",
-                    lineHeight: 0.95,
-                    letterSpacing: "-0.03em",
-                  }}
-                >
-                  Cuidado de verdade
-                  <br />
-                  <em className="font-light italic text-white/85">
-                    para os cariocas
-                  </em>
-                </motion.h2>
+      {/* Person image — desktop: absolute grounded right */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+        className="absolute bottom-0 right-0 hidden lg:flex items-end pointer-events-none z-10"
+        style={{ height: "91%" }}
+        aria-hidden
+      >
+        <Image
+          src="/amelia-hero-1.png"
+          alt=""
+          width={540}
+          height={680}
+          priority
+          quality={100}
+          className="h-full w-auto object-contain object-bottom select-none"
+          sizes="(max-width: 1024px) 0px, 600px"
+          draggable={false}
+        />
+      </motion.div>
 
-                <motion.p
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="mb-8 max-w-2xl font-sans text-white/80"
-                  style={{
-                    fontSize: "clamp(1.05rem, 2vw, 1.15rem)",
-                    lineHeight: 1.5,
-                    marginTop: "0.5rem"
-                  }}
-                >
-                  Acreditamos que cuidar vai além de tratar: é acompanhar, orientar e estar presente em cada momento da vida dos nossos clientes.
-                </motion.p>
-              </div>
-            </div>
+      {/* Bottom fade — integra foto e próxima seção */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-20"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, color-mix(in srgb, var(--amelia-white) 88%, transparent))",
+        }}
+        aria-hidden
+      />
+
+      {/* Content */}
+      <div className="relative z-30 flex flex-col flex-1 w-full max-w-[1440px] mx-auto px-[clamp(1.5rem,6vw,7rem)] pt-24 sm:pt-28 lg:pt-36 pb-8 lg:pb-28">
+        <motion.div
+          variants={staggerContainer(0.13, 0.08)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          className="flex flex-col justify-center flex-1 lg:flex-none lg:my-auto w-full lg:max-w-[48%]"
+        >
+          {/* Eyebrow */}
+          <motion.div variants={fadeUpFast} className="mb-5 lg:mb-8">
+            <span className="inline-flex items-center gap-3 text-[var(--amelia-deep)]/55 text-[0.68rem] font-normal tracking-[0.14em] uppercase">
+              <span
+                className="block w-8 h-px shrink-0"
+                style={{
+                  background:
+                    "linear-gradient(90deg, var(--amelia-purple), transparent)",
+                }}
+              />
+              Planos de Saúde · Rio de Janeiro
+            </span>
           </motion.div>
-        )}
-      </AnimatePresence>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={() => setCurrentSlide((prev) => (prev - 1 + SLIDE_COUNT) % SLIDE_COUNT)}
-        className={`absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 hidden md:flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
-          currentSlide === 2 ? "bg-white/10 text-white hover:bg-white/25" : "bg-[#7b6bb2]/10 text-[#7b6bb2] hover:bg-[#7b6bb2]/20"
-        }`}
-        aria-label="Slide anterior"
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </button>
+          {/* Headline */}
+          <motion.h1 variants={fadeUp} className="mb-5 lg:mb-7 tracking-tight">
+            <span
+              className="inline font-sans font-normal text-[var(--amelia-deep)] leading-[1.04]"
+              style={{ fontSize: "clamp(2.75rem, 5.4vw, 4.75rem)" }}
+            >
+              Qualidade de vida{" "}
+            </span>
+            <span
+              className="inline font-display font-normal text-[var(--amelia-purple)] leading-[1.04] italic"
+              style={{ fontSize: "clamp(2.85rem, 5.6vw, 4.9rem)" }}
+            >
+              ao seu alcance.
+            </span>
+          </motion.h1>
 
-      <button
-        onClick={() => setCurrentSlide((prev) => (prev + 1) % SLIDE_COUNT)}
-        className={`absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 hidden md:flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 ${
-          currentSlide === 2 ? "bg-white/10 text-white hover:bg-white/25" : "bg-[#7b6bb2]/10 text-[#7b6bb2] hover:bg-[#7b6bb2]/20"
-        }`}
-        aria-label="Próximo slide"
-      >
-        <ChevronRight className="h-6 w-6" />
-      </button>
+          {/* Accent rule */}
+          <motion.div
+            variants={revealLine}
+            className="mb-5 lg:mb-8 h-px w-16 origin-left"
+            style={{ background: "var(--amelia-purple)" }}
+          />
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        <button 
-          onClick={() => setCurrentSlide(0)}
-          className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === 0 ? "w-6 bg-[#7b6bb2]" : "w-2 bg-[#7b6bb2]/40"}`}
-          aria-label="Slide 1"
-        />
-        <button 
-          onClick={() => setCurrentSlide(1)}
-          className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === 1 ? "w-6 bg-[#7b6bb2]" : "w-2 bg-[#7b6bb2]/40"}`}
-          aria-label="Slide 2"
-        />
-        <button 
-          onClick={() => setCurrentSlide(2)}
-          className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === 2 ? "w-6 bg-white" : "w-2 bg-white/40"}`}
-          aria-label="Slide 3"
-        />
+          {/* Subtext */}
+          <motion.p
+            variants={fadeUp}
+            className="font-sans font-light text-[var(--amelia-body)] leading-relaxed mb-7 lg:mb-10"
+            style={{
+              fontSize: "clamp(0.9rem, 1.35vw, 1.05rem)",
+              maxWidth: "430px",
+            }}
+          >
+            Tecnologia, humanidade e propósito em planos que cuidam de verdade para você e sua família.
+          </motion.p>
+
+          {/* Feature chips */}
+          <motion.div
+            variants={staggerContainer(0.08, 0)}
+            className="flex flex-wrap gap-2.5 mb-8 lg:mb-12"
+          >
+            {features.map((f, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUpFast}
+                className="flex items-center gap-2 px-4 py-2 rounded-full text-[var(--amelia-deep)] text-xs font-normal tracking-wide"
+                style={{
+                  border: "1px solid var(--amelia-line)",
+                  background: "var(--amelia-soft)",
+                }}
+              >
+                {f.icon}
+                {f.text}
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap items-center gap-5"
+          >
+            <motion.a
+              href="#experiencia-planos"
+              className="inline-flex items-center gap-3 bg-[var(--amelia-deep)] text-white px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide shadow-lg"
+              whileHover={{
+                scale: 1.03,
+                boxShadow:
+                  "0 20px 48px color-mix(in srgb, var(--amelia-deep) 35%, transparent)",
+              }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.2 }}
+            >
+              Quero meu plano
+              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+            </motion.a>
+
+            <motion.a
+              href="#origem"
+              className="inline-flex items-center gap-1.5 text-[var(--amelia-deep)]/60 hover:text-[var(--amelia-deep)] text-sm font-normal tracking-wide transition-colors duration-300"
+              whileHover={{ x: 4 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              Conheça a Amélia
+              <ArrowRight className="w-3.5 h-3.5 stroke-[1.75]" />
+            </motion.a>
+          </motion.div>
+        </motion.div>
+
+        {/* Mobile/tablet image — in flow below text */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportConfig}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+          className="lg:hidden shrink-0 flex items-end justify-center mt-6 -mb-8"
+          style={{ height: "clamp(200px, 52vw, 360px)" }}
+          aria-hidden
+        >
+          <Image
+            src="/amelia-hero-1.png"
+            alt=""
+            width={540}
+            height={680}
+            quality={85}
+            className="h-full w-auto object-contain object-bottom select-none drop-shadow-md"
+            sizes="(min-width: 1024px) 0px, 70vw"
+            draggable={false}
+          />
+        </motion.div>
       </div>
     </section>
   );

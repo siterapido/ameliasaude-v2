@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/quem-somos",
-        destination: "/#sobre",
+        destination: "/#origem",
         permanent: true,
       },
     ];

@@ -21,7 +21,7 @@ const CONTACT = {
 } as const;
 
 const navLinks = [
-  { label: "Sobre nós", href: "#sobre" },
+  { label: "Sobre nós", href: "#origem" },
   { label: "Planos", href: "#experiencia-planos" },
   { label: "Rede", href: "#rede" },
   { label: "Telemedicina", href: "#telemedicina" },
