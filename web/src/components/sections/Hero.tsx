@@ -34,7 +34,7 @@ export function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-screen flex flex-col overflow-hidden"
+      className="relative h-svh lg:min-h-screen flex flex-col overflow-hidden"
       style={{
         background:
           "linear-gradient(152deg, var(--amelia-white) 0%, var(--amelia-surface) 38%, var(--amelia-purple-mist) 100%)",
@@ -124,6 +124,69 @@ export function Hero() {
         />
       </div>
 
+      {/* Decorative circles — behind photo, desktop only */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+        className="absolute inset-0 hidden lg:block pointer-events-none z-[3]"
+        aria-hidden
+      >
+        {/* Outer circle — glass body */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: 620,
+            height: 620,
+            right: "-6%",
+            bottom: "11%",
+            background: "color-mix(in srgb, var(--amelia-purple) 6%, transparent)",
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)",
+            border: "1px solid color-mix(in srgb, var(--amelia-purple) 14%, transparent)",
+          }}
+        />
+        {/* Mid circle — glass body, lighter */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: 420,
+            height: 420,
+            right: "4%",
+            bottom: "19%",
+            background: "color-mix(in srgb, var(--amelia-white) 9%, transparent)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            border: "1px solid color-mix(in srgb, var(--amelia-purple) 10%, transparent)",
+          }}
+        />
+        {/* Small circle — glass accent */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: 120,
+            height: 120,
+            right: "29%",
+            bottom: "59%",
+            background: "color-mix(in srgb, var(--amelia-purple) 8%, transparent)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            border: "1px solid color-mix(in srgb, var(--amelia-deep) 14%, transparent)",
+          }}
+        />
+        {/* Dot punctuation */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: 8,
+            height: 8,
+            right: "27.2%",
+            bottom: "63.6%",
+            background: "color-mix(in srgb, var(--amelia-purple) 55%, transparent)",
+          }}
+        />
+      </motion.div>
+
       {/* Person image — desktop: absolute grounded right */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -146,6 +209,27 @@ export function Hero() {
         />
       </motion.div>
 
+      {/* Person image — mobile: oversized to compensate for transparent PNG canvas */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+        className="absolute bottom-0 right-[-50vw] block lg:hidden pointer-events-none z-10"
+        style={{ width: "148vw", height: "70vh" }}
+        aria-hidden
+      >
+        <Image
+          src="/amelia-hero-1.png"
+          fill
+          alt=""
+          priority
+          quality={90}
+          className="object-contain object-bottom select-none"
+          sizes="148vw"
+          draggable={false}
+        />
+      </motion.div>
+
       {/* Bottom fade — integra foto e próxima seção */}
       <div
         className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-20"
@@ -157,13 +241,13 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-30 flex flex-col flex-1 w-full max-w-[1440px] mx-auto px-[clamp(1.5rem,6vw,7rem)] pt-24 sm:pt-28 lg:pt-36 pb-8 lg:pb-28">
+      <div className="relative z-30 flex flex-col flex-1 w-full max-w-[1440px] mx-auto px-[clamp(1.5rem,6vw,7rem)] pt-24 sm:pt-28 lg:pt-36 pb-6 lg:pb-28">
         <motion.div
           variants={staggerContainer(0.13, 0.08)}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="flex flex-col justify-center flex-1 lg:flex-none lg:my-auto w-full lg:max-w-[48%]"
+          className="flex flex-1 flex-col lg:my-auto lg:flex-none w-full lg:max-w-[48%]"
         >
           {/* Eyebrow */}
           <motion.div variants={fadeUpFast} className="mb-5 lg:mb-8">
@@ -205,7 +289,7 @@ export function Hero() {
           {/* Subtext */}
           <motion.p
             variants={fadeUp}
-            className="font-sans font-light text-[var(--amelia-body)] leading-relaxed mb-7 lg:mb-10"
+            className="w-[229px] font-sans font-light text-[var(--amelia-body)] leading-relaxed mb-[106px] lg:w-auto lg:mb-10"
             style={{
               fontSize: "clamp(0.9rem, 1.35vw, 1.05rem)",
               maxWidth: "430px",
@@ -217,17 +301,13 @@ export function Hero() {
           {/* Feature chips */}
           <motion.div
             variants={staggerContainer(0.08, 0)}
-            className="flex flex-wrap gap-2.5 mb-8 lg:mb-12"
+            className="flex flex-col gap-3 mb-8 lg:mb-12 max-w-[68%] lg:max-w-none lg:flex-row lg:flex-wrap lg:gap-2.5"
           >
             {features.map((f, i) => (
               <motion.div
                 key={i}
                 variants={fadeUpFast}
-                className="flex items-center gap-2 px-4 py-2 rounded-full text-[var(--amelia-deep)] text-xs font-normal tracking-wide"
-                style={{
-                  border: "1px solid var(--amelia-line)",
-                  background: "var(--amelia-soft)",
-                }}
+                className="flex items-center gap-2 px-4 py-2 rounded-full text-[var(--amelia-deep)] text-xs font-normal tracking-wide border border-white/40 bg-white/40 backdrop-blur-md lg:bg-[var(--amelia-soft)] lg:border-[var(--amelia-line)]"
               >
                 {f.icon}
                 {f.text}
@@ -238,11 +318,11 @@ export function Hero() {
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap items-center gap-5"
+            className="mt-auto flex flex-col items-start gap-3 pb-6 lg:mt-0 lg:pb-0 lg:flex-row lg:flex-wrap lg:items-center lg:gap-5"
           >
             <motion.a
               href="#experiencia-planos"
-              className="inline-flex items-center gap-3 bg-[var(--amelia-deep)] text-white px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide shadow-lg"
+              className="inline-flex items-center gap-2 whitespace-nowrap text-[var(--amelia-purple)] font-semibold text-sm tracking-wide lg:gap-3 lg:bg-[var(--amelia-deep)] lg:text-white lg:px-7 lg:py-3.5 lg:rounded-full lg:shadow-lg"
               whileHover={{
                 scale: 1.03,
                 boxShadow:
@@ -257,7 +337,7 @@ export function Hero() {
 
             <motion.a
               href="#origem"
-              className="inline-flex items-center gap-1.5 text-[var(--amelia-deep)]/60 hover:text-[var(--amelia-deep)] text-sm font-normal tracking-wide transition-colors duration-300"
+              className="hidden lg:inline-flex items-center gap-1.5 text-[var(--amelia-deep)]/60 hover:text-[var(--amelia-deep)] text-sm font-normal tracking-wide transition-colors duration-300"
               whileHover={{ x: 4 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
@@ -267,27 +347,6 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Mobile/tablet image — in flow below text */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={viewportConfig}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          className="lg:hidden shrink-0 flex items-end justify-center mt-6 -mb-8"
-          style={{ height: "clamp(200px, 52vw, 360px)" }}
-          aria-hidden
-        >
-          <Image
-            src="/amelia-hero-1.png"
-            alt=""
-            width={540}
-            height={680}
-            quality={85}
-            className="h-full w-auto object-contain object-bottom select-none drop-shadow-md"
-            sizes="(min-width: 1024px) 0px, 70vw"
-            draggable={false}
-          />
-        </motion.div>
       </div>
     </section>
   );
