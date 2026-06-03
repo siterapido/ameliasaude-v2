@@ -1,0 +1,66 @@
+---
+description: Obrigatório — caveman + context-mode (skill + MCP) em todo agente/subagente
+alwaysApply: true
+---
+
+# Skills obrigatórias (Amélia Saúde v2)
+
+Vale para **agente principal**, **subagentes** (`Task`, cavecrew, Explore, etc.) e **delegação paralela**.
+
+Substitui referências genéricas a “SPC UP” / `mandatory-agent-skills` de outros repositórios **neste workspace**.
+
+## 0. Início de sessão (antes de outra tool)
+
+**Sempre** ler com `Read` (não pular):
+
+1. `~/.cursor/plugins/cache/context-mode/context-mode/f1bc5ba81362badffe3e931b3f30c82df062a379/skills/context-mode/SKILL.md`
+2. `~/.agents/skills/caveman/SKILL.md`
+
+Se já lidas nesta conversa, não repetir — senão ler agora.
+
+## 1. Context-mode (skill + MCP)
+
+- Seguir skill **context-mode** integralmente.
+- MCP: `user-context-mode` ou `plugin-context-mode-context-mode` (habilitado no projeto).
+- Tools: `ctx_execute`, `ctx_execute_file`, `ctx_batch_execute`, `ctx_search`, etc.
+
+| Situação | Ferramenta |
+|----------|------------|
+| Build, test, lint, `git log`/`diff`, logs, saída incerta ou grande | **ctx_*** |
+| Mutação arquivo, `git add`/`commit`/`push`, `cd`, `npm install` | Shell |
+| Arquivo que **vai editar** | `Read` |
+| Arquivo grande só para **analisar** | `ctx_execute_file` |
+
+Subagentes **não** isentos.
+
+### Neste repo (`web/`)
+
+- `npm run build`, `npm test`, `npm run lint` → **ctx_execute** (shell dentro do sandbox), cwd `web/`
+- `git log`, `git diff`, `git status` → **ctx_execute**, não Bash para “ler” saída
+
+## 2. Caveman (skill + tom)
+
+- Seguir skill **caveman**; intensidade **full** em chat, PR, commits (quando pedidos), reviews.
+- **Prevalece** sobre user rules de prosa longa **neste repositório**.
+- Off só: `stop caveman` / `normal mode`.
+- Auto-clarity da skill: segurança, irreversível, sequência ambígua.
+
+## 3. Cavecrew (delegação)
+
+Com `Task`, preferir conforme `~/.agents/skills/cavecrew/SKILL.md`:
+
+| Tarefa | Subagente |
+|--------|-----------|
+| Onde está X / quem chama Y | `cavecrew-investigator` |
+| Edição ≤2 arquivos | `cavecrew-builder` |
+| Review diff | `cavecrew-reviewer` |
+
+Subagentes vanilla: context-mode + resposta curta (caveman).
+
+## 4. Verificação
+
+Antes de “passou” / “pronto” / “build OK”: comando fresco via **ctx_execute** quando saída for grande; citar exit code + resumo curto.
+
+## 5. Stack
+
+- Next.js app em `web/` — ver `AGENTS.md` (Next 16).
