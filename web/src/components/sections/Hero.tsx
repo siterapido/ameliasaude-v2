@@ -242,8 +242,7 @@ export function Hero() {
               O Plano de saúde com gestão moderna, tecnologia inteligente e cuidado humanizado.
             </span>
             <span
-              className="block font-display font-normal text-[var(--amelia-purple)] leading-[1.04] italic"
-              style={{ fontSize: "clamp(2.85rem, 5.6vw, 4.9rem)" }}
+              className="block font-display font-normal text-[var(--amelia-purple)] leading-[1.04] italic text-[1.85rem] sm:text-[2.25rem] lg:text-[clamp(2.85rem,5.6vw,4.9rem)]"
             >
               Amélia saúde!
             </span>
@@ -259,23 +258,30 @@ export function Hero() {
           {/* Subtext */}
           <motion.p
             variants={fadeUp}
-            className="w-[229px] font-sans font-light text-[var(--amelia-body)] leading-relaxed mb-6 sm:mb-8 lg:w-auto lg:mb-10"
+            className="w-[229px] font-sans font-light text-[var(--amelia-body)] leading-relaxed mb-5 lg:w-auto lg:mb-10"
             style={{
               fontSize: "clamp(0.9rem, 1.35vw, 1.05rem)",
               maxWidth: "430px",
             }}
           >
-            Planos que cuidam de você de verdade.
+            <span className="lg:hidden">
+              Planos que cuidam
+              <br />
+              de você de verdade.
+            </span>
+            <span className="hidden lg:inline">
+              Planos que cuidam de você de verdade.
+            </span>
           </motion.p>
 
-          {/* CTAs */}
+          {/* CTAs — abaixo do subtexto; alinhados à esquerda, centralizados entre si */}
           <motion.div
             variants={fadeUp}
-            className="mt-6 lg:mt-0 flex flex-col items-start gap-3 pb-6 lg:pb-0 lg:flex-row lg:flex-wrap lg:items-center lg:gap-5"
+            className="flex flex-col items-center self-start gap-3 lg:flex-row lg:flex-wrap lg:items-center lg:gap-5"
           >
             <motion.a
               href="#experiencia-planos"
-              className="inline-flex items-center gap-2 sm:gap-3 whitespace-nowrap bg-[var(--amelia-deep)] text-white font-semibold text-xs sm:text-sm tracking-wide px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full shadow-lg"
+              className="inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap bg-[var(--amelia-deep)] text-white font-semibold text-[11px] sm:text-xs tracking-wide px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-lg"
               whileHover={{
                 scale: 1.03,
                 boxShadow:
@@ -285,7 +291,7 @@ export function Hero() {
               transition={{ duration: 0.2 }}
             >
               Quero meu plano
-              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
+              <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[2.5]" />
             </motion.a>
 
             <motion.a
