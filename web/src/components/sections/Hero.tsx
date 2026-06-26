@@ -3,32 +3,16 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Smartphone, Handshake, Heart, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
   staggerContainer,
   fadeUp,
-  fadeUpFast,
   revealLine,
   viewportConfig,
 } from "@/lib/motion";
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
-
-  const features = [
-    {
-      icon: <Smartphone className="w-3.5 h-3.5 stroke-[1.5]" />,
-      text: "Tecnologia inteligente",
-    },
-    {
-      icon: <Handshake className="w-3.5 h-3.5 stroke-[1.5]" />,
-      text: "Cuidado humanizado",
-    },
-    {
-      icon: <Heart className="w-3.5 h-3.5 stroke-[1.5]" />,
-      text: "Planos completos",
-    },
-  ];
 
   return (
     <section
@@ -138,7 +122,7 @@ export function Hero() {
           style={{
             width: 620,
             height: 620,
-            right: "-6%",
+            right: "8%",
             bottom: "11%",
             background: "color-mix(in srgb, var(--amelia-purple) 6%, transparent)",
             backdropFilter: "blur(6px)",
@@ -152,7 +136,7 @@ export function Hero() {
           style={{
             width: 420,
             height: 420,
-            right: "4%",
+            right: "18%",
             bottom: "19%",
             background: "color-mix(in srgb, var(--amelia-white) 9%, transparent)",
             backdropFilter: "blur(10px)",
@@ -166,7 +150,7 @@ export function Hero() {
           style={{
             width: 120,
             height: 120,
-            right: "29%",
+            right: "42%",
             bottom: "59%",
             background: "color-mix(in srgb, var(--amelia-purple) 8%, transparent)",
             backdropFilter: "blur(8px)",
@@ -180,7 +164,7 @@ export function Hero() {
           style={{
             width: 8,
             height: 8,
-            right: "27.2%",
+            right: "40.2%",
             bottom: "63.6%",
             background: "color-mix(in srgb, var(--amelia-purple) 55%, transparent)",
           }}
@@ -192,18 +176,18 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-        className="absolute bottom-0 right-0 hidden lg:flex items-end pointer-events-none z-10"
+        className="absolute bottom-0 right-[14%] hidden lg:flex items-end pointer-events-none z-10"
         style={{ height: "91%" }}
         aria-hidden
       >
         <Image
-          src="/amelia-hero-1.png"
+          src="/maria-padilha-hero.png"
           alt=""
-          width={540}
-          height={680}
+          width={1712}
+          height={3056}
           priority
           quality={100}
-          className="h-full w-auto object-contain object-bottom select-none"
+          className="h-full w-auto object-contain object-[72%_bottom] select-none"
           sizes="(max-width: 1024px) 0px, 600px"
           draggable={false}
         />
@@ -214,17 +198,17 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-        className="absolute bottom-0 right-[-50vw] block lg:hidden pointer-events-none z-10"
+        className="absolute bottom-0 right-[-28vw] block lg:hidden pointer-events-none z-10"
         style={{ width: "148vw", height: "70vh" }}
         aria-hidden
       >
         <Image
-          src="/amelia-hero-1.png"
+          src="/maria-padilha-hero.png"
           fill
           alt=""
           priority
           quality={90}
-          className="object-contain object-bottom select-none"
+          className="object-contain object-[72%_bottom] select-none"
           sizes="148vw"
           draggable={false}
         />
@@ -249,33 +233,19 @@ export function Hero() {
           viewport={viewportConfig}
           className="flex flex-1 flex-col lg:my-auto lg:flex-none w-full lg:max-w-[48%]"
         >
-          {/* Eyebrow */}
-          <motion.div variants={fadeUpFast} className="mb-5 lg:mb-8">
-            <span className="inline-flex items-center gap-3 text-[var(--amelia-deep)]/55 text-[0.68rem] font-normal tracking-[0.14em] uppercase">
-              <span
-                className="block w-8 h-px shrink-0"
-                style={{
-                  background:
-                    "linear-gradient(90deg, var(--amelia-purple), transparent)",
-                }}
-              />
-              Planos de Saúde · Rio de Janeiro
-            </span>
-          </motion.div>
-
           {/* Headline */}
           <motion.h1 variants={fadeUp} className="mb-5 lg:mb-7 tracking-tight">
             <span
-              className="inline font-sans font-normal text-[var(--amelia-deep)] leading-[1.04]"
-              style={{ fontSize: "clamp(2.75rem, 5.4vw, 4.75rem)" }}
+              className="block font-sans font-normal text-[var(--amelia-deep)] leading-[1.15] mb-4 lg:mb-5"
+              style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.1rem)", maxWidth: "520px" }}
             >
-              Qualidade de vida{" "}
+              O Plano de saúde com gestão moderna, tecnologia inteligente e cuidado humanizado.
             </span>
             <span
-              className="inline font-display font-normal text-[var(--amelia-purple)] leading-[1.04] italic"
+              className="block font-display font-normal text-[var(--amelia-purple)] leading-[1.04] italic"
               style={{ fontSize: "clamp(2.85rem, 5.6vw, 4.9rem)" }}
             >
-              ao seu alcance.
+              Amélia saúde!
             </span>
           </motion.h1>
 
@@ -289,40 +259,23 @@ export function Hero() {
           {/* Subtext */}
           <motion.p
             variants={fadeUp}
-            className="w-[229px] font-sans font-light text-[var(--amelia-body)] leading-relaxed mb-[106px] lg:w-auto lg:mb-10"
+            className="w-[229px] font-sans font-light text-[var(--amelia-body)] leading-relaxed mb-6 sm:mb-8 lg:w-auto lg:mb-10"
             style={{
               fontSize: "clamp(0.9rem, 1.35vw, 1.05rem)",
               maxWidth: "430px",
             }}
           >
-            Tecnologia, humanidade e propósito em planos que cuidam de verdade para você e sua família.
+            Planos que cuidam de você de verdade.
           </motion.p>
-
-          {/* Feature chips */}
-          <motion.div
-            variants={staggerContainer(0.08, 0)}
-            className="flex flex-col gap-3 mb-8 lg:mb-12 max-w-[68%] lg:max-w-none lg:flex-row lg:flex-wrap lg:gap-2.5"
-          >
-            {features.map((f, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUpFast}
-                className="flex items-center gap-2 px-4 py-2 rounded-full text-[var(--amelia-deep)] text-xs font-normal tracking-wide border border-white/40 bg-white/40 backdrop-blur-md lg:bg-[var(--amelia-soft)] lg:border-[var(--amelia-line)]"
-              >
-                {f.icon}
-                {f.text}
-              </motion.div>
-            ))}
-          </motion.div>
 
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            className="mt-auto flex flex-col items-start gap-3 pb-6 lg:mt-0 lg:pb-0 lg:flex-row lg:flex-wrap lg:items-center lg:gap-5"
+            className="mt-6 lg:mt-0 flex flex-col items-start gap-3 pb-6 lg:pb-0 lg:flex-row lg:flex-wrap lg:items-center lg:gap-5"
           >
             <motion.a
               href="#experiencia-planos"
-              className="inline-flex items-center gap-2 whitespace-nowrap text-[var(--amelia-purple)] font-semibold text-sm tracking-wide lg:gap-3 lg:bg-[var(--amelia-deep)] lg:text-white lg:px-7 lg:py-3.5 lg:rounded-full lg:shadow-lg"
+              className="inline-flex items-center gap-2 sm:gap-3 whitespace-nowrap bg-[var(--amelia-deep)] text-white font-semibold text-xs sm:text-sm tracking-wide px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full shadow-lg"
               whileHover={{
                 scale: 1.03,
                 boxShadow:
@@ -332,17 +285,17 @@ export function Hero() {
               transition={{ duration: 0.2 }}
             >
               Quero meu plano
-              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
             </motion.a>
 
             <motion.a
               href="#origem"
-              className="hidden lg:inline-flex items-center gap-1.5 text-[var(--amelia-deep)]/60 hover:text-[var(--amelia-deep)] text-sm font-normal tracking-wide transition-colors duration-300"
+              className="inline-flex items-center gap-1.5 text-[var(--amelia-deep)]/60 hover:text-[var(--amelia-deep)] text-xs sm:text-sm font-normal tracking-wide transition-colors duration-300"
               whileHover={{ x: 4 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
               Conheça a Amélia
-              <ArrowRight className="w-3.5 h-3.5 stroke-[1.75]" />
+              <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[1.75]" />
             </motion.a>
           </motion.div>
         </motion.div>

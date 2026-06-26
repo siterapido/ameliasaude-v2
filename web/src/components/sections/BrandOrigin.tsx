@@ -28,7 +28,7 @@ export function BrandOrigin() {
             >
               <video
                 className="h-full w-full object-cover"
-                src="/video1.mp4"
+                src="/amelia%20video.mp4"
                 playsInline
                 preload="metadata"
                 controls

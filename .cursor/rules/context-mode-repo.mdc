@@ -1,30 +1,6 @@
 ---
-description: Context-mode — comandos típicos do monorepo web (Amélia)
-alwaysApply: true
+description: "[legado] Usar regra global token-efficiency.mdc"
+alwaysApply: false
 ---
 
-# Context-mode neste repositório
-
-Regra pai: **mandatory-agent-skills** (ler skill + MCP).
-
-## ctx_execute (cwd `web/` quando for npm)
-
-- `npm run build`
-- `npm test` / `npm run test`
-- `npm run lint`
-- `npx tsc --noEmit`
-
-## ctx_execute (raiz do repo)
-
-- `git log`, `git diff`, `git status`
-- Qualquer comando cuja saída não caiba confortável no chat
-
-## Shell direto
-
-- `StrReplace` / `Write` / `Delete`
-- `git add`, `git commit`, `git push`
-- `cd`, `npm install`, `mkdir`, `cp`, `mv`
-
-## MCP indisponível
-
-Informar usuário: habilitar plugin **context-mode** em Settings → MCP. Até lá, minimizar colar saída bruta; preferir `intent` + resumo.
+Context-mode: `~/.cursor/rules/token-efficiency.mdc`. Comandos repo (`npm run build`, `git diff`, etc.) → `ctx_*` MCP conforme regra global.
