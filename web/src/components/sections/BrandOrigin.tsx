@@ -18,7 +18,7 @@ export function BrandOrigin() {
           whileInView="visible"
           viewport={viewportConfig}
         >
-          <motion.div variants={fadeUp} className="flex min-w-0 justify-center">
+          <motion.div variants={fadeUp} className="order-2 flex min-w-0 justify-center lg:order-1">
             <div
               className="relative aspect-[9/16] h-[min(72svh,42rem)] w-auto max-w-[min(100%,24rem)] shrink-0 overflow-hidden rounded-[1.5rem] bg-[var(--amelia-purple-faint)] md:h-[min(78svh,46rem)] md:max-w-[min(100%,26rem)]"
               style={{
@@ -39,7 +39,7 @@ export function BrandOrigin() {
 
           <motion.div
             variants={fadeUp}
-            className="flex min-w-0 flex-col items-center justify-center text-center lg:items-center lg:py-4 xl:py-6"
+            className="order-1 flex min-w-0 flex-col items-center justify-center text-center lg:order-2 lg:items-center lg:py-4 xl:py-6"
           >
             <p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-[var(--amelia-purple)] md:mb-6">
               Nossa história
@@ -61,7 +61,7 @@ export function BrandOrigin() {
               style={{ fontSize: "clamp(1.0625rem, 1.5vw, 1.25rem)", lineHeight: 1.7 }}
             >
               Operadora carioca com gestão moderna, rede perto de você e um time dedicado a cuidar de
-              pessoas, não de processos.
+              pessoas. Atendimento humanizado que faz diferença para o seu cuidado!
             </p>
           </motion.div>
         </motion.div>
