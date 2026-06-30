@@ -183,8 +183,8 @@ export function Hero() {
         <Image
           src="/maria-padilha-hero.png"
           alt=""
-          width={1712}
-          height={3056}
+          width={941}
+          height={1672}
           priority
           quality={100}
           className="h-full w-auto object-contain object-[72%_bottom] select-none"
