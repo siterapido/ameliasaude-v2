@@ -61,7 +61,9 @@ export function BrandOrigin() {
               style={{ fontSize: "clamp(1.0625rem, 1.5vw, 1.25rem)", lineHeight: 1.7 }}
             >
               Operadora carioca com gestão moderna, rede perto de você e um time dedicado a cuidar de
-              pessoas. Atendimento humanizado que faz diferença para o seu cuidado!
+              pessoas.
+              <br />
+              Atendimento humanizado que faz diferença para o seu cuidado!
             </p>
           </motion.div>
         </motion.div>
